@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,13 @@ public class PlayerController : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
+    public Image hpBar;
+    public Image energyBar;
+    private float maxHp = 100f;
+    private float maxEnergy = 100f;
+    public float currenHp;
+    public float currenEnergy;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private Animator anim;
@@ -24,15 +32,25 @@ public class PlayerController : MonoBehaviour
     private enum State { idle, run }
     private State state = State.idle;
 
+    private void Awake()
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        currenHp = maxHp;
+        currenEnergy = maxEnergy;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         //MoveMent Player
         horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -54,14 +72,37 @@ public class PlayerController : MonoBehaviour
             AudioSource.clip = Runclip;
         }
 
-        //Dash
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        //Add Energy
+        if(currenEnergy <= maxEnergy)
         {
-            StartCoroutine(Dash());
+            currenEnergy += Time.deltaTime;
+            if(currenEnergy >= maxEnergy)
+            {
+                currenEnergy = maxEnergy;
+            }
+        }
+        //Dash
+        if(currenEnergy >= 50)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            {
+                currenEnergy -= 50f;
+                StartCoroutine(Dash());
+            }
+        }
+        if(currenEnergy <= 50)
+        {
+            canDash = false;
+        }
+        else
+        {
+            canDash = true;
         }
 
         anim.SetInteger("state", (int)state);
         AnimationState();
+        ShowBar();
+
 
     }
 
@@ -104,5 +145,12 @@ public class PlayerController : MonoBehaviour
         {
             state = State.idle;
         }
+    }
+
+    void ShowBar()
+    {
+        hpBar.fillAmount = currenHp / maxHp;
+
+        energyBar.fillAmount = currenEnergy / maxEnergy;
     }
 }
