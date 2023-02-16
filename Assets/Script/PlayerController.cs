@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     private float horizontal;
-    private float dashSpeed = 8f;
-    public float LSpeed;
-    public float RSpeed;
+    public float dashSpeed = 8f;
+    private float LSpeed = 8f;
+    private float RSpeed = 8f;
 
     private bool canDash = true;
     private bool isDashing;
@@ -54,12 +54,14 @@ public class PlayerController : MonoBehaviour
         //MoveMent Player
         horizontal = Input.GetAxisRaw("Horizontal");
 
+        //movement player L
         if(horizontal < 0)
         {
             rb.velocity = new Vector2(-LSpeed, rb.velocity.y);
             transform.localScale = new Vector2(-1, 1);
             state = State.run;
         }
+        //movement player R
         else if(horizontal > 0)
         {
             rb.velocity = new Vector2(RSpeed, rb.velocity.y);
@@ -81,10 +83,26 @@ public class PlayerController : MonoBehaviour
                 currenEnergy = maxEnergy;
             }
         }
+
+        //Shift is Run
+        if(Input.GetKey(KeyCode.LeftShift) & currenEnergy != 0)
+        {
+            dashSpeed = 15;
+            currenEnergy -= 0.01f+Time.deltaTime;
+            if(currenEnergy <=0)
+            {
+                currenEnergy=0;
+            }
+
+        }
+        else
+        {
+            dashSpeed = 8f;
+        }
         //Dash
         if(currenEnergy >= 50)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            if (Input.GetKeyDown(KeyCode.Space) && canDash)
             {
                 currenEnergy -= 50f;
                 StartCoroutine(Dash());

@@ -1002,6 +1002,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1598412584}
     - target: {fileID: 1363896423084797757, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
+      propertyPath: LSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363896423084797757, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
+      propertyPath: RSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363896423084797757, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 1095908140}
