@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource AudioSource;
     [SerializeField] private AudioClip Runclip;
 
-    private enum State { idle, run }
+    private enum State { idle,walk,run,dash }
     private State state = State.idle;
 
     private void Awake()
@@ -59,14 +59,14 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(-LSpeed, rb.velocity.y);
             transform.localScale = new Vector2(-1, 1);
-            state = State.run;
+            state = State.walk;
         }
         //movement player R
         else if(horizontal > 0)
         {
             rb.velocity = new Vector2(RSpeed, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
-            state = State.run;
+            state = State.walk;
         }
         //play sound Run
         else
@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
             {
                 currenEnergy=0;
             }
+            state = State.run;
 
         }
         else
@@ -142,6 +143,7 @@ public class PlayerController : MonoBehaviour
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        state = State.dash;
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
@@ -157,7 +159,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Mathf.Abs(rb.velocity.y) > 0.1f)
         {
-            state = State.run;
+            state = State.walk;
         }
         else
         {

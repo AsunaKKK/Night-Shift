@@ -1013,6 +1013,18 @@ PrefabInstance:
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 1095908140}
+    - target: {fileID: 1363896423084797759, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.124955505
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363896423084797759, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.124955505
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363896423084797759, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.9811321
+      objectReference: {fileID: 0}
     - target: {fileID: 1363896423516731693, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1099,6 +1111,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6596391139168522600, guid: 7fb5a31869b0c5846aa5e33375a740bf, type: 3}
+      propertyPath: m_Intensity
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6596391139168522601, guid: 7fb5a31869b0c5846aa5e33375a740bf, type: 3}
       propertyPath: m_RootOrder
       value: 4
