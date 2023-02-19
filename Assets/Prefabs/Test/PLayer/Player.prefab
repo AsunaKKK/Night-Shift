@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1363896423084797747}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,8 +198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7aac29b1cf0034cac2e5be997eeefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LSpeed: 8
-  RSpeed: 8
+  dashSpeed: 8
+  hpBar: {fileID: 0}
+  energyBar: {fileID: 0}
+  currenHp: 0
+  currenEnergy: 0
   rb: {fileID: 1363896423084797756}
   tr: {fileID: 1363896423084797759}
   anim: {fileID: 1363896423084797758}
@@ -297,7 +300,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.9811321, g: 0.124955505, b: 0.124955505, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -390,7 +393,7 @@ GameObject:
   - component: {fileID: 1363896423516731683}
   m_Layer: 0
   m_Name: Point Light 2D (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,7 +465,7 @@ GameObject:
   - component: {fileID: 1363896424542771659}
   m_Layer: 0
   m_Name: Point Light 2D
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,7 +507,7 @@ MonoBehaviour:
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
+  m_ShadowIntensity: 1
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 57
   m_PointLightOuterAngle: 120

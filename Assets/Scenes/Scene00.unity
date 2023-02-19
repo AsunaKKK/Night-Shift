@@ -339,7 +339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -367,7 +367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4187379208687740177, guid: e99e9783482b73e44bb9a80eb35a538f, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4187379208687740177, guid: e99e9783482b73e44bb9a80eb35a538f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -993,58 +993,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1363896423084797755, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 1363896423084797757, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 1598412584}
     - target: {fileID: 1363896423084797757, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: LSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363896423084797757, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: RSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363896423084797757, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 1095908140}
-    - target: {fileID: 1363896423084797759, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0.124955505
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363896423084797759, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0.124955505
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363896423084797759, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 0.9811321
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363896423516731693, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363896423516731693, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363896424542771637, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363896424542771637, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363896424542771659, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
-      propertyPath: m_ShadowIntensity
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d5416f75f89d7444b4b4ff62acfc0b9, type: 3}
 --- !u!1001 &4418139067600919014
