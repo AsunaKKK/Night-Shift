@@ -26,10 +26,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private Animator anim;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip walkClip;
-    [SerializeField] private AudioClip runClip;
-    [SerializeField] private AudioClip dashClip;
+    //[SerializeField] private AudioSource audioSource;
+    //[SerializeField] private AudioClip walkClip;
+    //[SerializeField] private AudioClip runClip;
+    //[SerializeField] private AudioClip dashClip;
 
     private enum State { idle,walk,run,dash }
     private State state = State.idle;
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         //play sound Run
         else
         {
-            audioSource.clip = walkClip;
+            //audioSource.clip = walkClip;
         }
 
         //Add Energy
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
                 currenEnergy=0;
             }
             state = State.run;
-            audioSource.clip = runClip;
+            //audioSource.clip = runClip;
 
         }
         else
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
             {
                 currenEnergy -= 50f;
                 StartCoroutine(Dash());
-                audioSource.clip = dashClip;
+                //audioSource.clip = dashClip;
             }
         }
         if(currenEnergy <= 50)
