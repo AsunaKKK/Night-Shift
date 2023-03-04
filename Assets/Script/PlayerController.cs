@@ -26,8 +26,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private Animator anim;
-    [SerializeField] private AudioSource AudioSource;
-    [SerializeField] private AudioClip Runclip;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip walkClip;
+    [SerializeField] private AudioClip runClip;
+    [SerializeField] private AudioClip dashClip;
 
     private enum State { idle,walk,run,dash }
     private State state = State.idle;
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(-LSpeed, rb.velocity.y);
             transform.localScale = new Vector2(-1, 1);
             state = State.walk;
+
         }
         //movement player R
         else if(horizontal > 0)
@@ -71,7 +74,7 @@ public class PlayerController : MonoBehaviour
         //play sound Run
         else
         {
-            AudioSource.clip = Runclip;
+            audioSource.clip = walkClip;
         }
 
         //Add Energy
@@ -94,6 +97,7 @@ public class PlayerController : MonoBehaviour
                 currenEnergy=0;
             }
             state = State.run;
+            audioSource.clip = runClip;
 
         }
         else
@@ -107,6 +111,7 @@ public class PlayerController : MonoBehaviour
             {
                 currenEnergy -= 50f;
                 StartCoroutine(Dash());
+                audioSource.clip = dashClip;
             }
         }
         if(currenEnergy <= 50)
@@ -166,7 +171,7 @@ public class PlayerController : MonoBehaviour
             state = State.idle;
         }
     }
-
+    //show bar Hp and energy
     void ShowBar()
     {
         hpBar.fillAmount = currenHp / maxHp;
