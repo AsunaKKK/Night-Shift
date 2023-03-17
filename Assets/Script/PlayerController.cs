@@ -31,12 +31,14 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private AudioClip runClip;
     //[SerializeField] private AudioClip dashClip;
 
+    public static PlayerController instance;
+
     private enum State { idle,walk,run,dash }
     private State state = State.idle;
 
     private void Awake()
     {
-
+        instance = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -172,6 +174,16 @@ public class PlayerController : MonoBehaviour
         {
             state = State.idle;
         }
+    }
+
+    public void IncreaseHp(int value)
+    {
+        currenHp += value;
+    }
+
+    public void IncreaseEnergy(int value)
+    {
+        currenEnergy += value;
     }
     //show bar Hp and energy
     void ShowBar()
