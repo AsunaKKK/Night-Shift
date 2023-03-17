@@ -92,13 +92,15 @@ public class PlayerController : MonoBehaviour
         {
             dashSpeed = 15;
             currenEnergy -= 0.01f+Time.deltaTime;
-            if(currenEnergy <=0)
+            state = State.run;
+
+            if (currenEnergy <=0)
             {
                 currenEnergy=0;
+                state = State.walk;
+                dashSpeed = 8;
             }
-            state = State.run;
             //audioSource.clip = runClip;
-
         }
         else
         {
