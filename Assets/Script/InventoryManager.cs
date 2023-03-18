@@ -66,6 +66,7 @@ public class InventoryManager : MonoBehaviour
 
     /*public void ShowItem()
     {
+        
         foreach (Transform item in ItemContent)
         {
             item.Find("RemoveButton").gameObject.SetActive(true);
