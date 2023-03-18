@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: HpItem
   m_EditorClassIdentifier: 
   id: 1
-  itemName: "\u0E02\u0E19\u0E21\u0E1B\u0E31\u0E07\u0E1B\u0E32\u0E04\u0E35\u0E19"
+  itemName: "\u0E1B\u0E32\u0E04\u0E35\u0E19"
   value: 10
   icon: {fileID: 21300000, guid: 683f9bb107be0c24494765903521e022, type: 3}
-  detailItem: "\u0E02\u0E19\u0E21\u0E1B\u0E31\u0E07\u0E40\u0E40\u0E2A\u0E19\u0E2D\u0E23\u0E48\u0E2D\u0E22
-    \u0E27\u0E49\u0E32\u0E27\u0E46"
+  detailItem: "\u0E02\u0E19\u0E21\u0E1B\u0E31\u0E07\u0E17\u0E35\u0E48\u0E0B\u0E37\u0E49\u0E2D\u0E2B\u0E32\u0E01\u0E34\u0E19\u0E17\u0E31\u0E48\u0E27\u0E44\u0E1B"
   itemType: 0

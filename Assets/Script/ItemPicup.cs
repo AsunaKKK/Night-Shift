@@ -7,6 +7,19 @@ public class ItemPicup : MonoBehaviour
 {
     public Item item;
 
+    public GameObject detailUse;
+
+    private void Start()
+    {
+        detailUse.SetActive(false);
+    }
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.E))
+        {
+            PickUp();
+        }
+    }
     void PickUp()
     {
         InventoryManager.Instance.Add(item);
@@ -15,9 +28,16 @@ public class ItemPicup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        //detailUse.SetActive(true);
+        if(collision.tag == "Player" )
         {
-            PickUp();
+            detailUse.SetActive(true);
+            //PickUp();
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        detailUse.SetActive(false);
     }
 }

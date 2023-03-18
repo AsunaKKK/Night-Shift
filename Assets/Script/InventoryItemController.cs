@@ -13,7 +13,6 @@ public class InventoryItemController : MonoBehaviour
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
-
         Destroy(gameObject);
     }
 
