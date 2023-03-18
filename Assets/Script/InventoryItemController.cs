@@ -9,6 +9,8 @@ public class InventoryItemController : MonoBehaviour
 
     public Button RemoveButton;
 
+    public Button UseButton;
+
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
@@ -37,4 +39,10 @@ public class InventoryItemController : MonoBehaviour
 
         RemoveItem();
     }
+
+    /*public void ShowItem()
+    {
+        RemoveButton.gameObject.SetActive(true);
+        UseButton.gameObject.SetActive(true);
+    }*/
 }

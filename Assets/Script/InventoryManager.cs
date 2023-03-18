@@ -7,12 +7,12 @@ public class InventoryManager : MonoBehaviour
 {
 
     public static InventoryManager Instance;
-    public List<Item> Items = new List<Item>(6);
+    public List<Item> Items = new List<Item>();
 
     public Transform ItemContent;
     public GameObject InventoryItem;
 
-    public InventoryItemController[] inventoryItem;
+    public InventoryItemController[] inventoryItemss;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
-        if(Items.Count <6)
+        if(Items.Count < 6)
         Items.Add(item);
         
     }
@@ -43,7 +43,9 @@ public class InventoryManager : MonoBehaviour
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemName = obj.transform.Find("NameItem").GetComponent<Text>();
             var itemIcon = obj.transform.Find("ImageItem").GetComponent<Image>();
-            var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
+            //var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
+            //var UseItem = obj.transform.Find("UseButton").GetComponent<Button>();
+            //var DetailItem = obj.transform.Find("details").GetComponent<Text>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
@@ -54,11 +56,20 @@ public class InventoryManager : MonoBehaviour
 
     public void SetInventoryItem()
     {
-        inventoryItem = ItemContent.GetComponentInChildren<InventoryItemController[]>();
+        inventoryItemss = ItemContent.GetComponentsInChildren<InventoryItemController>();
 
         for (int i = 0; i < Items.Count; i++)
         {
-            inventoryItem[i].AddItem(Items[i]);
+            inventoryItemss[i].AddItem(Items[i]);
         }
     }
+
+    /*public void ShowItem()
+    {
+        foreach (Transform item in ItemContent)
+        {
+            item.Find("RemoveButton").gameObject.SetActive(true);
+            item.Find("details").gameObject.SetActive(true);
+        }
+    }*/
 }
