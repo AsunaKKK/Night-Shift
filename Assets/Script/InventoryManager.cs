@@ -23,10 +23,6 @@ public class InventoryManager : MonoBehaviour
     {
         if(Items.Count < 3)
         Items.Add(item);
-        else
-        {
-            Items.Clear();
-        }
     }
 
     public void Remove(Item item)
@@ -46,8 +42,8 @@ public class InventoryManager : MonoBehaviour
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemName = obj.transform.Find("NameItem").GetComponent<Text>();
             var itemIcon = obj.transform.Find("ImageItem").GetComponent<Image>();
-            var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
-            var UseItem = obj.transform.Find("UseButton").GetComponent<Button>();
+            //var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
+            //var UseItem = obj.transform.Find("UseButton").GetComponent<Button>();
             var DetailItem = obj.transform.Find("details").GetComponent<Text>();
 
             itemName.text = item.itemName;

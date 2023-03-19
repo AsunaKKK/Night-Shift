@@ -15,10 +15,7 @@ public class ItemPicup : MonoBehaviour
     }
     private void Update()
     {
-        /*if(Input.GetKey(KeyCode.E))
-        {
-            PickUp();
-        }*/
+
     }
     void PickUp()
     {
@@ -33,10 +30,6 @@ public class ItemPicup : MonoBehaviour
         {
             detailUse.SetActive(true);
             PickUp();
-            /*if (Input.GetKey(KeyCode.E))
-            {
-                PickUp();
-            }*/
         }
     }
 
