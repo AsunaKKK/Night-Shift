@@ -32,10 +32,11 @@ public class ItemPicup : MonoBehaviour
         if(collision.tag == "Player" )
         {
             detailUse.SetActive(true);
-            if (Input.GetKey(KeyCode.E))
+            PickUp();
+            /*if (Input.GetKey(KeyCode.E))
             {
                 PickUp();
-            }
+            }*/
         }
     }
 
