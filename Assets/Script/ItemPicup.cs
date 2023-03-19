@@ -15,10 +15,10 @@ public class ItemPicup : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKey(KeyCode.E))
+        /*if(Input.GetKey(KeyCode.E))
         {
             PickUp();
-        }
+        }*/
     }
     void PickUp()
     {
@@ -32,7 +32,10 @@ public class ItemPicup : MonoBehaviour
         if(collision.tag == "Player" )
         {
             detailUse.SetActive(true);
-            //PickUp();
+            if (Input.GetKey(KeyCode.E))
+            {
+                PickUp();
+            }
         }
     }
 
