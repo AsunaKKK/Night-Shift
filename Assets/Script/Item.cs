@@ -5,7 +5,8 @@ public class Item : ScriptableObject
 {
     public int id;
     public string itemName;
-    public int value;
+    public int hpValue;
+    public int mpValue;
     public Sprite icon;
     public string detailItem;
     public ItemType itemType;
@@ -14,7 +15,7 @@ public class Item : ScriptableObject
     {
         Hp,
         Energy,
-        mixEnergy
+        mixHpMp
     }
 
 

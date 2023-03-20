@@ -26,17 +26,15 @@ public class InventoryItemController : MonoBehaviour
         switch(item.itemType)
         {
             case Item.ItemType.Hp:
-                PlayerController.instance.IncreaseHp(item.value);
+                PlayerController.instance.IncreaseHp(item.hpValue);
                 break;
             case Item.ItemType.Energy:
-                PlayerController.instance.IncreaseEnergy(item.value);
+                PlayerController.instance.IncreaseEnergy(item.mpValue);
                 break;
-            case Item.ItemType.mixEnergy:
+            case Item.ItemType.mixHpMp:
                 break ;
         }
 
         RemoveItem();
     }
-
-
 }
