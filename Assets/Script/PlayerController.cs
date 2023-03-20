@@ -185,11 +185,16 @@ public class PlayerController : MonoBehaviour
     {
         currenEnergy += value;
     }
+
+    public void IncreaseMpAndHp(int hpValues , int mpValues)
+    {
+        currenHp += hpValues;
+        currenEnergy += mpValues;
+    }
     //show bar Hp and energy
     void ShowBar()
     {
         hpBar.fillAmount = currenHp / maxHp;
-
         energyBar.fillAmount = currenEnergy / maxEnergy;
     }
 }

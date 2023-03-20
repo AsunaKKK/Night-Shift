@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 {
 
     public static InventoryManager Instance;
-    public List<Item> Items = new List<Item>();
+    public List<Item> Items = new List<Item>(3);
 
     public Transform ItemContent;
     public GameObject InventoryItem;
@@ -22,7 +22,9 @@ public class InventoryManager : MonoBehaviour
     public void Add(Item item)
     {
         if(Items.Count < 3)
-        Items.Add(item);
+        {
+            Items.Add(item);
+        }
     }
 
     public void Remove(Item item)
@@ -49,6 +51,7 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
             DetailItem.text = item.detailItem;
+            
         }
 
         SetInventoryItem();
@@ -58,7 +61,7 @@ public class InventoryManager : MonoBehaviour
     {
         inventoryItemss = ItemContent.GetComponentsInChildren<InventoryItemController>();
 
-        for (int i = 0; i < Items.Count; i++)
+        for (int i = 1; i < Items.Count; i++)
         {
             inventoryItemss[i].AddItem(Items[i]);
         }

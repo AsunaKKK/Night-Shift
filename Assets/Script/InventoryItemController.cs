@@ -32,9 +32,10 @@ public class InventoryItemController : MonoBehaviour
                 PlayerController.instance.IncreaseEnergy(item.mpValue);
                 break;
             case Item.ItemType.mixHpMp:
+                PlayerController.instance.IncreaseMpAndHp(item.hpValue, item.mpValue);
                 break ;
         }
-
         RemoveItem();
     }
+
 }
