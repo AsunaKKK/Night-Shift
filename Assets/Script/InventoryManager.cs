@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 {
 
     public static InventoryManager Instance;
-    public List<Item> Items = new List<Item>(3);
+    public List<Item> Items = new List<Item>();
 
     public Transform ItemContent;
     public GameObject InventoryItem;
@@ -21,11 +21,13 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
-        if(Items.Count < 3)
+        if (Items.Count < 3)
         {
             Items.Add(item);
         }
     }
+
+
 
     public void Remove(Item item)
     {
@@ -42,15 +44,19 @@ public class InventoryManager : MonoBehaviour
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
+            var frameItem = obj.transform.Find("FrameItem").GetComponent<Image>();
             var itemName = obj.transform.Find("NameItem").GetComponent<Text>();
             var itemIcon = obj.transform.Find("ImageItem").GetComponent<Image>();
+            var DetailItem = obj.transform.Find("DetailItem").GetComponent<Text>();
             var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
             var UseItem = obj.transform.Find("UseButton").GetComponent<Button>();
-            var DetailItem = obj.transform.Find("details").GetComponent<Text>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
             DetailItem.text = item.detailItem;
+
+            removeButton.gameObject.SetActive(true);
+            UseItem.gameObject.SetActive(true);
             
         }
 
@@ -61,19 +67,15 @@ public class InventoryManager : MonoBehaviour
     {
         inventoryItemss = ItemContent.GetComponentsInChildren<InventoryItemController>();
 
-        for (int i = 1; i < Items.Count; i++)
+        if (inventoryItemss != null)
         {
-            inventoryItemss[i].AddItem(Items[i]);
+            for (int i = 0; i < Items.Count; i++)
+            {
+                if (i < inventoryItemss.Length)
+                {
+                    inventoryItemss[i].AddItem(Items[i]);
+                }
+            }
         }
     }
-
-    /*public void ShowItem()
-    {
-        
-        foreach (Transform item in ItemContent)
-        {
-            item.Find("RemoveButton").gameObject.SetActive(true);
-            item.Find("details").gameObject.SetActive(true);
-        }
-    }*/
 }

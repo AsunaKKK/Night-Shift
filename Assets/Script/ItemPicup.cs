@@ -36,7 +36,6 @@ public class ItemPicup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //detailUse.SetActive(true);
         if(collision.tag == "Player" )
         {
             detailUse.SetActive(true);
