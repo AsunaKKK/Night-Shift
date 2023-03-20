@@ -41,7 +41,6 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -67,10 +66,15 @@ public class InventoryManager : MonoBehaviour
     {
         inventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
 
-        for(int i = 0; i< Items.Count; i++)
+        if(inventoryItems != null)
         {
-            inventoryItems[i].AddItem(Items[i]);
+            for (int i = 0; i < Items.Count; i++)
+            {
+                inventoryItems[i].AddItem(Items[i]);
+                Debug.Log(null);
+            }
         }
+        
     }
 
 

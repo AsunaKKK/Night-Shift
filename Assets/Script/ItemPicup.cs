@@ -18,6 +18,10 @@ public class ItemPicup : MonoBehaviour
     }
     void PickUp()
     {
+        if (item == null)
+        {
+            return;
+        }
         if(item != null)
         {
             InventoryManager.Instance.Add(item);
