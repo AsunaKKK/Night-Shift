@@ -23,13 +23,23 @@ public class ItemPicup : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            if(Input.GetKey(KeyCode.E))
+            {
+                PickUp();
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //detailUse.SetActive(true);
         if(collision.tag == "Player" )
         {
             detailUse.SetActive(true);
-            PickUp();
         }
     }
 
