@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     private float horizontal;
-    public float dashSpeed = 8f;
-    private float LSpeed = 8f;
-    private float RSpeed = 8f;
+    public float dashSpeed = 5f;
+    private float LSpeed = 5f;
+    private float RSpeed = 5f;
 
     private bool canDash = true;
     private bool isDashing;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         //Shift is Run
         if(Input.GetKey(KeyCode.LeftShift) & currenEnergy != 0)
         {
-            dashSpeed = 15;
+            dashSpeed = 8;
             currenEnergy -= 0.01f+Time.deltaTime;
             state = State.run;
 
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            dashSpeed = 8f;
+            dashSpeed = 5f;
         }
         //Dash
         if(currenEnergy >= 50)

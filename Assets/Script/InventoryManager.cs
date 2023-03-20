@@ -12,7 +12,7 @@ public class InventoryManager : MonoBehaviour
     public Transform ItemContent;
     public GameObject InventoryItem;
 
-    public InventoryItemController[] inventoryItemss;
+    public InventoryItemController[] inventoryItems;
 
     private void Awake()
     {
@@ -21,13 +21,14 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
-        if (Items.Count < 3)
+        if(Items != null)
         {
-            Items.Add(item);
+            if (Items.Count < 3)
+            {
+                Items.Add(item);
+            }
         }
     }
-
-
 
     public void Remove(Item item)
     {
@@ -44,6 +45,7 @@ public class InventoryManager : MonoBehaviour
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
+
             var frameItem = obj.transform.Find("FrameItem").GetComponent<Image>();
             var itemName = obj.transform.Find("NameItem").GetComponent<Text>();
             var itemIcon = obj.transform.Find("ImageItem").GetComponent<Image>();
@@ -54,28 +56,22 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
             DetailItem.text = item.detailItem;
-
             removeButton.gameObject.SetActive(true);
             UseItem.gameObject.SetActive(true);
-            
+
         }
 
         SetInventoryItem();
     }
-
     public void SetInventoryItem()
     {
-        inventoryItemss = ItemContent.GetComponentsInChildren<InventoryItemController>();
+        inventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
 
-        if (inventoryItemss != null)
+        for(int i = 0; i< Items.Count; i++)
         {
-            for (int i = 0; i < Items.Count; i++)
-            {
-                if (i < inventoryItemss.Length)
-                {
-                    inventoryItemss[i].AddItem(Items[i]);
-                }
-            }
+            inventoryItems[i].AddItem(Items[i]);
         }
     }
+
+
 }
