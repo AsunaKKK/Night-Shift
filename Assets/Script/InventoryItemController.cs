@@ -5,11 +5,9 @@ using UnityEngine.UI;
 
 public class InventoryItemController : MonoBehaviour
 {
+    public Button removeButton;
+    public Button useButton;
     Item item;
-
-    public Button RemoveButton;
-    public Button UseButton;
-
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
@@ -23,7 +21,7 @@ public class InventoryItemController : MonoBehaviour
 
     public void UseItem()
     {
-        if(item == null)
+        if (item == null)
         {
             return;
         }
@@ -39,10 +37,9 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.mixHpMp:
                 PlayerController.instance.IncreaseMpAndHp(item.hpValue, item.mpValue);
                 break;
+            default:
+                break;
         }
         RemoveItem();
     }
-
-    
-
 }
