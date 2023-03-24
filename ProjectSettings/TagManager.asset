@@ -44,6 +44,9 @@ TagManager:
   - name: Item
     uniqueID: 3076309565
     locked: 0
-  - name: g
+  - name: ground
     uniqueID: 1706234221
+    locked: 0
+  - name: Map
+    uniqueID: 3847462687
     locked: 0
