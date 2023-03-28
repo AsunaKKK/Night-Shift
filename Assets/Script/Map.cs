@@ -1,28 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Map : MonoBehaviour
 {
-    public Transform playerPos;
-    public Transform offScreenPos;
-    public float speed;
-    // Start is called before the first frame update
+    public Button button;
+    public RectTransform uiElement;
+    public float xOffset;
+    public float yOffset;
+
+    public float _xOffset;
+    public float _yOffset;
+
+
+
     void Start()
     {
-        
+        button.onClick.AddListener(MoveElement);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MoveElement()
     {
-       
-
-            transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed * Time.deltaTime);
-
-
-
-            transform.position = Vector2.MoveTowards(transform.position, offScreenPos.position, speed * Time.deltaTime);
-
+        Vector2 currentPosition = uiElement.anchoredPosition;
+        uiElement.anchoredPosition = new Vector2(currentPosition.x + xOffset, currentPosition.y + yOffset);
+    }
+    public void ResetMove()
+    {
+        Vector2 currentPosition = uiElement.anchoredPosition;
+        uiElement.anchoredPosition = new Vector2(currentPosition.x + _xOffset, currentPosition.y + _yOffset);
     }
 }
