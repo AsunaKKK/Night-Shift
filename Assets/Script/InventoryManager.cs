@@ -70,6 +70,8 @@ public class InventoryManager : MonoBehaviour
         }
         // Remove any null elements from the inventoryItems array
         inventoryItems = inventoryItems.Where(x => x != null).ToArray();
+
+
         /*// create game objects for each non-null item
         foreach (var item in Items)
         {

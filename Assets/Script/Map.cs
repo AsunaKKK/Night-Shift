@@ -14,17 +14,19 @@ public class Map : MonoBehaviour
     public float _yOffset;
 
 
-
+    //Set Button
     void Start()
     {
         button.onClick.AddListener(MoveElement);
     }
 
+    //Move Mini Map Come Show
     public void MoveElement()
     {
         Vector2 currentPosition = uiElement.anchoredPosition;
         uiElement.anchoredPosition = new Vector2(currentPosition.x + xOffset, currentPosition.y + yOffset);
     }
+    // Move Mini Map Out
     public void ResetMove()
     {
         Vector2 currentPosition = uiElement.anchoredPosition;

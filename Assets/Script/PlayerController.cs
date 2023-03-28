@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
             {
                 currenEnergy=0;
                 state = State.walk;
-                dashSpeed = 8;
+                dashSpeed = 5;
             }
             //audioSource.clip = runClip;
         }
@@ -176,20 +176,52 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Add Item Hp
     public void IncreaseHp(int value)
     {
-        currenHp += value;
+        if (currenHp >= maxHp)
+        {
+            currenHp = maxHp;
+        }
+        else
+        {
+            currenHp += value;
+        }
     }
 
+    //Add Item Energy
     public void IncreaseEnergy(int value)
     {
-        currenEnergy += value;
+        if (currenEnergy >= maxEnergy)
+        {
+            currenEnergy = maxEnergy;
+        }
+        else
+        {
+            currenEnergy += value;
+        }
     }
 
+    //Add Item MaxHpAndEnergy
     public void IncreaseMpAndHp(int hpValues , int mpValues)
     {
-        currenHp += hpValues;
-        currenEnergy += mpValues;
+        if(currenHp >= maxHp)
+        {
+            currenHp = maxHp;
+        }
+        else
+        {
+            currenHp += hpValues;
+        }
+
+        if(currenEnergy >= maxEnergy)
+        {
+            currenEnergy = maxEnergy;
+        }
+        else
+        {
+            currenEnergy += mpValues;
+        }
     }
     //show bar Hp and energy
     void ShowBar()

@@ -8,6 +8,7 @@ public class PlayerTelepor : MonoBehaviour
 
     void Update()
     {
+        // Press E will Telepot
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (currentTeleporter != null)
@@ -17,6 +18,7 @@ public class PlayerTelepor : MonoBehaviour
         }
     }
 
+    //Chack Player 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Teleporter"))
@@ -25,6 +27,7 @@ public class PlayerTelepor : MonoBehaviour
         }
     }
 
+    // Chack Player Out Door
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Teleporter"))
