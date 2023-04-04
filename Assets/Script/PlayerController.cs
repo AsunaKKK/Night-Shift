@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
             {
                 currenEnergy=0;
                 state = State.walk;
-                dashSpeed = 5;
+                dashSpeed = 5f;
             }
             //audioSource.clip = runClip;
         }
