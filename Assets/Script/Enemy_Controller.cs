@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy_Controller : MonoBehaviour
 {
     public Waypoint[] wayPoints;
-    public float speed = 4f;
+    public float speed = 5f;
     public bool isCircular;
     public bool inReverse = true;
     public bool canWalk = true;
@@ -123,7 +123,7 @@ public class Enemy_Controller : MonoBehaviour
     private void Run(Vector3 playerPosition)
     {
         // Set the speed to a higher value for running
-        speed = 6.5f;
+        speed = 8f;
 
         // Set the current waypoint to the player's position
         currentWaypoint.transform.position = playerPosition;
