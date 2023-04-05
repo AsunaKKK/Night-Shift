@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public float currenEnergy;
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private TrailRenderer tr;
+    //[SerializeField] private TrailRenderer tr;
     [SerializeField] private Animator anim;
     //[SerializeField] private AudioSource audioSource;
     //[SerializeField] private AudioClip walkClip;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         //Shift is Run
         if(Input.GetKey(KeyCode.LeftShift) & currenEnergy != 0)
         {
-            dashSpeed = 8;
+            dashSpeed = 10;
             currenEnergy -= 0.01f+Time.deltaTime;
             state = State.run;
 
@@ -153,9 +153,9 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
         state = State.dash;
-        tr.emitting = true;
+        //tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
-        tr.emitting = false;
+        //tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
