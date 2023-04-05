@@ -61,6 +61,10 @@ public class Enemy_Controller : MonoBehaviour
         Vector3 currentPosition = transform.position;
         Vector3 targetPosition = currentWaypoint.transform.position;
 
+        // Only move along the x-axis (left or right)
+        targetPosition.y = currentPosition.y;
+        targetPosition.z = currentPosition.z;
+
         if (Vector3.Distance(currentPosition, targetPosition) > 0.1f)
         {
             Vector3 directionOfTravel = (targetPosition - currentPosition).normalized;
