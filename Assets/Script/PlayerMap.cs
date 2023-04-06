@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerMap : MonoBehaviour
 {
     private float horizontal;
-    public float dashSpeed = 45;
-    private float LSpeed = 5f;
-    private float RSpeed = 5f;
+    public float dashSpeed = 40;
+    private float LSpeed = 40f;
+    private float RSpeed = 40f;
 
     private bool canDash = true;
     private bool isDashing;
@@ -22,7 +22,7 @@ public class PlayerMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currenEnergy = maxEnergy;
 
     }
 
@@ -59,7 +59,7 @@ public class PlayerMap : MonoBehaviour
         //Add Energy
         if (currenEnergy <= maxEnergy)
         {
-            currenEnergy += Time.deltaTime;
+            currenEnergy += 0.001f+Time.deltaTime;
             if (currenEnergy >= maxEnergy)
             {
                 currenEnergy = maxEnergy;
@@ -69,18 +69,18 @@ public class PlayerMap : MonoBehaviour
         //Shift is Run
         if (Input.GetKey(KeyCode.LeftShift) & currenEnergy != 0)
         {
-            dashSpeed = 48;
-            currenEnergy -= 0.01f + Time.deltaTime;
+            dashSpeed = 45;
+            currenEnergy -= 0.005f + Time.deltaTime;
 
             if (currenEnergy <= 0)
             {
                 currenEnergy = 0;
-                dashSpeed = 45;
+                dashSpeed = 40;
             }
         }
         else
         {
-            dashSpeed = 45f;
+            dashSpeed = 40f;
         }
         //Dash
         if (currenEnergy >= 50)
