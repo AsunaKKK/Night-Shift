@@ -6,11 +6,13 @@ public class DialogShow : MonoBehaviour
 {
     public GameObject smyboolDialogShow;
     public Dialog dialog;
+    public GameObject obj;
     // Start is called before the first frame update
     void Start()
     {
         smyboolDialogShow.SetActive(false);
         dialog.gameObject.SetActive(false);
+        obj.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -20,6 +22,7 @@ public class DialogShow : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 dialog.gameObject.SetActive(true);
+                obj.SetActive(true);
             }
         }
     }
@@ -38,6 +41,7 @@ public class DialogShow : MonoBehaviour
         {
             smyboolDialogShow.SetActive(false);
             dialog.gameObject.SetActive(false);
+            obj.SetActive(false);
         }
     }
 

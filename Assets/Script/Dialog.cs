@@ -9,6 +9,7 @@ public class Dialog : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] line;
     public float textSpeed;
+    public GameObject obj;
 
     private int index;
     // Start is called before the first frame update
@@ -57,6 +58,7 @@ public class Dialog : MonoBehaviour
         }
         else
         {
+            obj.SetActive(false);
             gameObject.SetActive(false);
             textComponent.text = string.Empty;
             index = 0;
