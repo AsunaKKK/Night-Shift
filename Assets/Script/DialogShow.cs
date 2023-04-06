@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class DialogShow : MonoBehaviour
 {
-    public GameObject dialogShow;
+    public GameObject smyboolDialogShow;
+    public GameObject dialog;
     // Start is called before the first frame update
     void Start()
     {
-        dialogShow.SetActive(false);
+        smyboolDialogShow.SetActive(false);
+        dialog.SetActive(false);
+    }
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.E))
+        {
+            dialog.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            dialogShow.SetActive(true);
+            smyboolDialogShow.SetActive(true);
         }
     }
 
@@ -23,7 +32,8 @@ public class DialogShow : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            dialogShow.SetActive(false);
+            smyboolDialogShow.SetActive(false);
+            dialog.SetActive(false);
         }
     }
 
