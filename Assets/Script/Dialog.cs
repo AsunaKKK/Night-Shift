@@ -10,11 +10,13 @@ public class Dialog : MonoBehaviour
     public string[] line;
     public float textSpeed;
     public GameObject obj;
+    public GameObject ques;
 
     private int index;
     // Start is called before the first frame update
     void Start()
     {
+        ques.SetActive(false);
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -66,6 +68,8 @@ public class Dialog : MonoBehaviour
             {
                 textComponent.text += c;
             }
+
+            ques.SetActive(true);
         }
     }
 

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: item3
   m_EditorClassIdentifier: 
   id: 3
-  itemName: "\u0E40\u0E07\u0E32\u0E30\u0E1B\u0E4B\u0E2D\u0E07"
+  itemName: "\u0E40\u0E07\u0E32\u0E30\u0E01\u0E23\u0E30\u0E40\u0E1B\u0E4B\u0E32"
   hpValue: 25
   mpValue: 25
-  icon: {fileID: 21300000, guid: b61d43c99b9f8c0419a94a3db0cf1711, type: 3}
+  icon: {fileID: 21300000, guid: a53119c28438fff4c867a16124e5e129, type: 3}
   detailItem: "\u0E40\u0E07\u0E32\u0E30\u0E17\u0E35\u0E48\u0E22\u0E31\u0E07\u0E01\u0E34\u0E19\u0E44\u0E14\u0E49\u0E2D\u0E22\u0E39\u0E48"
   itemType: 2

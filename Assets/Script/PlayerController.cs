@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         //Add Energy
         if(currenEnergy <= maxEnergy)
         {
-            currenEnergy += Time.deltaTime;
+            currenEnergy += 0.001f+Time.deltaTime;
             if(currenEnergy >= maxEnergy)
             {
                 currenEnergy = maxEnergy;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift) & currenEnergy != 0)
         {
             dashSpeed = 10;
-            currenEnergy -= 0.01f+Time.deltaTime;
+            currenEnergy -= 0.005f+Time.deltaTime;
             state = State.run;
 
             if (currenEnergy <=0)
