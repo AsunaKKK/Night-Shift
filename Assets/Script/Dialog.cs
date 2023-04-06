@@ -58,6 +58,12 @@ public class Dialog : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            textComponent.text = string.Empty;
+            index = 0;
+            foreach (char c in line[index].ToCharArray())
+            {
+                textComponent.text += c;
+            }
         }
     }
 
