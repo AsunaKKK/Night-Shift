@@ -8,8 +8,12 @@ public class Item : ScriptableObject
     public int hpValue;
     public int mpValue;
     public Sprite icon;
+
+    [field: TextArea]
     public string detailItem;
+
     public ItemType itemType;
+
 
     public enum ItemType
     {
