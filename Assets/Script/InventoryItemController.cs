@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class InventoryItemController : MonoBehaviour
+public class InventoryItemController : MonoBehaviour , IPointerEnterHandler
 {
     public Button removeButton;
     public Button useButton;
@@ -41,5 +42,10 @@ public class InventoryItemController : MonoBehaviour
                 break;
         }
         RemoveItem();
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("Pointer entered the button!");
+        // Additional code or actions to perform when the pointer enters the button
     }
 }

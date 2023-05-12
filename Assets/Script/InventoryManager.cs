@@ -72,32 +72,7 @@ public class InventoryManager : MonoBehaviour
         inventoryItems = inventoryItems.Where(x => x != null).ToArray();
 
 
-        /*// create game objects for each non-null item
-        foreach (var item in Items)
-        {
-            if (item != null)
-            {
-                GameObject obj = Instantiate(InventoryItem, ItemContent);
-                var frameItem = obj.transform.Find("FrameItem").GetComponent<Image>();
-                var itemName = obj.transform.Find("NameItem").GetComponent<Text>();
-                var itemIcon = obj.transform.Find("ImageItem").GetComponent<Image>();
-                var DetailItem = obj.transform.Find("DetailItem").GetComponent<Text>();
-                var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
-                var UseItem = obj.transform.Find("UseButton").GetComponent<Button>();
-
-                itemName.text = item.itemName;
-                itemIcon.sprite = item.icon;
-                DetailItem.text = item.detailItem;
-                removeButton.gameObject.SetActive(true);
-                UseItem.gameObject.SetActive(true);
-            }
-        }*/
-
-        // filter out null items from the inventoryItems array using LINQ
-        /*inventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>()
-            .Where(item => item != null).ToArray();
-
-        SetInventoryItem();*/
+       
     }
 
 
