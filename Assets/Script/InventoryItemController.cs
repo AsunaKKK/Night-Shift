@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventoryItemController : MonoBehaviour , IPointerEnterHandler
+public class InventoryItemController : MonoBehaviour , IPointerEnterHandler , IPointerExitHandler
 {
     public Button removeButton;
     public Button useButton;
     Item item;
+    private void Start()
+    {
+        // Hide the tooltip on start
+        SetToolTip(string.Empty);
+    }
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
@@ -43,9 +48,23 @@ public class InventoryItemController : MonoBehaviour , IPointerEnterHandler
         }
         RemoveItem();
     }
+
+    private void SetToolTip(string detail)
+    {
+        InventoryManager.Instance.DrawToolTip(detail);
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Pointer entered the button!");
-        // Additional code or actions to perform when the pointer enters the button
+        if (item != null && item.detailItem != null)
+        {
+            SetToolTip(item.detailItem);
+            //Debug.Log("Pointer entered the button!");
+            // Additional code or actions to perform when the pointer enters the button
+        }
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        SetToolTip(string.Empty);
+        //Debug.Log("Remove");
     }
 }

@@ -15,10 +15,18 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryItem;
     public InventoryItemController[] inventoryItems;
 
+    private Tooltip tooltip;
+
 
     private void Awake()
     {
         Instance = this;
+        tooltip = FindObjectOfType<Tooltip>();
+        if (tooltip == null)
+        {
+            Debug.LogError("Tooltip component not found in the scene.");
+        }
+
     }
     public void Add(Item item)
     {
@@ -75,7 +83,10 @@ public class InventoryManager : MonoBehaviour
        
     }
 
-
+    public void DrawToolTip(string DetailItem)
+    {
+        tooltip.setTooltip(DetailItem);
+    }
     public void SetInventoryItem()
     {
     inventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>()
