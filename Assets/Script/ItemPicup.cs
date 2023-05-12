@@ -6,93 +6,82 @@ using UnityEngine.UI;
 public class ItemPicup : MonoBehaviour
 {
     public Item item;
-
     public GameObject itemUse;
-    private float timeCooldown;
-    public float maxDelay;
-    private float delayCooldown;   
+    public float pickupDelay = 1f;
+    private bool isPickingUp = false; 
+    private float pickupTimer = 0f;
 
-
-    //public Image reload;
     private void Start()
     {
         itemUse.SetActive(false);
-        //reload.gameObject.SetActive(false);
-        timeCooldown = maxDelay;
-        delayCooldown = maxDelay;
-
     }
+
     private void Update()
     {
-
         if (gameObject.tag == "Item")
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                PickUp(); 
-                //reload.gameObject.SetActive(true);
-
+                StartPickup();
+            }
+            else if (Input.GetKeyUp(KeyCode.E))
+            {
+                StopPickup();
             }
         }
-        //reload.fillAmount = delayCooldown / maxDelay;
+
+        if (isPickingUp)
+        {
+            pickupTimer += Time.deltaTime;
+            if (pickupTimer >= pickupDelay)
+            {
+                Pickup();
+                pickupTimer = 0f;
+            }
+        }
     }
-    void PickUp()
+
+    void StartPickup()
+    {
+        isPickingUp = true;
+    }
+
+    void StopPickup()
+    {
+        isPickingUp = false;
+        pickupTimer = 0f;
+    }
+
+    void Pickup()
     {
         if (item == null)
         {
             return;
         }
-        if(item != null)
-        {
-            /*InventoryManager.Instance.Add(item);
-            Destroy(gameObject);*/
-            StartCoroutine(CooldownPicup());
-        }
+
+        InventoryManager.Instance.Add(item);
+        Destroy(gameObject);
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-        
             gameObject.tag = "Item";
-            /*if (gameObject.tag == "Item")
-            {
-                if (Input.GetKey(KeyCode.E))
-                {
-                    PickUp();
-                    print("e");
-                    reload.gameObject.SetActive(true);
-                }
-           
-            }*/
-        }
-      
-    }
-    IEnumerator CooldownPicup()
-    {
-        yield return new WaitForSeconds(timeCooldown);
-        //delayCooldown -= Time.deltaTime;
-        //reload.gameObject.SetActive(false);
-        InventoryManager.Instance.Add(item);
-        Destroy(gameObject);
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.tag == "Player" )
-        {
             itemUse.SetActive(true);
+            if (Input.GetKey(KeyCode.E))
+            {
+                StartPickup();
+            }
         }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
+            StopPickup();
             itemUse.SetActive(false);
             gameObject.tag = "notItem";
         }
     }
-
-
 }

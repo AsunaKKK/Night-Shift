@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class InventoryItemController : MonoBehaviour , IPointerEnterHandler , IPointerExitHandler
 {
     public Button removeButton;
-    public Button useButton;
     Item item;
     private void Start()
     {
@@ -18,6 +17,7 @@ public class InventoryItemController : MonoBehaviour , IPointerEnterHandler , IP
     {
         InventoryManager.Instance.Remove(item);
         Destroy(gameObject);
+        SetToolTip(string.Empty);
     }
 
     public void AddItem(Item newItem)
@@ -47,6 +47,7 @@ public class InventoryItemController : MonoBehaviour , IPointerEnterHandler , IP
                 break;
         }
         RemoveItem();
+        SetToolTip(string.Empty);
     }
 
     private void SetToolTip(string detail)

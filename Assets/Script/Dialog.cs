@@ -7,7 +7,10 @@ public class Dialog : MonoBehaviour
 
 {
     public TextMeshProUGUI textComponent;
+
+    [field: TextArea]
     public string[] line;
+
     public float textSpeed;
     public GameObject obj;
     public GameObject ques;

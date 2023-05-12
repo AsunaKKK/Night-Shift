@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMap : MonoBehaviour
 {
     private float horizontal;
-    public float dashSpeed = 40;
+    public float dashSpeed;
     private float LSpeed = 40f;
     private float RSpeed = 40f;
 
@@ -16,17 +16,18 @@ public class PlayerMap : MonoBehaviour
     private float dashingCooldown = 1f;
 
     private float maxEnergy = 100f;
-    public float currenEnergy;
+    public float currentEnergy;
+
+    private CheckWall wall;
 
     [SerializeField] private Rigidbody2D rb;
-    // Start is called before the first frame update
+
     void Start()
     {
-        currenEnergy = maxEnergy;
-
+        currentEnergy = maxEnergy;
+        wall = FindObjectOfType<CheckWall>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isDashing)
@@ -34,64 +35,41 @@ public class PlayerMap : MonoBehaviour
             return;
         }
 
-        //MoveMent Player
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        //movement player L
         if (horizontal < 0)
         {
             rb.velocity = new Vector2(-LSpeed, rb.velocity.y);
             transform.localScale = new Vector2(-1, 1);
-
         }
-        //movement player R
         else if (horizontal > 0)
         {
             rb.velocity = new Vector2(RSpeed, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
         }
-        //play sound Run
         else
         {
             //audioSource.clip = walkClip;
         }
 
-        //Add Energy
-        if (currenEnergy <= maxEnergy)
+        if (currentEnergy <= maxEnergy)
         {
-            currenEnergy += 0.001f+Time.deltaTime;
-            if (currenEnergy >= maxEnergy)
+            currentEnergy += 0.001f + Time.deltaTime;
+            if (currentEnergy >= maxEnergy)
             {
-                currenEnergy = maxEnergy;
+                currentEnergy = maxEnergy;
             }
         }
 
-        //Shift is Run
-        if (Input.GetKey(KeyCode.LeftShift) & currenEnergy != 0)
-        {
-            dashSpeed = 45;
-            currenEnergy -= 0.005f + Time.deltaTime;
+        CheckDash();
 
-            if (currenEnergy <= 0)
-            {
-                currenEnergy = 0;
-                dashSpeed = 40;
-            }
-        }
-        else
+        if (currentEnergy >= 50 && Input.GetKeyDown(KeyCode.Space) && canDash)
         {
-            dashSpeed = 40f;
+            currentEnergy -= 50f;
+            StartCoroutine(Dash());
         }
-        //Dash
-        if (currenEnergy >= 50)
-        {
-            if (Input.GetKeyDown(KeyCode.Space) && canDash)
-            {
-                currenEnergy -= 50f;
-                StartCoroutine(Dash());
-            }
-        }
-        if (currenEnergy <= 50)
+
+        if (currentEnergy <= 50)
         {
             canDash = false;
         }
@@ -111,7 +89,6 @@ public class PlayerMap : MonoBehaviour
         rb.velocity = new Vector2(horizontal * dashSpeed, rb.velocity.y);
     }
 
-    //Dasd 
     private IEnumerator Dash()
     {
         canDash = false;
@@ -121,10 +98,32 @@ public class PlayerMap : MonoBehaviour
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
 
         yield return new WaitForSeconds(dashingTime);
+
         rb.gravityScale = originalGravity;
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
+
         canDash = true;
     }
 
+    public void CheckDash()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && currentEnergy != 0)
+        {
+            dashSpeed = 80;
+            currentEnergy -= 0.005f + Time.deltaTime;
+
+            if (currentEnergy <= 0)
+            {
+                currentEnergy = 0;
+                dashSpeed = 40;
+            }
+        }
+        else
+        {
+            dashSpeed = wall.checkWalls ? 0f : 40f;
+            LSpeed = wall.checkWalls ? 0f : 40f;
+            RSpeed = wall.checkWalls ? 0f : 40f;
+        }
+    }
 }

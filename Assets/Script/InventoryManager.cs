@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
 
     public static InventoryManager Instance;
 
-    public List<Item> Items = new List<Item>(3);
+    public List<Item> Items = new List<Item>(4);
     public Transform ItemContent;
     public GameObject InventoryItem;
     public InventoryItemController[] inventoryItems;
@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (Items != null)
         {
-            if (Items.Count < 3)
+            if (Items.Count < 4)
             {
                 Items.Add(item);
                 Debug.Log("w1");
@@ -52,23 +52,18 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-        inventoryItems = new InventoryItemController[3];
+        inventoryItems = new InventoryItemController[4];
 
         for (int i = 0; i < Items.Count; i++)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
-            var frameItem = obj.transform.Find("FrameItem").GetComponent<Image>();
             var itemName = obj.transform.Find("NameItem").GetComponent<Text>();
             var itemIcon = obj.transform.Find("ImageItem").GetComponent<Image>();
-            var DetailItem = obj.transform.Find("DetailItem").GetComponent<Text>();
             var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
-            var UseItem = obj.transform.Find("UseButton").GetComponent<Button>();
 
             itemName.text = Items[i].itemName;
             itemIcon.sprite = Items[i].icon;
-            DetailItem.text = Items[i].detailItem;
             removeButton.gameObject.SetActive(true);
-            UseItem.gameObject.SetActive(true);
 
             // Instantiate a new InventoryItemController and add it to the inventoryItems array
             InventoryItemController newItem = obj.GetComponent<InventoryItemController>();

@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public float currenHp;
     public float currenEnergy;
 
+    public bool checkWall = false;
+
     [SerializeField] private Rigidbody2D rb;
     //[SerializeField] private TrailRenderer tr;
     [SerializeField] private Animator anim;
@@ -228,5 +230,13 @@ public class PlayerController : MonoBehaviour
     {
         hpBar.fillAmount = currenHp / maxHp;
         energyBar.fillAmount = currenEnergy / maxEnergy;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Wall")
+        {
+            checkWall = true; 
+        }
     }
 }
