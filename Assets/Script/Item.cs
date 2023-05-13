@@ -13,7 +13,7 @@ public class Item : ScriptableObject
     public string detailItem;
 
     public ItemType itemType;
-
+    public int quantity;
 
     public enum ItemType
     {

@@ -17,6 +17,8 @@ public class InventoryManager : MonoBehaviour
 
     private Tooltip tooltip;
 
+    public ItemDatabase itemDatabase;
+
 
     private void Awake()
     {
@@ -84,14 +86,48 @@ public class InventoryManager : MonoBehaviour
     }
     public void SetInventoryItem()
     {
-    inventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>()
+         inventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>()
         .Where(item => item != null)
         .ToArray();
 
-    for (int i = 0; i < Items.Count; i++)
-    {
+        for (int i = 0; i < Items.Count; i++)
+        {
         inventoryItems[i].AddItem(Items[i]);
+        }
     }
-}
+
+    public List<ItemData> CreateInventoryData()
+    {
+        List<ItemData> inventoryData = new List<ItemData>();
+
+        foreach (Item item in Items)
+        {
+            ItemData itemData = new ItemData(item.itemName, item.quantity); // Include the 'quantity' argument
+            inventoryData.Add(itemData);
+        }
+
+        return inventoryData;
+    }
+
+    public void ApplyInventoryData(List<ItemData> inventoryData)
+    {
+        Items.Clear();
+
+        foreach (ItemData itemData in inventoryData)
+        {
+            Item item = itemDatabase.GetItem(itemData.itemName);
+            if (item != null)
+            {
+                Items.Add(item);
+            }
+        }
+
+        ListItems(); // Update the inventory UI
+    }
+    public void ClearItems()
+    {
+        Items.Clear();
+        ListItems(); // Update the inventory UI
+    }
 
 }

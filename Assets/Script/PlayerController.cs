@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class PlayerController : MonoBehaviour
 {
@@ -227,4 +228,26 @@ public class PlayerController : MonoBehaviour
         hpBar.fillAmount = currenHp / maxHp;
         energyBar.fillAmount = currenEnergy / maxEnergy;
     }
+
+    //Save Data Game
+    public PlayerData CreatePlayerData()
+    {
+        PlayerData playerData = new PlayerData();
+        playerData.currentHp = currenHp;
+        playerData.currentEnergy = currenEnergy;
+        playerData.positionX = transform.position.x;
+        playerData.positionY = transform.position.y;
+        playerData.positionZ = transform.position.z;
+        return playerData;
+        Debug.Log(playerData);
+    }
+
+    public void ApplyPlayerData(PlayerData playerData)
+    {
+        currenHp = playerData.currentHp;
+        currenEnergy = playerData.currentEnergy;
+        Vector3 position = new Vector3(playerData.positionX, playerData.positionY, playerData.positionZ);
+        transform.position = position;
+    }
+
 }
