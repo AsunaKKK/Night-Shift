@@ -152,9 +152,7 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
         state = State.dash;
-        //tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
-        //tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
@@ -239,7 +237,6 @@ public class PlayerController : MonoBehaviour
         playerData.positionY = transform.position.y;
         playerData.positionZ = transform.position.z;
         return playerData;
-        Debug.Log(playerData);
     }
 
     public void ApplyPlayerData(PlayerData playerData)

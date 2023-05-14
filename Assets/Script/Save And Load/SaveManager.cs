@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+public  class SaveManager : MonoBehaviour
 {
 
     private string savePath;
 
     private void Awake()
     {
-        savePath = Path.Combine(Application.persistentDataPath, "save.json");
+        savePath = Path.Combine(Application.persistentDataPath, "savedata.json");
+        Debug.Log(Application.persistentDataPath);
     }
 
     public void SaveData(PlayerData playerData, List<ItemData> itemDataList)
     {
+        if (playerData == null)
+        {
+            return;
+        }
+        Debug.Log("KK");
         SaveData saveData = new SaveData();
         saveData.playerData = playerData;
         saveData.itemDataList = itemDataList;

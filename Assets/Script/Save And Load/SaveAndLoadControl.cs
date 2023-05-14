@@ -5,23 +5,38 @@ using UnityEngine;
 
 public class SaveAndLoadControl : MonoBehaviour
 {
-    private SaveManager saveManager;
+    [SerializeField] private SaveManager saveManager;
+
     private PlayerController playerController;
     private InventoryManager inventoryManager;
 
     private void Start()
     {
-        saveManager = GetComponent<SaveManager>();
         playerController = GetComponent<PlayerController>();
         inventoryManager = GetComponent<InventoryManager>();
-        Debug.Log("Save Run");
+
+        // Find the SaveManager script in the scene
+        saveManager = FindObjectOfType<SaveManager>();
+
+        if (saveManager == null)
+        {
+            Debug.LogError("SaveManager script not found in the scene. Make sure it is attached to a GameObject.");
+        }
+        else
+        {
+            Debug.Log("SaveManager script found.");
+        }
     }
 
     public void SaveGame()
     {
+        if (saveManager == null)
+        {
+            Debug.LogError("SaveManager script not found. Make sure it is attached to a GameObject.");
+            return;
+        }
 
         PlayerData playerData = new PlayerData();
-        // Set the player data fields based on your game logic
         playerData.currentHp = playerController.currenHp;
         playerData.currentEnergy = playerController.currenEnergy;
         playerData.positionX = playerController.transform.position.x;
@@ -40,6 +55,12 @@ public class SaveAndLoadControl : MonoBehaviour
 
     public void LoadGame()
     {
+        if (saveManager == null)
+        {
+            Debug.LogError("SaveManager script not found. Make sure it is attached to a GameObject.");
+            return;
+        }
+
         PlayerData playerData;
         List<ItemData> itemDataList;
 
@@ -47,7 +68,6 @@ public class SaveAndLoadControl : MonoBehaviour
 
         if (playerData != null)
         {
-            // Apply the player data to your game logic
             playerController.currenHp = playerData.currentHp;
             playerController.currenEnergy = playerData.currentEnergy;
             Vector3 playerPosition = new Vector3(playerData.positionX, playerData.positionY, playerData.positionZ);
@@ -70,6 +90,12 @@ public class SaveAndLoadControl : MonoBehaviour
 
     public void DeleteSave()
     {
+        if (saveManager == null)
+        {
+            Debug.LogError("SaveManager script not found. Make sure it is attached to a GameObject.");
+            return;
+        }
+
         saveManager.DeleteSave();
     }
 }

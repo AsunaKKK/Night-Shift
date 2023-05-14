@@ -7,7 +7,6 @@ using System;
 
 public class InventoryManager : MonoBehaviour
 {
-
     public static InventoryManager Instance;
 
     public List<Item> Items = new List<Item>(4);
@@ -75,9 +74,6 @@ public class InventoryManager : MonoBehaviour
         }
         // Remove any null elements from the inventoryItems array
         inventoryItems = inventoryItems.Where(x => x != null).ToArray();
-
-
-       
     }
 
     public void DrawToolTip(string DetailItem)
