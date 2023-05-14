@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour , IDataSave
 {
     private float horizontal;
     public float dashSpeed = 5f;
@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
     public Image energyBar;
     private float maxHp = 100f;
     private float maxEnergy = 100f;
-    public float currenHp;
-    public float currenEnergy;
+    public float currenHp = 100f;
+    public float currenEnergy = 100f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
     //[SerializeField] private AudioSource audioSource;
@@ -42,8 +42,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currenHp = maxHp;
-        currenEnergy = maxEnergy;
+
     }
 
     // Update is called once per frame
@@ -227,4 +226,20 @@ public class PlayerController : MonoBehaviour
         energyBar.fillAmount = currenEnergy / maxEnergy;
     }
 
+    // Save and Load Data
+
+    public void LoadData (GameData data)
+    {
+        this.transform.position = data.playerPosition;
+        this.currenHp = data.playerCurrentHp;
+        this.currenEnergy = data.playerCurrentMp;
+        this.maxHp = data.playerHpMax;
+    }
+
+    public void SaveData (ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
+        data.playerCurrentHp = this.currenHp;
+        data.playerHpMax = this.maxHp;
+    }
 }
