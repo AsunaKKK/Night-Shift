@@ -68,4 +68,9 @@ public class InventoryItemController : MonoBehaviour , IPointerEnterHandler , IP
         SetToolTip(string.Empty);
         //Debug.Log("Remove");
     }
+
+    public Item GetItem()
+    {
+        return item;
+    }
 }

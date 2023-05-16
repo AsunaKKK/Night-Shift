@@ -10,11 +10,16 @@ public class GameData
     public float playerCurrentMp;
     public float playerHpMax;
 
+    public SerealizableDictionary<string, bool> idItem;
+    public List<Item> inventoryItems;
+
     public GameData()
     {
         this.playerHpMax = 100;
         this.playerCurrentMp = 100;
         this.playerCurrentHp = 100;
         playerPosition = Vector3.zero;
+        idItem = new SerealizableDictionary<string, bool>();
+        inventoryItems = new List<Item>();
     }
 }

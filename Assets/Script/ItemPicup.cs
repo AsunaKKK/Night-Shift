@@ -5,11 +5,23 @@ using UnityEngine.UI;
 
 public class ItemPicup : MonoBehaviour
 {
+    [SerializeField] private string id;
+
+    [ContextMenu("Generate guid for id")]
+
+    private void FenerteGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
     public Item item;
     public GameObject itemUse;
     public float pickupDelay = 1f;
     private bool isPickingUp = false; 
     private float pickupTimer = 0f;
+
+
+    private bool isPicUp = false;
 
     private void Start()
     {
@@ -18,27 +30,36 @@ public class ItemPicup : MonoBehaviour
 
     private void Update()
     {
-        if (gameObject.tag == "Item")
+        if(!isPicUp)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (gameObject.tag == "Item")
             {
-                StartPickup();
-            }
-            else if (Input.GetKeyUp(KeyCode.E))
-            {
-                StopPickup();
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    StartPickup();
+                }
+                else if (Input.GetKeyUp(KeyCode.E))
+                {
+                    StopPickup();
+                }
+
             }
         }
 
-        if (isPickingUp)
+        if (!isPicUp)
         {
-            pickupTimer += Time.deltaTime;
-            if (pickupTimer >= pickupDelay)
+            if (isPickingUp)
             {
-                Pickup();
-                pickupTimer = 0f;
+                pickupTimer += Time.deltaTime;
+                if (pickupTimer >= pickupDelay)
+                {
+                    Pickup();
+                    pickupTimer = 0f;
+                }
             }
         }
+        
     }
 
     void StartPickup()
@@ -65,15 +86,21 @@ public class ItemPicup : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if(!isPicUp)
         {
-            gameObject.tag = "Item";
-            itemUse.SetActive(true);
-            if (Input.GetKey(KeyCode.E))
+            if (other.CompareTag("Player"))
             {
-                StartPickup();
+                gameObject.tag = "Item";
+                itemUse.SetActive(true);
+
+                if (Input.GetKey(KeyCode.E))
+                {
+                    StartPickup();
+                }
+
             }
         }
+
     }
     private void OnTriggerExit2D(Collider2D other)
     {

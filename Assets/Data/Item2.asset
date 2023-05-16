@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56114b4f911458a4dab057801c9079df, type: 3}
   m_Name: Item2
   m_EditorClassIdentifier: 
-  id: 2
   itemName: "\u0E19\u0E49\u0E33\u0E21\u0E30\u0E21\u0E48\u0E27\u0E07"
   hpValue: 0
   mpValue: 50
@@ -20,4 +19,3 @@ MonoBehaviour:
   detailItem: "\u0E19\u0E49\u0E33\u0E14\u0E37\u0E48\u0E21\u0E17\u0E35\u0E48\u0E43\u0E0A\u0E49\u0E1E\u0E25\u0E31\u0E07\u0E07\u0E32\u0E19
     50 \u0E2B\u0E19\u0E48\u0E27\u0E22"
   itemType: 1
-  quantity: 1

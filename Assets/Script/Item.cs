@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Item" , menuName ="Item/Create New Item")]
 public class Item : ScriptableObject
 {
-    public int id;
     public string itemName;
     public int hpValue;
     public int mpValue;
@@ -13,7 +12,6 @@ public class Item : ScriptableObject
     public string detailItem;
 
     public ItemType itemType;
-    public int quantity;
 
     public enum ItemType
     {

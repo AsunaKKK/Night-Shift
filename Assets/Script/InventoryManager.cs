@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour , IDataSave
 {
     public static InventoryManager Instance;
 
@@ -15,8 +15,6 @@ public class InventoryManager : MonoBehaviour
     public InventoryItemController[] inventoryItems;
 
     private Tooltip tooltip;
-
-
     private void Awake()
     {
         Instance = this;
@@ -89,4 +87,15 @@ public class InventoryManager : MonoBehaviour
         inventoryItems[i].AddItem(Items[i]);
         }
     }
+    public void SaveData(ref GameData data )
+    {
+        data.inventoryItems = Items.ToArray().ToList();
+    }
+
+    public void LoadData(GameData data )
+    {
+        Items = new List<Item>(data.inventoryItems);
+        ListItems();
+    }
+
 }
