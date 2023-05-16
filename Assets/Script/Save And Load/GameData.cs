@@ -13,6 +13,7 @@ public class GameData
     public SerealizableDictionary<string, bool> idItem;
     public List<Item> inventoryItems;
 
+    public Vector3 playerMapPosition;
     public GameData()
     {
         this.playerHpMax = 100;
@@ -21,5 +22,6 @@ public class GameData
         playerPosition = Vector3.zero;
         idItem = new SerealizableDictionary<string, bool>();
         inventoryItems = new List<Item>();
+        playerMapPosition = Vector3.zero;
     }
 }

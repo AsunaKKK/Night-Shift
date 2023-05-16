@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMap : MonoBehaviour
+public class PlayerMap : MonoBehaviour , IDataSave
 {
     private float horizontal;
     public float dashSpeed;
-    private float LSpeed = 40f;
-    private float RSpeed = 40f;
+    private float LSpeed = 30f;
+    private float RSpeed = 30f;
 
     private bool canDash = true;
     private bool isDashing;
@@ -110,20 +110,32 @@ public class PlayerMap : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift) && currentEnergy != 0)
         {
-            dashSpeed = 80;
+            dashSpeed = wall.checkWalls ? 0f : 70f;
             currentEnergy -= 0.005f + Time.deltaTime;
 
             if (currentEnergy <= 0)
             {
                 currentEnergy = 0;
-                dashSpeed = 40;
+                dashSpeed = wall.checkWalls ? 0f : 30f;
             }
         }
         else
         {
-            dashSpeed = wall.checkWalls ? 0f : 40f;
-            LSpeed = wall.checkWalls ? 0f : 40f;
-            RSpeed = wall.checkWalls ? 0f : 40f;
+            dashSpeed = wall.checkWalls ? 0f : 30f;
+            LSpeed = wall.checkWalls ? 0f : 30f;
+            RSpeed = wall.checkWalls ? 0f : 30f;
         }
     }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerMapPosition = this.transform.position;
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerMapPosition;
+    }
+
+
 }

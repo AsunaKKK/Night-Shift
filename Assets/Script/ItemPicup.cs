@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemPicup : MonoBehaviour
+public class ItemPicup : MonoBehaviour, IDataSave
 {
     [SerializeField] private string id;
 
@@ -19,7 +19,6 @@ public class ItemPicup : MonoBehaviour
     public float pickupDelay = 1f;
     private bool isPickingUp = false; 
     private float pickupTimer = 0f;
-
 
     private bool isPicUp = false;
 
@@ -81,6 +80,8 @@ public class ItemPicup : MonoBehaviour
         }
 
         InventoryManager.Instance.Add(item);
+        isPicUp = true;
+        SaveManager.instance.SaveGame();
         Destroy(gameObject);
     }
 
@@ -110,5 +111,22 @@ public class ItemPicup : MonoBehaviour
             itemUse.SetActive(false);
             gameObject.tag = "notItem";
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        data.idItem.TryGetValue(id, out isPicUp);
+        if (isPicUp)
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void SaveData(ref GameData data)
+    {
+        if(data.idItem.ContainsKey(id))
+        {
+            data.idItem.Remove(id);
+        }
+        data.idItem.Add(id,isPicUp);
     }
 }
