@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
+    [Header("Debugging")]
+    [SerializeField] private bool initializeDataIfNull = false;
+
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
 
@@ -20,20 +24,38 @@ public class SaveManager : MonoBehaviour
     {
         if(instance != null)
         {
-            Debug.LogError("Found more than one Data Presistence Manager in the scene.");
+            Debug.Log("Found more than one Data Presistence Manager in the scene. , Destroying the newst one.");
+            Destroy(this.gameObject);
+            return;
         }
 
         instance = this;
-    }
+        DontDestroyOnLoad(this.gameObject);
 
-    private void Start()
-    {
         this.dataHendler = new FileDataControl(Application.persistentDataPath, fileName);
         Debug.Log(Application.persistentDataPath);
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnLoaded;
+    }
+
+    public void OnSceneLoaded(Scene scene , LoadSceneMode mode)
+    {
         this.dataSavesObjects = FindAllDataSaveObjects();
         LoadGame();
     }
-
+    public void OnSceneUnLoaded(Scene scene)
+    {
+        SaveGame();
+    }
 
     public void NewGame()
     {
@@ -43,6 +65,11 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
+        if(this.gameObject == null)
+        {
+            Debug.LogWarning("No data was found. A new game need.");
+            return;
+        }
         foreach (IDataSave dataSaveObj in dataSavesObjects)
         {
             dataSaveObj.SaveData(ref gameData);
@@ -57,11 +84,15 @@ public class SaveManager : MonoBehaviour
 
         this.gameData = dataHendler.Load();
 
+        if(this.gameData == null && initializeDataIfNull)
+        {
+            NewGame();
+        }
 
         if(this.gameData == null)
         {
-            Debug.Log("No data not found");
-            NewGame();
+            Debug.Log("No data not found , a new game need to be start befor data can be load");
+            return;
         }
 
         foreach(IDataSave dataSaveObj in dataSavesObjects)
@@ -82,5 +113,10 @@ public class SaveManager : MonoBehaviour
         IEnumerable<IDataSave> dataSavesObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataSave>();
 
         return new List<IDataSave>(dataSavesObjects);
+    }
+
+    public bool HasGameData()
+    {
+        return gameData != null;
     }
 }
