@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
-    [Header("Debugging")]
-    [SerializeField] private bool initializeDataIfNull = false;
+    /*[Header("Debugging")]
+    [SerializeField] private bool initializeDataIfNull = false;*/
 
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
@@ -33,7 +33,6 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         this.dataHendler = new FileDataControl(Application.persistentDataPath, fileName);
-        Debug.Log(Application.persistentDataPath);
     }
     private void OnEnable()
     {
@@ -73,10 +72,10 @@ public class SaveManager : MonoBehaviour
         foreach (IDataSave dataSaveObj in dataSavesObjects)
         {
             dataSaveObj.SaveData(ref gameData);
+            
         }
-
-        InventoryManager.Instance.SaveData(ref gameData);
         dataHendler.Save(gameData);
+         //InventoryManager.Instance.SaveData(ref gameData);
     }
 
     public void LoadGame()
@@ -84,10 +83,10 @@ public class SaveManager : MonoBehaviour
 
         this.gameData = dataHendler.Load();
 
-        if(this.gameData == null && initializeDataIfNull)
+       /* if(this.gameData == null && initializeDataIfNull)
         {
             NewGame();
-        }
+        }*/
 
         if(this.gameData == null)
         {
@@ -100,13 +99,8 @@ public class SaveManager : MonoBehaviour
             dataSaveObj.LoadData(gameData);
         }
 
-        InventoryManager.Instance.LoadData(gameData);
+        //InventoryManager.Instance.LoadData(gameData);
     }
-
-    /*private void OnApplicationQuit()
-    {
-        SaveGame();
-    }*/
 
     private List<IDataSave> FindAllDataSaveObjects()
     {

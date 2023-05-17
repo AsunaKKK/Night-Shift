@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMap : MonoBehaviour , IDataSave
+public class PlayerMap : MonoBehaviour
 {
     private float horizontal;
     public float dashSpeed;

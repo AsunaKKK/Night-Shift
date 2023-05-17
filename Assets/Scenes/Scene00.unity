@@ -797,8 +797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Ass4
-  m_VerticalAxis: Ass
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -1236,6 +1236,14 @@ PrefabInstance:
     - target: {fileID: 3063377371019413368, guid: 6c6fade39c9ac8e47b60692b02932848, type: 3}
       propertyPath: m_Name
       value: Save Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063377371019413369, guid: 6c6fade39c9ac8e47b60692b02932848, type: 3}
+      propertyPath: fileName
+      value: data.aa
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063377371019413369, guid: 6c6fade39c9ac8e47b60692b02932848, type: 3}
+      propertyPath: initializeDataIfNull
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3063377371019413382, guid: 6c6fade39c9ac8e47b60692b02932848, type: 3}
       propertyPath: m_RootOrder
