@@ -14,6 +14,7 @@ public class GameData
     public List<Item> inventoryItems;
 
     public Vector3 playerMapPosition;
+    public Quaternion playerMapRotation;
     public GameData()
     {
         this.playerHpMax = 100;
@@ -22,6 +23,9 @@ public class GameData
         playerPosition = Vector3.zero;
         idItem = new SerealizableDictionary<string, bool>();
         inventoryItems = new List<Item>();
-        playerMapPosition = Vector3.zero;
+
+        playerMapPosition = new Vector3(654f, 1556f, 0f);
+        playerMapRotation = Quaternion.identity;
+
     }
 }

@@ -1239,7 +1239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3063377371019413369, guid: 6c6fade39c9ac8e47b60692b02932848, type: 3}
       propertyPath: fileName
-      value: data.aa
+      value: data.txt
       objectReference: {fileID: 0}
     - target: {fileID: 3063377371019413369, guid: 6c6fade39c9ac8e47b60692b02932848, type: 3}
       propertyPath: initializeDataIfNull

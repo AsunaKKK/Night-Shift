@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMap : MonoBehaviour
+public class PlayerMap : MonoBehaviour , IDataSave
 {
     private float horizontal;
     public float dashSpeed;
@@ -21,6 +21,15 @@ public class PlayerMap : MonoBehaviour
     private CheckWall wall;
 
     [SerializeField] private Rigidbody2D rb;
+
+    public RectTransform rectTransform;
+
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Start()
     {
@@ -86,7 +95,7 @@ public class PlayerMap : MonoBehaviour
             return;
         }
 
-        rb.velocity = new Vector2(horizontal * dashSpeed, rb.velocity.y);
+        rb.velocity = new Vector3(horizontal * dashSpeed, rb.velocity.y);
     }
 
     private IEnumerator Dash()
@@ -95,7 +104,7 @@ public class PlayerMap : MonoBehaviour
         isDashing = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        rb.velocity = new Vector3(transform.localScale.x * dashingPower, 0f);
 
         yield return new WaitForSeconds(dashingTime);
 
@@ -129,12 +138,14 @@ public class PlayerMap : MonoBehaviour
 
     public void SaveData(ref GameData data)
     {
-        data.playerMapPosition = this.transform.position;
+        data.playerMapPosition = rectTransform.position;
+        data.playerMapRotation = rectTransform.rotation;
     }
 
     public void LoadData(GameData data)
     {
-        this.transform.position = data.playerMapPosition;
+        rectTransform.position = data.playerMapPosition;
+        rectTransform.rotation = data.playerMapRotation;
     }
 
 
