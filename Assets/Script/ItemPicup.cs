@@ -22,9 +22,13 @@ public class ItemPicup : MonoBehaviour, IDataSave
 
     private bool isPicUp = false;
 
+    public Image reloadBar;
+    public GameObject reloadBarObj;
+
     private void Start()
     {
         itemUse.SetActive(false);
+        reloadBarObj.SetActive(false);
     }
 
     private void Update()
@@ -50,6 +54,7 @@ public class ItemPicup : MonoBehaviour, IDataSave
         {
             if (isPickingUp)
             {
+                ShowBarReload();
                 pickupTimer += Time.deltaTime;
                 if (pickupTimer >= pickupDelay)
                 {
@@ -59,17 +64,20 @@ public class ItemPicup : MonoBehaviour, IDataSave
             }
         }
         
+        //ShowBarReload();
     }
 
     void StartPickup()
     {
         isPickingUp = true;
+        reloadBarObj.SetActive(true);
     }
 
     void StopPickup()
     {
         isPickingUp = false;
         pickupTimer = 0f;
+        reloadBarObj.SetActive(false);
     }
 
     void Pickup()
@@ -128,5 +136,11 @@ public class ItemPicup : MonoBehaviour, IDataSave
             data.idItem.Remove(id);
         }
         data.idItem.Add(id,isPicUp);
+    }
+
+    public void ShowBarReload()
+    {
+        reloadBar.fillAmount = pickupTimer;
+        Debug.Log(pickupTimer);
     }
 }
