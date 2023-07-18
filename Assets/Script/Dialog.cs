@@ -20,8 +20,8 @@ public class Dialog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemQuse.SetActive(false);
-        ques.SetActive(false);
+        //itemQuse.SetActive(false);
+        //ques.SetActive(false);
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -74,8 +74,8 @@ public class Dialog : MonoBehaviour
                 textComponent.text += c;
             }
 
-            ques.SetActive(true);
-            itemQuse.SetActive(true);
+            //ques.SetActive(true);
+           // itemQuse.SetActive(true);
         }
     }
 
