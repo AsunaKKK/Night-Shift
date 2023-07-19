@@ -8,11 +8,13 @@ public class Quest
     public string conditions1;
     public string conditions2;
     public string conditions3;
+   
+
     public bool isCompleted;
 
     public Quest()
     {
-        isCompleted = false; // By default, quests are not completed when created.
+        isCompleted = false;
     }
 
     public Quest(int IdQuest, string MainQuest, string Condition1, string Condition2, string Condition3)
@@ -22,6 +24,7 @@ public class Quest
         conditions1 = Condition1;
         conditions2 = Condition2;
         conditions3 = Condition3;
-        isCompleted = false; // By default, quests are not completed when created.
+       
+        isCompleted = false;
     }
 }

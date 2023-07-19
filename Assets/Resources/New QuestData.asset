@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7427236a2da03da45b2d99c8881430d0, type: 3}
-  m_Name: 1
+  m_Name: New QuestData
   m_EditorClassIdentifier: 
-  idQuest: 1
-  mainQuest: "\u0E44\u0E1B\u0E2B\u0E32\u0E40\u0E17\u0E35\u0E22\u0E19\u0E21\u0E32\u0E44\u0E2D\u0E19\u0E49\u0E2D\u0E07"
-  conditions1: "\u0E18\u0E38\u0E1B"
-  conditions2: "\u0E40\u0E17\u0E35\u0E22\u0E19"
-  conditions3: 
+  idQuest: 6
+  mainQuest: aaaaaaaaaaa
+  conditions1: bbbbbbbbbbbbb
+  conditions2: ccccccccccccc
+  conditions3: dddddddddddddd
