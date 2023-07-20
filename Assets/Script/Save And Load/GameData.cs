@@ -12,6 +12,8 @@ public class GameData
 
     public SerealizableDictionary<string, bool> idItem;
     public List<Item> inventoryItems;
+    public SerealizableDictionary<string, bool> idItemQuest;
+    public List<ItemQuest> inventoryItemQuest;
 
     public Vector3 playerMapPosition;
     public Quaternion playerMapRotation;
@@ -23,6 +25,9 @@ public class GameData
         playerPosition = Vector3.zero;
         idItem = new SerealizableDictionary<string, bool>();
         inventoryItems = new List<Item>();
+
+        idItemQuest = new SerealizableDictionary<string, bool>();
+        inventoryItemQuest = new List<ItemQuest>();
 
         playerMapPosition = new Vector3(654f, 1556f, 0f);
         playerMapRotation = Quaternion.identity;

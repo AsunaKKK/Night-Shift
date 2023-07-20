@@ -4,14 +4,9 @@ using UnityEngine;
 public class ItemQuest : ScriptableObject
 {
     public string itemName;
-    public int IdItems;
-   
+    public int IdItems; 
     public Sprite icon;
 
     [field: TextArea]
     public string detailItem;
-
-    
-
-
 }

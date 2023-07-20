@@ -84,7 +84,7 @@ public class InventoryManager : MonoBehaviour , IDataSave
 
         for (int i = 0; i < Items.Count; i++)
         {
-        inventoryItems[i].AddItem(Items[i]);
+          inventoryItems[i].AddItem(Items[i]);
         }
     }
     public void SaveData(ref GameData data )

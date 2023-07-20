@@ -31,22 +31,17 @@ public class Completion : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.tag == "ItemQuest")
         {
-            // Check which itemQuest has been hit and set its respective boolean to true
-            if (collision.gameObject == itemQuest1)
-            {
-                itemQuest1.SetActive(false);
-                itemQuest1Hit = true;
-            }
-            else if (collision.gameObject == itemQuest2)
-            {
-                itemQuest2.SetActive(false);
-                itemQuest2Hit = true;
-            }
+           itemQuest1.SetActive(false);
+        }
+
+        if(collision.tag == "ItemQuest")
+        {
+            itemQuest2.SetActive(false);
         }
     
-    }*/
+    }
 }
