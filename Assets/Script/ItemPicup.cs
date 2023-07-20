@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemPicup : MonoBehaviour, IDataSave
 {
@@ -24,11 +25,17 @@ public class ItemPicup : MonoBehaviour, IDataSave
 
     public Image reloadBar;
     public GameObject reloadBarObj;
+    public GameObject giftTextBar;
+    public TextMeshProUGUI textgift;
+    public float giftTimer = 0.5f;
+    public bool checkGift = false;
 
     private void Start()
     {
         itemUse.SetActive(false);
         reloadBarObj.SetActive(false);
+        giftTextBar.SetActive(false);
+        checkGift = true;
     }
 
     private void Update()
@@ -54,23 +61,42 @@ public class ItemPicup : MonoBehaviour, IDataSave
         {
             if (isPickingUp)
             {
+                TextGift();
                 ShowBarReload();
                 pickupTimer += Time.deltaTime;
                 if (pickupTimer >= pickupDelay)
                 {
                     Pickup();
+                    checkGift = false;
                     pickupTimer = 0f;
+                    ShowBarReload();
+                    
                 }
             }
         }
-        
+
+        if(!checkGift)
+        {
+            giftTextBar.SetActive(true);
+            giftTimer -= Time.deltaTime;
+            if(giftTimer == 0)
+            {
+                giftTimer = 0.5f;
+                giftTextBar.SetActive(false);
+            }
+            
+        }
+        /*if(checkGift)
+        {
+            giftTextBar.SetActive(false);
+        }*/
         //ShowBarReload();
     }
-
     void StartPickup()
     {
         isPickingUp = true;
         reloadBarObj.SetActive(true);
+        
     }
 
     void StopPickup()
@@ -142,5 +168,9 @@ public class ItemPicup : MonoBehaviour, IDataSave
     {
         reloadBar.fillAmount = pickupTimer;
         Debug.Log(pickupTimer);
+    }
+    public void TextGift()
+    {
+        textgift.text = item.itemName;
     }
 }
