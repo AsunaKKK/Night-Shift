@@ -56,11 +56,9 @@ public class InventoryQuestManager : MonoBehaviour , IDataSave
             GameObject obj = Instantiate(InventoryItemQuest, ItemContent);
             var itemName = obj.transform.Find("NameItem").GetComponent<Text>();
             var itemIcon = obj.transform.Find("ImageItem").GetComponent<Image>();
-            var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
 
             itemName.text = ItemsQuest[i].itemName;
             itemIcon.sprite = ItemsQuest[i].icon;
-            removeButton.gameObject.SetActive(true);
 
             // Instantiate a new InventoryItemController and add it to the inventoryItems array
             InventoryQuestController newItem = obj.GetComponent<InventoryQuestController>();

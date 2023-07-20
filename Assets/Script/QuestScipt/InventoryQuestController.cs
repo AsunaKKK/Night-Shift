@@ -6,18 +6,11 @@ using UnityEngine.EventSystems;
 
 public class InventoryQuestController : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
 {
-    public Button removeButton;
     ItemQuest items;
 
     private void Start()
     {
         // Hide the tooltip on start
-        SetToolTip(string.Empty);
-    }
-    public void RemoveItem()
-    {
-        InventoryQuestManager.Instance.Remove(items);
-        Destroy(gameObject);
         SetToolTip(string.Empty);
     }
     public void AddItem(ItemQuest newItem)

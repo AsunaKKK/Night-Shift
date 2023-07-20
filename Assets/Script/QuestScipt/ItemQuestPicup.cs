@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemQuestPicup : MonoBehaviour , IDataSave
 {
@@ -15,7 +16,6 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
     }
 
     public ItemQuest item;
-    public GameObject itemUse;
     public float pickupDelay = 1f;
     private bool isPickingUp = false;
     private float pickupTimer = 0f;
@@ -24,18 +24,23 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
 
     public Image reloadBar;
     public GameObject reloadBarObj;
+    public GameObject giftTextBar;
+    public TextMeshProUGUI textgift;
+    public float giftTimer = 0.5f;
+    public bool checkGift = false;
 
     private void Start()
     {
-        itemUse.SetActive(false);
         reloadBarObj.SetActive(false);
+        giftTextBar.SetActive(false);
+        checkGift = true;
     }
 
     private void Update()
     {
         if (!isPicUp)
         {
-            if (gameObject.tag == "Item")
+            if (gameObject.tag == "ItemQuet")
             {
 
                 if (Input.GetKeyDown(KeyCode.E))
@@ -54,14 +59,28 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
         {
             if (isPickingUp)
             {
+                TextGift();
                 ShowBarReload();
                 pickupTimer += Time.deltaTime;
                 if (pickupTimer >= pickupDelay)
                 {
+                    checkGift = false;
                     Pickup();
                     pickupTimer = 0f;
                 }
             }
+        }
+
+        if (!checkGift)
+        {
+            giftTextBar.SetActive(true);
+            giftTimer -= Time.deltaTime;
+            if (giftTimer == 0)
+            {
+                giftTimer = 0.5f;
+                giftTextBar.SetActive(false);
+            }
+
         }
 
         //ShowBarReload();
@@ -99,8 +118,7 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
         {
             if (other.CompareTag("Player"))
             {
-                gameObject.tag = "Item";
-                itemUse.SetActive(true);
+                gameObject.tag = "ItemQuest";
 
                 if (Input.GetKey(KeyCode.E))
                 {
@@ -116,7 +134,6 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
         if (other.CompareTag("Player"))
         {
             StopPickup();
-            itemUse.SetActive(false);
             gameObject.tag = "notItem";
         }
     }
@@ -142,5 +159,9 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
     {
         reloadBar.fillAmount = pickupTimer;
         Debug.Log(pickupTimer);
+    }
+    public void TextGift()
+    {
+        textgift.text = item.itemName;
     }
 }
