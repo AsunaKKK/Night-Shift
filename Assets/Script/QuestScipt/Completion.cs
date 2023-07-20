@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Completion : MonoBehaviour
 {
-    public  GameObject itemQuest1;
-    public  GameObject itemQuest2;
-    
-    private int x = 0;
+    public GameObject quest1;
+    public GameObject quest2;
+    public bool itemQuest1 = false;
+    bool foundTuup = false;
+    bool foundLightSteel = false;
+
 
     void Start()
     {
-        itemQuest1.SetActive(false);
-        itemQuest2.SetActive(false);
-        
+        quest1.SetActive(false);
+        quest2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,22 +27,41 @@ public class Completion : MonoBehaviour
     {
         if (QuestManager.quest1 == true)
         {
-            itemQuest1.SetActive(true);
-            itemQuest2.SetActive(true);
+            quest1.SetActive(true);
         }
+        if (QuestManager.quest2 == true)
+        {
+            quest2.SetActive(true);
+        }
+        if(itemQuest1 == true)
+        {
+            QuestManager.quest1Completion = true;
+        }
+
+       
+        ItemRun();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void ItemRun()
     {
-        if (collision.tag == "ItemQuest")
+        foreach (ItemQuest item in InventoryQuestManager.Instance.ItemsQuest)
         {
-           itemQuest1.SetActive(false);
-        }
+            if (item.itemName == "Tuup")
+            {
+                foundTuup = true;
+            }
 
-        if(collision.tag == "ItemQuest")
-        {
-            itemQuest2.SetActive(false);
+            if (item.itemName == "light-steel")
+            {
+                foundLightSteel = true;
+            }
+
+            // If both items are found, set itemQuest1 to true and break out of the loop
+            if (foundTuup && foundLightSteel)
+            {
+                itemQuest1 = true;
+                break;
+            }
         }
-    
     }
 }
