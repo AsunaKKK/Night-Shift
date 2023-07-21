@@ -158,7 +158,6 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
     public void ShowBarReload()
     {
         reloadBar.fillAmount = pickupTimer;
-        Debug.Log(pickupTimer);
     }
     public void TextGift()
     {

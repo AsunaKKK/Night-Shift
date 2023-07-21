@@ -5,7 +5,7 @@ using UnityEngine;
 public class GiftCooldow : MonoBehaviour
 {
     public GameObject gift;
-    bool giftCheck = false;
+    //bool giftCheck = false;
     private float giftTimer = 0f;
     private float timeLimit = 1f;
 
