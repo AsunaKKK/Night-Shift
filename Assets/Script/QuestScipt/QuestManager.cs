@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
-    public Text mainQuestTextUI;
-    public Text condition1TextUI;
-    public Text condition2TextUI;
-    public Text condition3TextUI;
+    public TextMeshProUGUI mainQuestTextUI;
+    public TextMeshProUGUI condition1TextUI;
+    public TextMeshProUGUI condition2TextUI;
+    public TextMeshProUGUI condition3TextUI;
 
     public static bool quest1;
     public static bool quest2;
