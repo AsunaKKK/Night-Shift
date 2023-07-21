@@ -106,8 +106,4 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void MisstionCompletion()
-    {
-
-    }
 }

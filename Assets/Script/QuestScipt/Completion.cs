@@ -5,7 +5,7 @@ using UnityEngine;
 public class Completion : MonoBehaviour
 {
     public GameObject quest1;
-    public GameObject quest2;
+    //public GameObject quest2;
     public bool itemQuest1 = false;
     bool foundTuup = false;
     bool foundLightSteel = false;
@@ -13,8 +13,8 @@ public class Completion : MonoBehaviour
 
     void Start()
     {
-        quest1.SetActive(false);
-        quest2.SetActive(false);
+       
+        
     }
 
     // Update is called once per frame
@@ -29,14 +29,13 @@ public class Completion : MonoBehaviour
         {
             quest1.SetActive(true);
         }
-        if (QuestManager.quest2 == true)
-        {
-            quest2.SetActive(true);
-        }
-        if(itemQuest1 == true)
+       
+
+        if (itemQuest1 == true)
         {
             QuestManager.quest1Completion = true;
         }
+
 
        
         ItemRun();

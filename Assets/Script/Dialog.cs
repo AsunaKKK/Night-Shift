@@ -13,8 +13,11 @@ public class Dialog : MonoBehaviour
 
     public float textSpeed;
     public GameObject obj;
-    public GameObject ques;
-    public GameObject itemQuse;
+    public GameObject charecterTalk1;
+    public GameObject charecterTalk2;
+    public GameObject nameTalk;
+    //public GameObject ques;
+    //public GameObject itemQuse;
 
     private int index;
     // Start is called before the first frame update
@@ -38,6 +41,9 @@ public class Dialog : MonoBehaviour
             {
                 StopAllCoroutines();
                 textComponent.text = line[index];
+                
+
+
             }
     }
 
@@ -65,6 +71,9 @@ public class Dialog : MonoBehaviour
         }
         else
         {
+            charecterTalk1.SetActive(false);
+            charecterTalk2.SetActive(false);
+            nameTalk.SetActive(false);
             obj.SetActive(false);
             gameObject.SetActive(false);
             textComponent.text = string.Empty;
