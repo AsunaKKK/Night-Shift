@@ -75,7 +75,6 @@ public class SaveManager : MonoBehaviour
             
         }
         dataHendler.Save(gameData);
-         //InventoryManager.Instance.SaveData(ref gameData);
     }
 
     public void LoadGame()
@@ -99,7 +98,6 @@ public class SaveManager : MonoBehaviour
             dataSaveObj.LoadData(gameData);
         }
 
-        //InventoryManager.Instance.LoadData(gameData);
     }
 
     private List<IDataSave> FindAllDataSaveObjects()

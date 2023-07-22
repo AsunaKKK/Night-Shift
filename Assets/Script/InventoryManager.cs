@@ -98,4 +98,5 @@ public class InventoryManager : MonoBehaviour , IDataSave
         ListItems();
     }
 
+
 }

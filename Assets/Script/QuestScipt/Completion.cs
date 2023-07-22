@@ -10,13 +10,6 @@ public class Completion : MonoBehaviour
     bool foundTuup = false;
     bool foundLightSteel = false;
 
-
-    void Start()
-    {
-       
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

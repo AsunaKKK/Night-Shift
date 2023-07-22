@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public class QuestDataBase : MonoBehaviour
 {
@@ -11,11 +13,6 @@ public class QuestDataBase : MonoBehaviour
     public string[] conditions1;
     public string[] conditions2;
     public string[] conditions3;
-
-   
-   
-
-
 
     void Awake()
     {
@@ -28,8 +25,17 @@ public class QuestDataBase : MonoBehaviour
         questList.Add(new Quest(3, questNames[2], conditions1[2], conditions2[2], conditions3[2]));
         questList.Add(new Quest(4, questNames[3], conditions1[3], conditions2[3], conditions3[3]));
         questList.Add(new Quest(5, questNames[4], conditions1[4], conditions2[4], conditions3[4]));
-        
-       
-       
     }
+
+    /*public void SaveData(ref GameData data)
+    {
+        data.questData = questList.ToList();
+        data.questNamedata = questNames.ToArray();
+    }
+
+    public void LoadData(GameData data)
+    {
+        questList = new List<Quest>(data.questData);
+        questNames = data.questNamedata.ToList().ToArray();
+    }*/
 }

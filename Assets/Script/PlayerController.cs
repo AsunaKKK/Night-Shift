@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour , IDataSave
     private float maxEnergy = 100f;
     public float currenHp = 100f;
     public float currenEnergy = 100f;
+
+    private bool canMove = true;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
     //[SerializeField] private AudioSource audioSource;
@@ -48,7 +51,7 @@ public class PlayerController : MonoBehaviour , IDataSave
     // Update is called once per frame
     void Update()
     {
-        if (isDashing)
+        if (isDashing || !canMove)
         {
             return;
         }
@@ -130,6 +133,10 @@ public class PlayerController : MonoBehaviour , IDataSave
         ShowBar();
 
 
+    }
+    public void ToggleMovement(bool canMove)
+    {
+        this.canMove = canMove;
     }
 
     private void FixedUpdate()

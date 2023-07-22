@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class QuestManager : MonoBehaviour
+public class QuestManager : MonoBehaviour , IDataSave
 {
     public TextMeshProUGUI mainQuestTextUI;
     public TextMeshProUGUI condition1TextUI;
@@ -84,26 +84,36 @@ public class QuestManager : MonoBehaviour
     }
      public void RunQuest()
     {
-        if(quest1 == true&& quest1Completion == true)
+        if(newQuestId == 1 && quest1 == true&& quest1Completion == true)
         {
             newQuestId = 2;
             quest2 = true;
         }
-        if(quest2 == true&& quest2Completion == true)
+        if(newQuestId == 2 && quest2 == true&& quest2Completion == true)
         {
             newQuestId = 3;
             quest3 = true;
         }
-        if (quest3 == true && quest3Completion == true)
+        if (newQuestId == 3 && quest3 == true && quest3Completion == true)
         {
             newQuestId = 4;
             quest4 = true;
         }
-        if (quest4 == true && quest4Completion == true)
+        if (newQuestId == 4 && quest4 == true && quest4Completion == true)
         {
             newQuestId = 5;
             quest5 = true;
         }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.questID = newQuestId;
+    }
+
+    public void LoadData(GameData data)
+    {
+        newQuestId = data.questID;
     }
 
 }

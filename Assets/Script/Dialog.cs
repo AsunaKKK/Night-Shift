@@ -16,6 +16,8 @@ public class Dialog : MonoBehaviour
     public GameObject charecterTalk1;
     public GameObject charecterTalk2;
     public GameObject nameTalk;
+
+    public PlayerController playerController;
     //public GameObject ques;
     //public GameObject itemQuse;
 
@@ -23,15 +25,19 @@ public class Dialog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //itemQuse.SetActive(false);
-        //ques.SetActive(false);
         textComponent.text = string.Empty;
         StartDialogue();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.E))
+        {
+            playerController.ToggleMovement(false);
+        }
+
         if (Input.GetMouseButtonDown(0))
             if (textComponent.text == line[index])
             {
@@ -41,9 +47,6 @@ public class Dialog : MonoBehaviour
             {
                 StopAllCoroutines();
                 textComponent.text = line[index];
-                
-
-
             }
     }
 
@@ -78,6 +81,8 @@ public class Dialog : MonoBehaviour
             gameObject.SetActive(false);
             textComponent.text = string.Empty;
             index = 0;
+            playerController.ToggleMovement(true);
+
             foreach (char c in line[index].ToCharArray())
             {
                 textComponent.text += c;
