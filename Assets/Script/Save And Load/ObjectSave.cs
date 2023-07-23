@@ -19,7 +19,11 @@ public class ObjectSave : MonoBehaviour
         {
             smybool.SetActive(true);
 
-            if(Input.GetKey(KeyCode.F))
+            if (Input.GetKey(KeyCode.F)&&QuestManager.quest3)
+            {
+               QuestManager.quest3Completion = true;
+            }
+            if (Input.GetKey(KeyCode.F))
             {
                 objSave.SetActive(true);
             }

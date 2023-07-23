@@ -9,6 +9,7 @@ public class Completion : MonoBehaviour
     public bool itemQuest1 = false;
     bool foundTuup = false;
     bool foundLightSteel = false;
+    public List<GameObject> chackOj = new List<GameObject>();
 
     // Update is called once per frame
     void Update()
@@ -22,7 +23,7 @@ public class Completion : MonoBehaviour
         {
             quest1.SetActive(true);
         }
-       
+
 
         if (itemQuest1 == true)
         {
@@ -30,7 +31,7 @@ public class Completion : MonoBehaviour
         }
 
 
-       
+
         ItemRun();
     }
 
@@ -56,4 +57,49 @@ public class Completion : MonoBehaviour
             }
         }
     }
+    public void CheckAndCompleteQuest(string objectName)
+    {
+        if (objectName == "quest101" && QuestManager.quest2)
+        {
+            // Set quest2Completion to true
+            QuestManager.quest2Completion = true;
+
+            // Find the GameObject with the name "quest101" in the list and destroy it
+            GameObject questObject = chackOj.Find(obj => obj.name == "quest101");
+            if (questObject != null)
+            {
+                chackOj.Remove(questObject);
+                Destroy(questObject);
+            }
+        }
+        else if (objectName == "quest102" && QuestManager.quest4)
+        {
+            // Set quest2Completion to true
+            QuestManager.quest4Completion = true;
+
+            // Find the GameObject with the name "quest101" in the list and destroy it
+            GameObject questObject = chackOj.Find(obj => obj.name == "quest102");
+            if (questObject != null)
+            {
+                chackOj.Remove(questObject);
+                Destroy(questObject);
+            }
+        }
+        /* else if (objectName == "quest102" && QuestManager.quest3)
+         {
+             // Set quest3Completion to true
+             QuestManager.quest3Completion = true;
+
+             // Find the GameObject with the name "quest102" in the list and destroy it
+             GameObject questObject = chackOj.Find(obj => obj.name == "quest102");
+             if (questObject != null)
+             {
+                 chackOj.Remove(questObject);
+                 Destroy(questObject);
+             }
+         }*/
+    }
 }
+   
+
+       

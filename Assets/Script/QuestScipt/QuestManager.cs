@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class QuestManager : MonoBehaviour , IDataSave
 {
@@ -13,12 +14,28 @@ public class QuestManager : MonoBehaviour , IDataSave
     public static bool quest3;
     public static bool quest4;
     public static bool quest5;
+    public static bool quest6;
+    public static bool quest7;
+    public static bool quest8;
+    public static bool quest9;
+    public static bool quest10;
+
+
+
+
     public static bool quest1Completion;
     public static bool quest2Completion;
     public static bool quest3Completion;
     public static bool quest4Completion;
     public static bool quest5Completion;
-   
+    public static bool quest6Completion;
+    public static bool quest7Completion;
+    public static bool quest8Completion;
+    public static bool quest9Completion;
+    public static bool quest10Completion;
+
+    
+
 
     // The ID of the new quest task we want to retrieve from the list
     public int newQuestId = 1;
@@ -103,6 +120,31 @@ public class QuestManager : MonoBehaviour , IDataSave
         {
             newQuestId = 5;
             quest5 = true;
+        }
+        if (newQuestId == 5 && quest5 == true && quest5Completion == true)
+        {
+            newQuestId = 6;
+            quest6 = true;
+        }
+        if (newQuestId == 6 && quest6 == true && quest6Completion == true)
+        {
+            newQuestId = 7;
+            quest7 = true;
+        }
+        if (newQuestId == 7 && quest7 == true && quest7Completion == true)
+        {
+            newQuestId = 8;
+            quest8 = true;
+        }
+        if (newQuestId == 8 && quest8 == true && quest8Completion == true)
+        {
+            newQuestId = 9;
+            quest9 = true;
+        }
+        if(newQuestId == 9 && quest9 == true && quest9Completion == true)
+        {
+            newQuestId = 10;
+            quest10 = true;
         }
     }
 
