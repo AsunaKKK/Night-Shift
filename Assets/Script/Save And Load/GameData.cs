@@ -17,6 +17,7 @@ public class GameData
     //public string[] questNamedata;
 
     public int questID;
+    public int chackQuestId;
 
     //public List<Quest> questData;
 
@@ -41,6 +42,7 @@ public class GameData
         playerMapRotation = Quaternion.identity;
 
         questID = 1;
+        chackQuestId = 1;
 
     }
 }

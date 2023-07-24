@@ -1,105 +1,121 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class QuestCollisionHandler : MonoBehaviour
+public class QuestCollisionHandler : MonoBehaviour , IDataSave
 {
     private Completion completionScript;
+    public int chackQuestMain = 1;
 
     private void Start()
     {
         // Get the Completion component on the same GameObject
         completionScript = FindObjectOfType<Completion>();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            // Check if quest101 is completed before activating quest102
-            if (QuestManager.quest2)
+            if(chackQuestMain==1)
             {
-                // Find the GameObject with the name "quest101" in the list
-                foreach (GameObject obj in completionScript.chackOj)
+                if (QuestManager.quest2 && chackQuestMain == 1)
                 {
-                    if (obj.name == "quest101")
+                    // Find the GameObject with the name "quest101" in the list
+                    foreach (GameObject obj in completionScript.chackOj)
                     {
-                        // Set quest2Completion to true
-                        QuestManager.quest2Completion = true;
-
-                        // Deactivate the "quest101" GameObject
-                        obj.SetActive(false);
-
-                        // Set "quest102" to active
-                        foreach (GameObject questObject in completionScript.chackOj)
+                        if (obj.name == "quest101")
                         {
-                            if (questObject.name == "quest102")
-                            {
-                                questObject.SetActive(true);
-                                break;
-                            }
-                        }
+                            // Set quest2Completion to true
+                            QuestManager.quest2Completion = true;
 
-                        break;
+                            // Deactivate the "quest101" GameObject
+                            obj.SetActive(false);
+
+                            // Set "quest102" to active
+                            foreach (GameObject questObject in completionScript.chackOj)
+                            {
+                                if (questObject.name == "quest102")
+                                {
+                                    questObject.SetActive(true);
+                                    chackQuestMain = 2;
+                                    break;
+                                }
+                            }
+
+                            break;
+                        }
                     }
                 }
             }
-
-            // Check if quest102 is completed before activating quest103
-            if (QuestManager.quest4)
+            if(chackQuestMain==2)
             {
-                // Find the GameObject with the name "quest102" in the list
-                foreach (GameObject obj in completionScript.chackOj)
+                // Check if quest102 is completed before activating quest103
+                if (QuestManager.quest4&&chackQuestMain==2)
                 {
-                    if (obj.name == "quest102")
+                    // Find the GameObject with the name "quest102" in the list
+                    foreach (GameObject obj in completionScript.chackOj)
                     {
-                        // Set quest4Completion to true
-                        QuestManager.quest4Completion = true;
-
-                        // Deactivate the "quest102" GameObject
-                        obj.SetActive(false);
-
-                        // Set "quest103" to active
-                        foreach (GameObject questObject in completionScript.chackOj)
+                        if (obj.name == "quest102")
                         {
-                            if (questObject.name == "quest103")
-                            {
-                                questObject.SetActive(true);
-                                break;
-                            }
-                        }
+                            // Set quest4Completion to true
+                            QuestManager.quest4Completion = true;
 
-                        break;
+                            // Deactivate the "quest102" GameObject
+                            obj.SetActive(false);
+
+                            // Set "quest103" to active
+                            foreach (GameObject questObject in completionScript.chackOj)
+                            {
+                                if (questObject.name == "quest103")
+                                {
+                                    questObject.SetActive(true);
+                                    chackQuestMain = 3;
+                                    break;
+                                }
+                            }
+
+                            break;
+                        }
                     }
                 }
             }
-
-            // Check if quest103 is completed before activating quest104 (if needed)
-            if (QuestManager.quest5)
+            if(chackQuestMain==3)
             {
-                // Find the GameObject with the name "quest103" in the list
-                foreach (GameObject obj in completionScript.chackOj)
+                // Check if quest103 is completed before activating quest104 (if needed)
+                if (QuestManager.quest5 && chackQuestMain == 3)
                 {
-                    if (obj.name == "quest103")
+                    // Find the GameObject with the name "quest103" in the list
+                    foreach (GameObject obj in completionScript.chackOj)
                     {
-                        // Set quest5Completion to true
-                        QuestManager.quest5Completion = true;
-
-                        // Deactivate the "quest103" GameObject
-                        obj.SetActive(false);
-
-                        foreach (GameObject questObject in completionScript.chackOj)
+                        if (obj.name == "quest103")
                         {
-                            if (questObject.name == "quest104")
-                            {
-                                questObject.SetActive(true);
-                                break;
-                            }
-                        }
+                            // Set quest5Completion to true
+                            QuestManager.quest5Completion = true;
 
-                        break;
+                            // Deactivate the "quest103" GameObject
+                            obj.SetActive(false);
+
+                            foreach (GameObject questObject in completionScript.chackOj)
+                            {
+                                if (questObject.name == "quest104")
+                                {
+                                    questObject.SetActive(true);
+                                    chackQuestMain = 4;
+                                    break;
+                                }
+                            }
+
+                            break;
+                        }
                     }
                 }
             }
+            
+
+        
+
+            
             if (QuestManager.quest6)
             {
                 // Find the GameObject with the name "quest101" in the list
@@ -236,5 +252,14 @@ public class QuestCollisionHandler : MonoBehaviour
 
         }
     }
-   
+    public void SaveData(ref GameData data)
+    {
+        data.chackQuestId = chackQuestMain;
+    }
+
+    public void LoadData(GameData data)
+    {
+        chackQuestMain = data.chackQuestId;
+    }
+
 }

@@ -61,22 +61,15 @@ public class QuestManager : MonoBehaviour , IDataSave
 
     // The ID of the new quest task we want to retrieve from the list
     public int newQuestId = 1;
+    int chack;
 
     void Start()
     {
         // Load and display the new quest task when the game starts
 
-        quest1 = true; 
-        /*quest2 = false;
-        quest3 = false;
-        quest4= false;
-        quest5 = false;
-        quest1Completion = false;
-        quest2Completion = false;
-        quest3Completion = false;
-        quest4Completion = false;
-        quest5Completion = false;*/
-
+        quest1 = true;
+        chack = newQuestId;
+      
 
 
     }
@@ -84,6 +77,7 @@ public class QuestManager : MonoBehaviour , IDataSave
     {
         LoadQuestData();
         RunQuest();
+        ChackQuest();
 
 
 
@@ -223,6 +217,114 @@ public class QuestManager : MonoBehaviour , IDataSave
             newQuestId = 21;
             quest21 = true;
         }
+    }
+    public void ChackQuest()
+    {
+
+        if(newQuestId == 2)
+        {
+            quest1 = true;
+            quest1Completion = true;
+        }
+         if(newQuestId == 3)
+        {
+            quest2 = true;
+            quest2Completion = true;
+        }
+         if (newQuestId == 4)
+        {
+            quest3 = true;
+            quest3Completion = true;
+        }
+         if (newQuestId == 5)
+        {
+            quest4 = true;
+            quest4Completion = true;
+        }
+         if (newQuestId == 6)
+        {
+            quest5 = true;
+            quest5Completion = true;
+        }
+         if (newQuestId == 7)
+        {
+            quest6 = true;
+            quest6Completion = true;
+        }
+         if (newQuestId == 8)
+        {
+            quest7 = true;
+            quest7Completion = true;
+        }
+         if (newQuestId == 9)
+        {
+            quest8 = true;
+            quest8Completion = true;
+        }
+         if (newQuestId == 10)
+        {
+            quest9 = true;
+            quest9Completion = true;
+        }
+         if (newQuestId == 11)
+        {
+            quest10 = true;
+            quest10Completion = true;
+        }
+         if (newQuestId == 12)
+        {
+            quest11 = true;
+            quest11Completion = true;
+        }
+         if (newQuestId == 13)
+        {
+            quest12 = true;
+            quest12Completion = true;
+        }
+         if (newQuestId == 14)
+        {
+            quest13 = true;
+            quest13Completion = true;
+        }
+         if (newQuestId == 15)
+        {
+            quest14 = true;
+            quest14Completion = true;
+        }
+         if (newQuestId == 16)
+        {
+            quest15 = true;
+            quest15Completion = true;
+        }
+         if (newQuestId == 17)
+        {
+            quest16 = true;
+            quest16Completion = true;
+        }
+        if (newQuestId == 18)
+        {
+            quest17 = true;
+            quest17Completion = true;
+        }
+         if (newQuestId == 19)
+        {
+            quest18 = true;
+            quest18Completion = true;
+        }
+         if (newQuestId == 20)
+        {
+            quest19 = true;
+            quest19Completion = true;
+        }
+         if (newQuestId == 21)
+        {
+            quest20 = true;
+            quest20Completion = true;
+        }
+       
+
+
+
     }
 
     public void SaveData(ref GameData data)
