@@ -44,16 +44,4 @@ public class QuestDataBase : MonoBehaviour
 
 
     }
-
-    /*public void SaveData(ref GameData data)
-    {
-        data.questData = questList.ToList();
-        data.questNamedata = questNames.ToArray();
-    }
-
-    public void LoadData(GameData data)
-    {
-        questList = new List<Quest>(data.questData);
-        questNames = data.questNamedata.ToList().ToArray();
-    }*/
 }

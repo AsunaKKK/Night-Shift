@@ -83,7 +83,6 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
 
         }
 
-        //ShowBarReload();
     }
 
     void StartPickup()
@@ -108,7 +107,7 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
 
         InventoryQuestManager.Instance.Add(item);
         isPicUp = true;
-        SaveManager.instance.SaveGame();
+        //SaveManager.instance.SaveGame();
         Destroy(gameObject);
     }
 

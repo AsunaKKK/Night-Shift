@@ -14,10 +14,16 @@ public class GameData
     public List<Item> inventoryItems;
     public SerealizableDictionary<string, bool> idItemQuest;
     public List<ItemQuest> inventoryItemQuest;
-    //public string[] questNamedata;
 
-    public int questID;
+    public int questID =1;
+    public int setQuestID = 0;
+    public int setCompletionID = 0;
     public int chackQuestId;
+    public int lightonQ;
+    public int doorOnQ = 0;
+    public int itemOnQ = 0;
+    public int chacracterQ = 0;
+    public int setDialogQ = 0;
 
     //public List<Quest> questData;
 
@@ -33,16 +39,16 @@ public class GameData
         inventoryItems = new List<Item>();
         idItemQuest = new SerealizableDictionary<string, bool>();
         inventoryItemQuest = new List<ItemQuest>();
-
-        //questNamedata = new string[0];
-
-        //questData = new List<Quest>();
-
         playerMapPosition = new Vector3(654f, 1556f, 0f);
         playerMapRotation = Quaternion.identity;
-
         questID = 1;
-        chackQuestId = 1;
-
+        setQuestID = 1;
+        setCompletionID = 0;
+        chackQuestId = 0;
+        lightonQ = 0;
+        doorOnQ = 0;
+        itemOnQ = 0;
+        chacracterQ = 0;
+        setDialogQ = 0;
     }
 }

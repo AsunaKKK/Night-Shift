@@ -32,55 +32,49 @@ public class QuestManager : MonoBehaviour , IDataSave
     public static bool quest21;
 
 
-
-
-    public static bool quest1Completion;
-    public static bool quest2Completion;
-    public static bool quest3Completion;
-    public static bool quest4Completion;
-    public static bool quest5Completion;
-    public static bool quest6Completion;
-    public static bool quest7Completion;
-    public static bool quest8Completion;
-    public static bool quest9Completion;
-    public static bool quest10Completion;
-    public static bool quest11Completion;
-    public static bool quest12Completion;
-    public static bool quest13Completion;
-    public static bool quest14Completion;
-    public static bool quest15Completion;
-    public static bool quest16Completion;
-    public static bool quest17Completion;
-    public static bool quest18Completion;
-    public static bool quest19Completion;
-    public static bool quest20Completion;
-    public static bool quest21Completion;
-
-    
-
+    public static bool quest1Completion = false;
+    public static bool quest2Completion = false;
+    public static bool quest3Completion = false;
+    public static bool quest4Completion = false;
+    public static bool quest5Completion = false;
+    public static bool quest6Completion = false;
+    public static bool quest7Completion = false;
+    public static bool quest8Completion = false;
+    public static bool quest9Completion = false;
+    public static bool quest10Completion = false;
+    public static bool quest11Completion = false;
+    public static bool quest12Completion = false;
+    public static bool quest13Completion = false;
+    public static bool quest14Completion = false;
+    public static bool quest15Completion = false;
+    public static bool quest16Completion = false;
+    public static bool quest17Completion = false;
+    public static bool quest18Completion = false;
+    public static bool quest19Completion = false;
+    public static bool quest20Completion = false;
+    public static bool quest21Completion = false;
 
     // The ID of the new quest task we want to retrieve from the list
-    public int newQuestId = 1;
+    public static int newQuestId = 1;
+    public static int questID = 1;
+    public static int completionID = 0;
     int chack;
 
     void Start()
     {
-        // Load and display the new quest task when the game starts
-
-        quest1 = true;
-        chack = newQuestId;
-      
-
+        Debug.Log("new" + newQuestId);
+        Debug.Log("qu" + questID);
+        Debug.Log("com" + completionID);
 
     }
     void Update()
     {
         LoadQuestData();
         RunQuest();
-        ChackQuest();
+        SetIDQuest();
+        SetCompletQuest();
 
-
-
+        //ChackQuest();
     }
 
     // Call this method when you want to display the quest information
@@ -115,110 +109,120 @@ public class QuestManager : MonoBehaviour , IDataSave
 
         return null;
     }
+
+    //Run Quest
      public void RunQuest()
     {
-        if(newQuestId == 1 && quest1 == true&& quest1Completion == true)
+        if(newQuestId == 1 && questID == 1 && completionID == 1)
         {
             newQuestId = 2;
-            quest2 = true;
+            questID = 2;
         }
-        if(newQuestId == 2 && quest2 == true&& quest2Completion == true)
+        if (newQuestId == 2 && questID == 2 && quest2Completion == true)
         {
             newQuestId = 3;
-            quest3 = true;
+            questID = 3;
+            Debug.Log("run");
         }
-        if (newQuestId == 3 && quest3 == true && quest3Completion == true)
+        if (newQuestId == 3 && questID == 3 && quest3Completion == true)
         {
             newQuestId = 4;
-            quest4 = true;
+            questID = 4;
         }
-        if (newQuestId == 4 && quest4 == true && quest4Completion == true)
+        if (newQuestId == 4 && questID == 4 && quest4Completion == true)
         {
             newQuestId = 5;
-            quest5 = true;
+            questID = 5;
         }
-        if (newQuestId == 5 && quest5 == true && quest5Completion == true)
+        if (newQuestId == 5 && questID == 5 && quest5Completion == true)
         {
             newQuestId = 6;
-            quest6 = true;
+            questID = 6;
         }
-        if (newQuestId == 6 && quest6 == true && quest6Completion == true)
+        if (newQuestId == 6 && questID == 6 && quest6Completion == true)
         {
             newQuestId = 7;
-            quest7 = true;
+            questID = 7;
         }
-        if (newQuestId == 7 && quest7 == true && quest7Completion == true)
+        if (newQuestId == 7 && questID == 7 && quest7Completion == true)
         {
             newQuestId = 8;
-            quest8 = true;
+            questID = 8;
         }
-        if (newQuestId == 8 && quest8 == true && quest8Completion == true)
+        if (newQuestId == 8 && questID == 8 && quest8Completion == true)
         {
             newQuestId = 9;
-            quest9 = true;
+            questID = 9;
         }
-        if(newQuestId == 9 && quest9 == true && quest9Completion == true)
+        if (newQuestId == 9 && questID == 9 && quest9Completion == true)
         {
             newQuestId = 10;
-            quest10 = true;
+            questID = 10;
         }
-        if (newQuestId == 10 && quest10 == true && quest10Completion == true)
+        if (newQuestId == 10 && questID == 10 && quest10Completion == true)
         {
             newQuestId = 11;
-            quest11 = true;
+            questID = 11;
         }
-        if (newQuestId == 11 && quest11 == true && quest11Completion == true)
+        if (newQuestId == 11 && questID == 11 && completionID == 11)
         {
             newQuestId = 12;
-            quest12 = true;
+            questID = 12;
         }
-        if (newQuestId == 12 && quest12 == true && quest12Completion == true)
+        if (newQuestId == 12 && questID == 12 && completionID == 12)
         {
             newQuestId = 13;
-            quest13 = true;
+            questID = 13;
         }
-        if (newQuestId == 13 && quest13 == true && quest13Completion == true)
+        if (newQuestId == 13 && questID == 13 && completionID == 13)
         {
             newQuestId = 14;
-            quest14 = true;
+            questID = 14;
         }
-        if (newQuestId == 14 && quest14 == true && quest14Completion == true)
+        if (newQuestId == 14 && questID == 14 && completionID == 14)
         {
             newQuestId = 15;
-            quest15 = true;
+            questID = 15;
         }
-        if (newQuestId == 15 && quest15 == true && quest15Completion == true)
+        if (newQuestId == 15 && questID == 15 && completionID == 15)
         {
             newQuestId = 16;
-            quest16 = true;
+            questID = 16;
         }
-        if (newQuestId == 16 && quest16 == true && quest16Completion == true)
+        if (newQuestId == 16 && questID == 16 && completionID == 16)
         {
             newQuestId = 17;
-            quest17 = true;
+            questID = 17;
         }
-        if (newQuestId == 17 && quest17 == true && quest17Completion == true)
+        if (newQuestId == 17 && questID == 17 && completionID == 17)
         {
             newQuestId = 18;
-            quest18 = true;
+            questID = 18;
         }
-        if (newQuestId == 18 && quest18== true && quest18Completion == true)
+        if (newQuestId == 18 && questID == 18 && completionID == 18)
         {
             newQuestId = 19;
-            quest19 = true;
+            questID = 19;
         }
-        if (newQuestId == 19 && quest19 == true && quest19Completion == true)
+        if (newQuestId == 19 && questID == 19 && completionID == 19)
         {
-            newQuestId =20;
-            quest20 = true;
+            newQuestId = 20;
+            questID = 20;
         }
-        if (newQuestId == 20 && quest20 == true && quest20Completion == true)
+        if (newQuestId == 20 && questID == 20 && completionID == 1)
         {
             newQuestId = 21;
-            quest21 = true;
+            questID = 21;
         }
+        if (newQuestId == 21 && questID == 21 && completionID == 1)
+        {
+            newQuestId = 22;
+            questID = 22;
+        }
+
+
     }
-    public void ChackQuest()
+    /*public void ChackQuest()
     {
 
         if(newQuestId == 2)
@@ -325,16 +329,197 @@ public class QuestManager : MonoBehaviour , IDataSave
 
 
 
+    }*/
+
+    //SetId Quest
+    public void SetIDQuest()
+    {
+        if(questID == 1)
+        {
+            quest1 = true;
+        }
+        if (questID == 2)
+        {
+            quest2 = true;
+        }
+        if (questID == 3)
+        {
+            quest3 = true;
+        }
+        if (questID == 4)
+        {
+            quest4 = true;
+        }
+        if (questID == 5)
+        {
+            quest5 = true;
+        }
+        if (questID == 6)
+        {
+            quest6 = true;
+        }
+        if (questID == 7)
+        {
+            quest7 = true;
+        }
+        if (questID == 8)
+        {
+            quest8 = true;
+        }
+        if (questID == 9)
+        {
+            quest9 = true;
+        }
+        if (questID == 10)
+        {
+            quest10 = true;
+        }
+        if (questID == 11)
+        {
+            quest11 = true;
+        }
+        if (questID == 12)
+        {
+            quest12 = true;
+        }
+        if (questID == 13)
+        {
+            quest13 = true;
+        }
+        if (questID == 14)
+        {
+            quest14 = true;
+        }
+        if (questID == 15)
+        {
+            quest15 = true;
+        }
+        if (questID == 16)
+        {
+            quest16 = true;
+        }
+        if (questID == 17)
+        {
+            quest17 = true;
+        }
+        if (questID == 18)
+        {
+            quest18 = true;
+        }
+        if (questID == 19)
+        {
+            quest19 = true;
+        }
+        if (questID == 20)
+        {
+            quest20 = true;
+        }
+        if (questID == 21)
+        {
+            quest21 = true;
+        }
     }
 
+    //Set Completion Quest
+    public void SetCompletQuest()
+    {
+        if(quest1Completion == true)
+        {
+            completionID = 1;
+        }
+        if (quest2Completion == true)
+        {
+            completionID = 2;
+        }
+        if (quest3Completion == true)
+        {
+            completionID = 3;
+        }
+        if (quest4Completion == true)
+        {
+            completionID = 4;
+        }
+        if (quest5Completion == true)
+        {
+            completionID = 5;
+        }
+        if (quest6Completion == true)
+        {
+            completionID = 6;
+        }
+        if (quest7Completion == true)
+        {
+            completionID = 7;
+        }
+        if (quest8Completion == true)
+        {
+            completionID = 8;
+        }
+        if (quest9Completion == true)
+        {
+            completionID = 9;
+        }
+        if (quest10Completion == true)
+        {
+            completionID = 10;
+        }
+        if (completionID == 11)
+        {
+            quest11Completion = true;
+        }
+        if (completionID == 12)
+        {
+            quest12Completion = true;
+        }
+        if (completionID == 13)
+        {
+            quest13Completion = true;
+        }
+        if (completionID == 14)
+        {
+            quest14Completion = true;
+        }
+        if (completionID == 15)
+        {
+            quest15Completion = true;
+        }
+        if (completionID == 16)
+        {
+            quest16Completion = true;
+        }
+        if (completionID == 17)
+        {
+            quest17Completion = true;
+        }
+        if (completionID == 18)
+        {
+            quest18Completion = true;
+        }
+        if (completionID == 19)
+        {
+            quest19Completion = true;
+        }
+        if (completionID == 20)
+        {
+            quest20Completion = true;
+        }
+        if (completionID == 21)
+        {
+            quest21Completion = true;
+        }
+    }
     public void SaveData(ref GameData data)
     {
         data.questID = newQuestId;
+        data.setQuestID = questID;
+        data.setCompletionID = completionID;
     }
 
     public void LoadData(GameData data)
     {
         newQuestId = data.questID;
+        questID = data.setQuestID;
+        completionID = data.setCompletionID;
     }
 
 }

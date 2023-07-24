@@ -8,6 +8,7 @@ public class DialogShow : MonoBehaviour
     public Dialog dialog;
     public bool showDialog = false;
     public GameObject obj;
+    public int dialogQuest = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +27,11 @@ public class DialogShow : MonoBehaviour
             dialog.gameObject.SetActive(false);
         }
     }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            if (Input.GetKey(KeyCode.E)&&QuestManager.quest7)
+            if (Input.GetKey(KeyCode.E)&& QuestManager.questID == 7)
             {
                
                 
@@ -40,13 +40,9 @@ public class DialogShow : MonoBehaviour
                     QuestManager.quest7Completion = true;
                 
             }
-            if (Input.GetKey(KeyCode.E) && QuestManager.quest15)
+            if (Input.GetKey(KeyCode.E) && QuestManager.questID == 15)
             {
-
-
-                
                 QuestManager.quest15Completion = true;
-
             }
 
         }

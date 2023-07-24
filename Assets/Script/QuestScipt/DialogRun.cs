@@ -20,15 +20,15 @@ public class DialogRun : MonoBehaviour
     }
     public void RunDialog()
     {
-        if(QuestManager.quest4==true)
+        if(QuestManager.questID == 4)
         {
             dialogQuest.SetActive(true);
         }
-        if(QuestManager.quest5==true)
+        if(QuestManager.questID == 5)
         {
             dialogQuest1.SetActive(true);
         }
-        if (QuestManager.quest6 == true)
+        if (QuestManager.questID == 6)
         {
             dialogQuest2.SetActive(true);
         }

@@ -24,6 +24,9 @@ public class Completion : MonoBehaviour
     bool fondElectricfuse = false;
     public List<GameObject> chackOj = new List<GameObject>();
 
+    public int itemOn = 0;
+
+
     // Update is called once per frame
 
     void Start()
@@ -41,15 +44,30 @@ public class Completion : MonoBehaviour
 
     public void QuestRun()
     {
-        if (QuestManager.quest1 == true)
+        //ItemSet
+        if (QuestManager.questID == 1)
         {
             quest1.SetActive(true);
         } 
-        if(QuestManager.quest8 == true)
+        if(QuestManager.questID == 8)
         {
             quest2.SetActive(true);
         }
-        if (QuestManager.quest9 == true)
+        if (QuestManager.questID == 9)
+        {
+            quest3.SetActive(true);
+        }
+
+        //ChaSet
+        if (QuestManager.questID == 7)
+        {
+            Chacracter0.SetActive(true);
+        }
+        if (QuestManager.questID == 15)
+        {
+            Chacracter1.SetActive(true);
+        }
+        if (QuestManager.questID == 13)
         {
             quest3.SetActive(true);
         }
@@ -58,8 +76,9 @@ public class Completion : MonoBehaviour
 
         if (itemQuest1 == true)
         {
-            QuestManager.quest1Completion = true;
+            QuestManager.completionID = 1;
         }
+
         if (itemQuest2 == true)
         {
             QuestManager.quest8Completion = true;
@@ -69,26 +88,6 @@ public class Completion : MonoBehaviour
         {
             QuestManager.quest9Completion = true;
         }
-
-
-        if (QuestManager.quest7 == true)
-        {
-            Chacracter0.SetActive(true);
-           
-        }
-        if (QuestManager.quest15 == true)
-        {
-            Chacracter1.SetActive(true);
-
-        }
-        if (QuestManager.quest13 == true)
-        {
-            Chacracter0.SetActive(false);
-
-        }
-
-
-
 
 
         ItemRun();
@@ -138,7 +137,50 @@ public class Completion : MonoBehaviour
   
         }
     }
-    
+
+    /*public void SetOnObj()
+    {
+        //Item
+        if(itemOn == 1)
+        {
+            quest1.SetActive(true);
+        }
+        if (itemOn == 2)
+        {
+            quest2.SetActive(true);
+        }
+        if (itemOn == 3)
+        {
+            quest3.SetActive(true);
+        }
+
+        //Character
+        if (chacracterOn == 1)
+        {
+            Chacracter0.SetActive(true);
+        }
+        if (chacracterOn == 2)
+        {
+            Chacracter1.SetActive(true);
+        }
+        if (chacracterOn == 3)
+        {
+            Chacracter0.SetActive(false);
+        }
+    }*/
+
+
+
+    public void SaveData(ref GameData data)
+    {
+        data.itemOnQ = itemOn;
+    }
+
+    public void LoadData(GameData data)
+    {
+        itemOn = data.itemOnQ;
+    }
+
 }
    
 

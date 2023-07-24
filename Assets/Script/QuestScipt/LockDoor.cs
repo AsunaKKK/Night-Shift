@@ -8,6 +8,7 @@ public class LockDoor : MonoBehaviour
     
     public static bool key;
     public bool electricFuse;
+    public int doorOn = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +33,24 @@ public class LockDoor : MonoBehaviour
             }
 
         }
-         if (QuestManager.quest9 == true && key == true)
-         {
-             doorAll.SetActive(true);
-
-         }
-     
-
+        if (QuestManager.questID == 9 && key == true)
+        {
+            doorOn = 1;
+        }
+        if (doorOn == 1)
+        {
+            doorAll.SetActive(true);
+        }
     }
-   
+
+    public void SaveData(ref GameData data)
+    {
+        data.doorOnQ = doorOn;
+    }
+
+    public void LoadData(GameData data)
+    {
+        doorOn = data.doorOnQ;
+    }
+
 }
