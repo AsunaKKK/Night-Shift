@@ -31,11 +31,24 @@ public class DialogShow : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E)&&QuestManager.quest7)
             {
-                showDialog = true;
-                obj.SetActive(true);
+               
+                
+                    showDialog = true;
+                    obj.SetActive(true);
+                    QuestManager.quest7Completion = true;
+                
             }
+            if (Input.GetKey(KeyCode.E) && QuestManager.quest15)
+            {
+
+
+                
+                QuestManager.quest15Completion = true;
+
+            }
+
         }
     }
 

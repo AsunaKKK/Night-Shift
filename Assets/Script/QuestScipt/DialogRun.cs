@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DialogRun : MonoBehaviour
 {
-    public GameObject dialogQuest4;
+    public GameObject dialogQuest;
+    public GameObject dialogQuest1;
+    public GameObject dialogQuest2;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,17 @@ public class DialogRun : MonoBehaviour
     {
         if(QuestManager.quest4==true)
         {
-            dialogQuest4.SetActive(true);
+            dialogQuest.SetActive(true);
         }
+        if(QuestManager.quest5==true)
+        {
+            dialogQuest1.SetActive(true);
+        }
+        if (QuestManager.quest6 == true)
+        {
+            dialogQuest2.SetActive(true);
+        }
+
 
     }
 }

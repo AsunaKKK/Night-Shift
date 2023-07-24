@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class LockDoor : MonoBehaviour
 {
-    //public GameObject door102;
+    public GameObject doorAll;
     
-   // public static bool key102;
+    public static bool key;
+    public bool electricFuse;
     // Start is called before the first frame update
     void Start()
     {
-      
+        doorAll.SetActive(false);
     }
 
     // Update is called once per frame
@@ -18,18 +19,24 @@ public class LockDoor : MonoBehaviour
     {
         foreach (ItemQuest item in InventoryQuestManager.Instance.ItemsQuest)
         {
-           /* if (item.itemName == "Key102")
+            if (item.itemName == "Key")
             {
-                key102 = true;
+                key = true;
+                
+            }
+            if(item.itemName == "Electric-fuse")
+            {
+                electricFuse = true;
+                
                 break;
-            }*/
+            }
 
         }
-        /* if (QuestManager.quest2 == true && key102 == true)
+         if (QuestManager.quest9 == true && key == true)
          {
-             door102.SetActive(true);
+             doorAll.SetActive(true);
 
-         }*/
+         }
      
 
     }

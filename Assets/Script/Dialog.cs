@@ -13,9 +13,14 @@ public class Dialog : MonoBehaviour
 
     public float textSpeed;
     public GameObject obj;
+    public GameObject interfaceFace;
+    
+    
+    
     public GameObject charecterTalk1;
     public GameObject charecterTalk2;
     public GameObject nameTalk;
+    
 
     public PlayerController playerController;
     //public GameObject ques;
@@ -28,12 +33,17 @@ public class Dialog : MonoBehaviour
         textComponent.text = string.Empty;
         StartDialogue();
         playerController = FindObjectOfType<PlayerController>();
+        interfaceFace.SetActive(false);
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.E))
+        charecterTalk1.SetActive(true);
+        charecterTalk2.SetActive(true);
+        nameTalk.SetActive(true);
+        if (Input.GetKey(KeyCode.E))
         {
             playerController.ToggleMovement(false);
         }
@@ -74,6 +84,7 @@ public class Dialog : MonoBehaviour
         }
         else
         {
+            interfaceFace.SetActive(true);
             charecterTalk1.SetActive(false);
             charecterTalk2.SetActive(false);
             nameTalk.SetActive(false);

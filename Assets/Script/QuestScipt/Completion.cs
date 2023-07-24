@@ -5,13 +5,35 @@ using UnityEngine;
 public class Completion : MonoBehaviour
 {
     public GameObject quest1;
+    public GameObject quest2;
+    public GameObject quest3;
+    
+    public GameObject Chacracter0;
+    public GameObject Chacracter1;
+
     //public GameObject quest2;
     public bool itemQuest1 = false;
+    public bool itemQuest2 = false;
+    public bool itemQuest3 = false;
+
+
+
     bool foundTuup = false;
     bool foundLightSteel = false;
+    bool foundKey = false;
+    bool fondElectricfuse = false;
     public List<GameObject> chackOj = new List<GameObject>();
 
     // Update is called once per frame
+
+    void Start()
+    {
+        quest1.SetActive(false);
+        quest2.SetActive(false);
+        quest3.SetActive(false);
+    }
+
+
     void Update()
     {
         QuestRun();
@@ -22,13 +44,50 @@ public class Completion : MonoBehaviour
         if (QuestManager.quest1 == true)
         {
             quest1.SetActive(true);
+        } 
+        if(QuestManager.quest8 == true)
+        {
+            quest2.SetActive(true);
         }
+        if (QuestManager.quest9 == true)
+        {
+            quest3.SetActive(true);
+        }
+
 
 
         if (itemQuest1 == true)
         {
             QuestManager.quest1Completion = true;
         }
+        if (itemQuest2 == true)
+        {
+            QuestManager.quest8Completion = true;
+
+        }
+        if (itemQuest3 == true)
+        {
+            QuestManager.quest9Completion = true;
+        }
+
+
+        if (QuestManager.quest7 == true)
+        {
+            Chacracter0.SetActive(true);
+           
+        }
+        if (QuestManager.quest15 == true)
+        {
+            Chacracter1.SetActive(true);
+
+        }
+        if (QuestManager.quest13 == true)
+        {
+            Chacracter0.SetActive(false);
+
+        }
+
+
 
 
 
@@ -42,63 +101,44 @@ public class Completion : MonoBehaviour
             if (item.itemName == "Tuup")
             {
                 foundTuup = true;
+                
             }
 
             if (item.itemName == "light-steel")
             {
                 foundLightSteel = true;
+               
+            }
+            if (item.itemName == "Key")
+            {
+                foundKey = true;
+               
+            }
+            if(item.itemName == "Electric-fuse")
+            {
+                fondElectricfuse = true;
             }
 
             // If both items are found, set itemQuest1 to true and break out of the loop
             if (foundTuup && foundLightSteel)
             {
                 itemQuest1 = true;
+
+            }
+            if(foundKey)
+            {
+                itemQuest2 = true;
+               
+            }
+            if(fondElectricfuse)
+            {
+                itemQuest3 = true;
                 break;
             }
+  
         }
     }
-    public void CheckAndCompleteQuest(string objectName)
-    {
-        if (objectName == "quest101" && QuestManager.quest2)
-        {
-            // Set quest2Completion to true
-            QuestManager.quest2Completion = true;
-
-            // Find the GameObject with the name "quest101" in the list and destroy it
-            GameObject questObject = chackOj.Find(obj => obj.name == "quest101");
-            if (questObject != null)
-            {
-                chackOj.Remove(questObject);
-                Destroy(questObject);
-            }
-        }
-        else if (objectName == "quest102" && QuestManager.quest4)
-        {
-            // Set quest2Completion to true
-            QuestManager.quest4Completion = true;
-
-            // Find the GameObject with the name "quest101" in the list and destroy it
-            GameObject questObject = chackOj.Find(obj => obj.name == "quest102");
-            if (questObject != null)
-            {
-                chackOj.Remove(questObject);
-                Destroy(questObject);
-            }
-        }
-        /* else if (objectName == "quest102" && QuestManager.quest3)
-         {
-             // Set quest3Completion to true
-             QuestManager.quest3Completion = true;
-
-             // Find the GameObject with the name "quest102" in the list and destroy it
-             GameObject questObject = chackOj.Find(obj => obj.name == "quest102");
-             if (questObject != null)
-             {
-                 chackOj.Remove(questObject);
-                 Destroy(questObject);
-             }
-         }*/
-    }
+    
 }
    
 

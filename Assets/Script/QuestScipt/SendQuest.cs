@@ -4,36 +4,24 @@ using UnityEngine;
 
 public class SendQuest : MonoBehaviour
 {
-    // Reference to the LockDoor script
-    public LockDoor lockDoorScript;
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+    private LockDoor lockDoorScript;
+
+    private void Start()
+    {
+        lockDoorScript = FindObjectOfType<LockDoor>();
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            // Check if both quest2 and key102 are true
-          /*  if (QuestManager.quest2 == true )
+            
+            // Check if the player has pressed the E key and has the electricFuse
+            if (Input.GetKeyDown(KeyCode.E) && lockDoorScript.electricFuse)
             {
-               
-                QuestManager.quest2Completion = true;
-                
-             
-            }*/
+                QuestManager.quest10Completion = true;
+                Debug.Log("Quest 10 completed!");
+            }
         }
-    }                   
-
-               
-
-    private void Update()
-    {
-        // Check if the player is pressing the "E" key
-       /* if (Input.GetKeyDown(KeyCode.E)&&QuestManager.quest3)
-        {
-            // Set quest3Completion to true
-            QuestManager.quest3Completion = true;
-          
-
-        }*/
-       
     }
 }

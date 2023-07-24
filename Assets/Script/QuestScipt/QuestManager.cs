@@ -19,6 +19,17 @@ public class QuestManager : MonoBehaviour , IDataSave
     public static bool quest8;
     public static bool quest9;
     public static bool quest10;
+    public static bool quest11;
+    public static bool quest12;
+    public static bool quest13;
+    public static bool quest14;
+    public static bool quest15;
+    public static bool quest16;
+    public static bool quest17;
+    public static bool quest18;
+    public static bool quest19;
+    public static bool quest20;
+    public static bool quest21;
 
 
 
@@ -33,6 +44,17 @@ public class QuestManager : MonoBehaviour , IDataSave
     public static bool quest8Completion;
     public static bool quest9Completion;
     public static bool quest10Completion;
+    public static bool quest11Completion;
+    public static bool quest12Completion;
+    public static bool quest13Completion;
+    public static bool quest14Completion;
+    public static bool quest15Completion;
+    public static bool quest16Completion;
+    public static bool quest17Completion;
+    public static bool quest18Completion;
+    public static bool quest19Completion;
+    public static bool quest20Completion;
+    public static bool quest21Completion;
 
     
 
@@ -45,7 +67,7 @@ public class QuestManager : MonoBehaviour , IDataSave
         // Load and display the new quest task when the game starts
 
         quest1 = true; 
-        quest2 = false;
+        /*quest2 = false;
         quest3 = false;
         quest4= false;
         quest5 = false;
@@ -53,7 +75,7 @@ public class QuestManager : MonoBehaviour , IDataSave
         quest2Completion = false;
         quest3Completion = false;
         quest4Completion = false;
-        quest5Completion = false;
+        quest5Completion = false;*/
 
 
 
@@ -145,6 +167,61 @@ public class QuestManager : MonoBehaviour , IDataSave
         {
             newQuestId = 10;
             quest10 = true;
+        }
+        if (newQuestId == 10 && quest10 == true && quest10Completion == true)
+        {
+            newQuestId = 11;
+            quest11 = true;
+        }
+        if (newQuestId == 11 && quest11 == true && quest11Completion == true)
+        {
+            newQuestId = 12;
+            quest12 = true;
+        }
+        if (newQuestId == 12 && quest12 == true && quest12Completion == true)
+        {
+            newQuestId = 13;
+            quest13 = true;
+        }
+        if (newQuestId == 13 && quest13 == true && quest13Completion == true)
+        {
+            newQuestId = 14;
+            quest14 = true;
+        }
+        if (newQuestId == 14 && quest14 == true && quest14Completion == true)
+        {
+            newQuestId = 15;
+            quest15 = true;
+        }
+        if (newQuestId == 15 && quest15 == true && quest15Completion == true)
+        {
+            newQuestId = 16;
+            quest16 = true;
+        }
+        if (newQuestId == 16 && quest16 == true && quest16Completion == true)
+        {
+            newQuestId = 17;
+            quest17 = true;
+        }
+        if (newQuestId == 17 && quest17 == true && quest17Completion == true)
+        {
+            newQuestId = 18;
+            quest18 = true;
+        }
+        if (newQuestId == 18 && quest18== true && quest18Completion == true)
+        {
+            newQuestId = 19;
+            quest19 = true;
+        }
+        if (newQuestId == 19 && quest19 == true && quest19Completion == true)
+        {
+            newQuestId =20;
+            quest20 = true;
+        }
+        if (newQuestId == 20 && quest20 == true && quest20Completion == true)
+        {
+            newQuestId = 21;
+            quest21 = true;
         }
     }
 
