@@ -189,7 +189,7 @@ public class QuestCollisionHandler : MonoBehaviour
                     if (obj.name == "quest107")
                     {
 
-                        QuestManager.completionID = 13;
+                        QuestManager.quest13Completion= true;
 
 
                         obj.SetActive(false);
@@ -215,7 +215,7 @@ public class QuestCollisionHandler : MonoBehaviour
                     if (obj.name == "quest108")
                     {
 
-                        QuestManager.completionID = 14;
+                        QuestManager.quest14Completion=true;
 
 
                         obj.SetActive(false);

@@ -164,57 +164,57 @@ public class QuestManager : MonoBehaviour , IDataSave
             newQuestId = 11;
             questID = 11;
         }
-        if (newQuestId == 11 && questID == 11 && completionID == 11)
+        if (newQuestId == 11 && questID == 11 && quest11Completion == true)
         {
             newQuestId = 12;
             questID = 12;
         }
-        if (newQuestId == 12 && questID == 12 && completionID == 12)
+        if (newQuestId == 12 && questID == 12 && quest12Completion == true)
         {
             newQuestId = 13;
             questID = 13;
         }
-        if (newQuestId == 13 && questID == 13 && completionID == 13)
+        if (newQuestId == 13 && questID == 13 && quest13Completion == true)
         {
             newQuestId = 14;
             questID = 14;
         }
-        if (newQuestId == 14 && questID == 14 && completionID == 14)
+        if (newQuestId == 14 && questID == 14 && quest14Completion == true)
         {
             newQuestId = 15;
             questID = 15;
         }
-        if (newQuestId == 15 && questID == 15 && completionID == 15)
+        if (newQuestId == 15 && questID == 15 && quest15Completion == true)
         {
             newQuestId = 16;
             questID = 16;
         }
-        if (newQuestId == 16 && questID == 16 && completionID == 16)
+        if (newQuestId == 16 && questID == 16 && quest16Completion == true)
         {
             newQuestId = 17;
             questID = 17;
         }
-        if (newQuestId == 17 && questID == 17 && completionID == 17)
+        if (newQuestId == 17 && questID == 17 && quest17Completion == true)
         {
             newQuestId = 18;
             questID = 18;
         }
-        if (newQuestId == 18 && questID == 18 && completionID == 18)
+        if (newQuestId == 18 && questID == 18 && quest18Completion == true)
         {
             newQuestId = 19;
             questID = 19;
         }
-        if (newQuestId == 19 && questID == 19 && completionID == 19)
+        if (newQuestId == 19 && questID == 19 && quest19Completion == true)
         {
             newQuestId = 20;
             questID = 20;
         }
-        if (newQuestId == 20 && questID == 20 && completionID == 1)
+        if (newQuestId == 20 && questID == 20 && quest20Completion == true)
         {
             newQuestId = 21;
             questID = 21;
         }
-        if (newQuestId == 21 && questID == 21 && completionID == 1)
+        if (newQuestId == 21 && questID == 21 && quest21Completion == true)
         {
             newQuestId = 22;
             questID = 22;

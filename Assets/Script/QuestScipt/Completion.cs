@@ -10,6 +10,7 @@ public class Completion : MonoBehaviour
     
     public GameObject Chacracter0;
     public GameObject Chacracter1;
+    public GameObject Chacracter2;
 
     //public GameObject quest2;
     public bool itemQuest1 = false;
@@ -59,6 +60,15 @@ public class Completion : MonoBehaviour
         }
 
         //ChaSet
+        if (QuestManager.questID == 1)
+        {
+            Chacracter2.SetActive(true);
+        }
+        if(QuestManager.questID == 2)
+        {
+            Chacracter2.SetActive(false);
+
+        }
         if (QuestManager.questID == 7)
         {
             Chacracter0.SetActive(true);
@@ -69,14 +79,14 @@ public class Completion : MonoBehaviour
         }
         if (QuestManager.questID == 13)
         {
-            quest3.SetActive(true);
+            Chacracter0.SetActive(false);
         }
 
 
 
         if (itemQuest1 == true)
         {
-            QuestManager.completionID = 1;
+            QuestManager.quest1Completion=true;
         }
 
         if (itemQuest2 == true)

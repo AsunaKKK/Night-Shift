@@ -13,7 +13,7 @@ public class SendQuest : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.tag == "Player")
         {
             
             // Check if the player has pressed the E key and has the electricFuse
