@@ -32,7 +32,7 @@ public class DialogRun : MonoBehaviour
         {
             dialogQuest.SetActive(true);
         }
-        if(QuestManager.questID == 5)
+        if(QuestManager.questID == 6)
         {
             dialogQuest1.SetActive(true);
         }

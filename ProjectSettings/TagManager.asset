@@ -9,6 +9,7 @@ TagManager:
   - notItem
   - Wall
   - ItemQuest
+  - KPlayer
   layers:
   - Default
   - TransparentFX

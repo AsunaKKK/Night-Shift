@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 
 public class Dialog : MonoBehaviour
-
 {
     public TextMeshProUGUI textComponent;
 
@@ -14,17 +13,19 @@ public class Dialog : MonoBehaviour
     public float textSpeed;
     public GameObject obj;
     public GameObject interfaceFace;
+
+    public GameObject[] nameShow;
+    private bool checkNameShow;
     
     
     
     public GameObject charecterTalk1;
     public GameObject charecterTalk2;
     public GameObject nameTalk;
+    public GameObject nameTalk2;
     
 
     public PlayerController playerController;
-    //public GameObject ques;
-    //public GameObject itemQuse;
 
     private int index;
     // Start is called before the first frame update
@@ -43,10 +44,7 @@ public class Dialog : MonoBehaviour
         charecterTalk1.SetActive(true);
         charecterTalk2.SetActive(true);
         nameTalk.SetActive(true);
-        if (Input.GetKey(KeyCode.E))
-        {
-            playerController.ToggleMovement(false);
-        }
+        nameTalk2.SetActive(true);
 
         if (Input.GetMouseButtonDown(0))
             if (textComponent.text == line[index])
@@ -88,19 +86,16 @@ public class Dialog : MonoBehaviour
             charecterTalk1.SetActive(false);
             charecterTalk2.SetActive(false);
             nameTalk.SetActive(false);
+            nameTalk2.SetActive(false);
             obj.SetActive(false);
             gameObject.SetActive(false);
             textComponent.text = string.Empty;
             index = 0;
-            playerController.ToggleMovement(true);
 
             foreach (char c in line[index].ToCharArray())
             {
                 textComponent.text += c;
             }
-
-            //ques.SetActive(true);
-           // itemQuse.SetActive(true);
         }
     }
 

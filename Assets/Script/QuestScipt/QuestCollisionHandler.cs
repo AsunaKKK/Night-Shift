@@ -26,9 +26,7 @@ public class QuestCollisionHandler : MonoBehaviour
                         {
                         // Set quest2Completion to true
                         QuestManager.quest2Completion = true;
-                        //QuestManager.completionID += 1;
 
-                            // Deactivate the "quest101" GameObject
                             obj.SetActive(false);
 
                             // Set "quest102" to active

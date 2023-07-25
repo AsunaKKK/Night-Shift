@@ -16,8 +16,10 @@ public class GameData
     public List<ItemQuest> inventoryItemQuest;
 
     public int questID =1;
-    public int setQuestID = 0;
+    public int setQuestID = 1;
     public int setCompletionID = 0;
+
+
     public int chackQuestId;
     public int lightonQ;
     public int doorOnQ = 0;
@@ -41,9 +43,14 @@ public class GameData
         inventoryItemQuest = new List<ItemQuest>();
         playerMapPosition = new Vector3(654f, 1556f, 0f);
         playerMapRotation = Quaternion.identity;
+
+
         questID = 1;
         setQuestID = 1;
         setCompletionID = 0;
+
+
+
         chackQuestId = 0;
         lightonQ = 0;
         doorOnQ = 0;

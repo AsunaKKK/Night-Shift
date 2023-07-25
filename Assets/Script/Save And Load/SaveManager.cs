@@ -64,16 +64,22 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        if(this.gameObject == null)
+        if (this.gameObject == null)
         {
-            Debug.LogWarning("No data was found. A new game need.");
+            Debug.LogWarning("No data was found. A new game needs to be started.");
             return;
         }
+
+        if (PlayerController.instance != null)
+        {
+            PlayerController.instance.SaveData(ref gameData);
+        }
+
         foreach (IDataSave dataSaveObj in dataSavesObjects)
         {
             dataSaveObj.SaveData(ref gameData);
-            
         }
+
         dataHendler.Save(gameData);
     }
 

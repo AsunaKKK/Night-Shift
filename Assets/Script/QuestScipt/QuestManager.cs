@@ -58,14 +58,13 @@ public class QuestManager : MonoBehaviour , IDataSave
     public static int newQuestId = 1;
     public static int questID = 1;
     public static int completionID = 0;
-    int chack;
 
     void Start()
     {
+        quest1 = true;
         Debug.Log("new" + newQuestId);
         Debug.Log("qu" + questID);
         Debug.Log("com" + completionID);
-
     }
     void Update()
     {
@@ -74,7 +73,6 @@ public class QuestManager : MonoBehaviour , IDataSave
         SetIDQuest();
         SetCompletQuest();
 
-        //ChackQuest();
     }
 
     // Call this method when you want to display the quest information
@@ -113,36 +111,53 @@ public class QuestManager : MonoBehaviour , IDataSave
     //Run Quest
      public void RunQuest()
     {
-        if(newQuestId == 1 && questID == 1 && completionID == 1)
+        if(newQuestId == 1 && questID == 1 && quest1Completion == true && completionID == 1)
         {
             newQuestId = 2;
             questID = 2;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 2 && questID == 2 && quest2Completion == true)
+        if (newQuestId == 2 && questID == 2 && quest2Completion == true && completionID == 2)
         {
             newQuestId = 3;
             questID = 3;
-            Debug.Log("run");
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 3 && questID == 3 && quest3Completion == true)
+        if (newQuestId == 3 && questID == 3 && quest3Completion == true && completionID == 3)
         {
             newQuestId = 4;
             questID = 4;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 4 && questID == 4 && quest4Completion == true)
+        if (newQuestId == 4 && questID == 4 && quest4Completion == true && completionID == 4)
         {
             newQuestId = 5;
             questID = 5;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 5 && questID == 5 && quest5Completion == true)
+        if (newQuestId == 5 && questID == 5 && quest5Completion == true && completionID == 5)
         {
             newQuestId = 6;
             questID = 6;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
         if (newQuestId == 6 && questID == 6 && quest6Completion == true)
         {
             newQuestId = 7;
             questID = 7;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
         if (newQuestId == 7 && questID == 7 && quest7Completion == true)
         {
@@ -222,119 +237,10 @@ public class QuestManager : MonoBehaviour , IDataSave
 
 
     }
-    /*public void ChackQuest()
-    {
-
-        if(newQuestId == 2)
-        {
-            quest1 = true;
-            quest1Completion = true;
-        }
-         if(newQuestId == 3)
-        {
-            quest2 = true;
-            quest2Completion = true;
-        }
-         if (newQuestId == 4)
-        {
-            quest3 = true;
-            quest3Completion = true;
-        }
-         if (newQuestId == 5)
-        {
-            quest4 = true;
-            quest4Completion = true;
-        }
-         if (newQuestId == 6)
-        {
-            quest5 = true;
-            quest5Completion = true;
-        }
-         if (newQuestId == 7)
-        {
-            quest6 = true;
-            quest6Completion = true;
-        }
-         if (newQuestId == 8)
-        {
-            quest7 = true;
-            quest7Completion = true;
-        }
-         if (newQuestId == 9)
-        {
-            quest8 = true;
-            quest8Completion = true;
-        }
-         if (newQuestId == 10)
-        {
-            quest9 = true;
-            quest9Completion = true;
-        }
-         if (newQuestId == 11)
-        {
-            quest10 = true;
-            quest10Completion = true;
-        }
-         if (newQuestId == 12)
-        {
-            quest11 = true;
-            quest11Completion = true;
-        }
-         if (newQuestId == 13)
-        {
-            quest12 = true;
-            quest12Completion = true;
-        }
-         if (newQuestId == 14)
-        {
-            quest13 = true;
-            quest13Completion = true;
-        }
-         if (newQuestId == 15)
-        {
-            quest14 = true;
-            quest14Completion = true;
-        }
-         if (newQuestId == 16)
-        {
-            quest15 = true;
-            quest15Completion = true;
-        }
-         if (newQuestId == 17)
-        {
-            quest16 = true;
-            quest16Completion = true;
-        }
-        if (newQuestId == 18)
-        {
-            quest17 = true;
-            quest17Completion = true;
-        }
-         if (newQuestId == 19)
-        {
-            quest18 = true;
-            quest18Completion = true;
-        }
-         if (newQuestId == 20)
-        {
-            quest19 = true;
-            quest19Completion = true;
-        }
-         if (newQuestId == 21)
-        {
-            quest20 = true;
-            quest20Completion = true;
-        }
-       
-
-
-
-    }*/
-
     //SetId Quest
     public void SetIDQuest()
     {
-        if(questID == 1)
+        if (questID == 1)
         {
             quest1 = true;
         }
@@ -427,14 +333,17 @@ public class QuestManager : MonoBehaviour , IDataSave
         {
             completionID = 1;
         }
+
         if (quest2Completion == true)
         {
             completionID = 2;
         }
+
         if (quest3Completion == true)
         {
             completionID = 3;
         }
+
         if (quest4Completion == true)
         {
             completionID = 4;

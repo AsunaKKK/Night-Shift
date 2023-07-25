@@ -179,18 +179,6 @@ public class Completion : MonoBehaviour
         }
     }*/
 
-
-
-    public void SaveData(ref GameData data)
-    {
-        data.itemOnQ = itemOn;
-    }
-
-    public void LoadData(GameData data)
-    {
-        itemOn = data.itemOnQ;
-    }
-
 }
    
 

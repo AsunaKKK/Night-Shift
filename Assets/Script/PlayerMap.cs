@@ -23,6 +23,8 @@ public class PlayerMap : MonoBehaviour , IDataSave
     [SerializeField] private Rigidbody2D rb;
 
     public RectTransform rectTransform;
+    private Vector3 savedPosition;
+    private Quaternion savedRotation;
 
 
     private void Awake()
@@ -138,14 +140,19 @@ public class PlayerMap : MonoBehaviour , IDataSave
 
     public void SaveData(ref GameData data)
     {
-        data.playerMapPosition = rectTransform.position;
-        data.playerMapRotation = rectTransform.rotation;
+        data.playerMapPosition = savedPosition;
+        data.playerMapRotation = savedRotation;
+
     }
 
     public void LoadData(GameData data)
     {
-        rectTransform.position = data.playerMapPosition;
-        rectTransform.rotation = data.playerMapRotation;
+        savedPosition = data.playerMapPosition;
+        savedRotation = data.playerMapRotation;
+
+        // Set the position and rotation after loading
+        rectTransform.position = savedPosition;
+        rectTransform.rotation = savedRotation;
     }
 
 
