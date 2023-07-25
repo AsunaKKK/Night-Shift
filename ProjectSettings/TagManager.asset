@@ -46,6 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Save
+    uniqueID: 2639427545
+    locked: 0
   - name: Item
     uniqueID: 3076309565
     locked: 0
@@ -57,7 +60,4 @@ TagManager:
     locked: 0
   - name: Door
     uniqueID: 1522098521
-    locked: 0
-  - name: Save
-    uniqueID: 2639427545
     locked: 0
