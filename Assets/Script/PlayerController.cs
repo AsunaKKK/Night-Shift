@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour , IDataSave
     // Start is called before the first frame update
     void Start()
     {
-
+        currenHp = maxHp;
     }
 
     // Update is called once per frame
@@ -232,6 +232,32 @@ public class PlayerController : MonoBehaviour , IDataSave
         hpBar.fillAmount = currenHp / maxHp;
         energyBar.fillAmount = currenEnergy / maxEnergy;
     }
+    public void TakeDamage(float damageAmount)
+    {
+        if (!canMove)
+        {
+            // The player is invulnerable or unable to move (e.g., during certain animations or states)
+            return;
+        }
+
+            currenHp -= damageAmount;
+        if (currenHp <= 0)
+        {
+            currenHp = 0;
+            Die();
+             // Call a method to handle the player's death
+        }
+
+        // Play any damage animation or effects if needed
+        // For example, you can trigger an animation for the player being hit.
+        // anim.SetTrigger("Hit");
+    }
+    private void Die()
+    {
+        
+        Debug.Log("Player died!");
+    }
+
 
     // Save and Load Data
 

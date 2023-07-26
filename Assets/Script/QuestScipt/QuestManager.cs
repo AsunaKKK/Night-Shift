@@ -151,7 +151,7 @@ public class QuestManager : MonoBehaviour , IDataSave
             Debug.Log("qu" + questID);
             Debug.Log("com" + completionID);
         }
-        if (newQuestId == 6 && questID == 6 && quest6Completion == true)
+        if (newQuestId == 6 && questID == 6 && quest6Completion == true && completionID == 6)
         {
             newQuestId = 7;
             questID = 7;
@@ -159,80 +159,126 @@ public class QuestManager : MonoBehaviour , IDataSave
             Debug.Log("qu" + questID);
             Debug.Log("com" + completionID);
         }
-        if (newQuestId == 7 && questID == 7 && quest7Completion == true)
+        if (newQuestId == 7 && questID == 7 && quest7Completion == true && completionID == 7)
         {
             newQuestId = 8;
             questID = 8;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 8 && questID == 8 && quest8Completion == true)
+        if (newQuestId == 8 && questID == 8 && quest8Completion == true && completionID == 8)
         {
             newQuestId = 9;
             questID = 9;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 9 && questID == 9 && quest9Completion == true)
+        if (newQuestId == 9 && questID == 9 && quest9Completion == true && completionID == 9)
         {
             newQuestId = 10;
             questID = 10;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 10 && questID == 10 && quest10Completion == true)
+        if (newQuestId == 10 && questID == 10 && quest10Completion == true && completionID == 10)
         {
             newQuestId = 11;
             questID = 11;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 11 && questID == 11 && quest11Completion == true)
+        if (newQuestId == 11 && questID == 11 && quest11Completion == true && completionID == 11)
         {
             newQuestId = 12;
             questID = 12;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
+
         }
-        if (newQuestId == 12 && questID == 12 && quest12Completion == true)
+        if (newQuestId == 12 && questID == 12 && quest12Completion == true && completionID == 12)
         {
             newQuestId = 13;
             questID = 13;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 13 && questID == 13 && quest13Completion == true)
+        if (newQuestId == 13 && questID == 13 && quest13Completion == true && completionID == 13)
         {
             newQuestId = 14;
             questID = 14;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 14 && questID == 14 && quest14Completion == true)
+        if (newQuestId == 14 && questID == 14 && quest14Completion == true && completionID == 14)
         {
             newQuestId = 15;
             questID = 15;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 15 && questID == 15 && quest15Completion == true)
+        if (newQuestId == 15 && questID == 15 && quest15Completion == true && completionID == 15)
         {
             newQuestId = 16;
             questID = 16;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 16 && questID == 16 && quest16Completion == true)
+        if (newQuestId == 16 && questID == 16 && quest16Completion == true && completionID == 16)
         {
             newQuestId = 17;
             questID = 17;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 17 && questID == 17 && quest17Completion == true)
+        if (newQuestId == 17 && questID == 17 && quest17Completion == true && completionID == 17)
         {
             newQuestId = 18;
             questID = 18;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 18 && questID == 18 && quest18Completion == true)
+        if (newQuestId == 18 && questID == 18 && quest18Completion == true && completionID == 18)
         {
             newQuestId = 19;
             questID = 19;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 19 && questID == 19 && quest19Completion == true)
+        if (newQuestId == 19 && questID == 19 && quest19Completion == true && completionID == 19)
         {
             newQuestId = 20;
             questID = 20;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 20 && questID == 20 && quest20Completion == true)
+        if (newQuestId == 20 && questID == 20 && quest20Completion == true && completionID == 20)
         {
             newQuestId = 21;
             questID = 21;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
-        if (newQuestId == 21 && questID == 21 && quest21Completion == true)
+        if (newQuestId == 21 && questID == 21 && quest21Completion == true && completionID == 21)
         {
             newQuestId = 22;
             questID = 22;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
         }
 
 
@@ -372,49 +418,49 @@ public class QuestManager : MonoBehaviour , IDataSave
         {
             completionID = 10;
         }
-        if (completionID == 11)
+        if (quest11Completion == true)
         {
-            quest11Completion = true;
+            completionID = 11;
         }
-        if (completionID == 12)
+        if (quest12Completion ==true)
         {
-            quest12Completion = true;
+            completionID = 12;
         }
-        if (completionID == 13)
+        if (quest13Completion == true)
         {
-            quest13Completion = true;
+          completionID=13;
         }
-        if (completionID == 14)
+        if (quest14Completion == true)
         {
-            quest14Completion = true;
+            completionID = 14; 
         }
-        if (completionID == 15)
+        if (quest15Completion == true)
         {
-            quest15Completion = true;
+            completionID = 15;
         }
-        if (completionID == 16)
+        if (quest16Completion==true)
         {
-            quest16Completion = true;
+           completionID=16;
         }
-        if (completionID == 17)
+        if  (quest17Completion == true)
         {
-            quest17Completion = true;
+            completionID = 17;
         }
-        if (completionID == 18)
+        if (quest18Completion == true)
         {
-            quest18Completion = true;
+            completionID = 18;
         }
-        if (completionID == 19)
+        if (quest19Completion ==true)
         {
-            quest19Completion = true;
+            completionID = 19;
         }
-        if (completionID == 20)
+        if (quest20Completion == true)
         {
-            quest20Completion = true;
+            completionID = 20;
         }
-        if (completionID == 21)
+        if (quest21Completion == true)
         {
-            quest21Completion = true;
+            completionID = 21;
         }
     }
     public void SaveData(ref GameData data)

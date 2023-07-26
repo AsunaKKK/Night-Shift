@@ -43,14 +43,4 @@ public class LockDoor : MonoBehaviour
         }
     }
 
-    public void SaveData(ref GameData data)
-    {
-        data.doorOnQ = doorOn;
-    }
-
-    public void LoadData(GameData data)
-    {
-        doorOn = data.doorOnQ;
-    }
-
 }

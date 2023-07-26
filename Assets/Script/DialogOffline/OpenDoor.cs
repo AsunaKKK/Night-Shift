@@ -25,7 +25,7 @@ public class OpenDoor : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                SaveManager.instance.NewGame();
+                //SaveManager.instance.NewGame();
                 SceneManager.LoadSceneAsync("Scene01");
             }
         }

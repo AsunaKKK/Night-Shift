@@ -7,15 +7,21 @@ public class Completion : MonoBehaviour
     public GameObject quest1;
     public GameObject quest2;
     public GameObject quest3;
+    public GameObject quest4;
     
     public GameObject Chacracter0;
     public GameObject Chacracter1;
     public GameObject Chacracter2;
+    public GameObject Chacracter3;
+
+    
 
     //public GameObject quest2;
     public bool itemQuest1 = false;
     public bool itemQuest2 = false;
     public bool itemQuest3 = false;
+    public bool itemQuest4 = false;
+
 
 
 
@@ -23,6 +29,10 @@ public class Completion : MonoBehaviour
     bool foundLightSteel = false;
     bool foundKey = false;
     bool fondElectricfuse = false;
+    bool fondFlannel = false;
+    bool fondSchoolBag = false;
+    bool fondHistoryBook = false;
+
     public List<GameObject> chackOj = new List<GameObject>();
 
     public int itemOn = 0;
@@ -35,6 +45,7 @@ public class Completion : MonoBehaviour
         quest1.SetActive(false);
         quest2.SetActive(false);
         quest3.SetActive(false);
+        quest4.SetActive(false);
     }
 
 
@@ -45,6 +56,7 @@ public class Completion : MonoBehaviour
 
     public void QuestRun()
     {
+        
         //ItemSet
         if (QuestManager.questID == 1)
         {
@@ -57,6 +69,10 @@ public class Completion : MonoBehaviour
         if (QuestManager.questID == 9)
         {
             quest3.SetActive(true);
+        }
+        if (QuestManager.questID == 16)
+        {
+            quest4.SetActive(true);
         }
 
         //ChaSet
@@ -81,6 +97,15 @@ public class Completion : MonoBehaviour
         {
             Chacracter0.SetActive(false);
         }
+        if (QuestManager.questID == 16)
+        {
+            Chacracter1.SetActive(false);
+        }
+        if (QuestManager.questID == 18)
+        {
+            Chacracter3.SetActive(false);
+        }
+
 
 
 
@@ -97,6 +122,10 @@ public class Completion : MonoBehaviour
         if (itemQuest3 == true)
         {
             QuestManager.quest9Completion = true;
+        }
+        if (itemQuest4 == true)
+        {
+            QuestManager.quest16Completion = true;
         }
 
 
@@ -127,6 +156,19 @@ public class Completion : MonoBehaviour
             {
                 fondElectricfuse = true;
             }
+            if (item.itemName == "flannel")
+            {
+                fondFlannel= true;
+            }
+            if (item.itemName == "school bag")
+            {
+                fondSchoolBag = true;
+            }
+            if (item.itemName == "history book")
+            {
+                fondHistoryBook = true;
+            }
+
 
             // If both items are found, set itemQuest1 to true and break out of the loop
             if (foundTuup && foundLightSteel)
@@ -142,6 +184,11 @@ public class Completion : MonoBehaviour
             if(fondElectricfuse)
             {
                 itemQuest3 = true;
+               
+            }
+            if(fondHistoryBook&&fondSchoolBag&&fondFlannel)
+            {
+                itemQuest4 = true;
                 break;
             }
   

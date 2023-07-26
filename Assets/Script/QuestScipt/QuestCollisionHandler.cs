@@ -11,6 +11,7 @@ public class QuestCollisionHandler : MonoBehaviour
         completionScript = FindObjectOfType<Completion>();
 
 
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +31,8 @@ public class QuestCollisionHandler : MonoBehaviour
                             obj.SetActive(false);
 
                             // Set "quest102" to active
+                           
+
                             foreach (GameObject questObject in completionScript.chackOj)
                             {
                                 if (questObject.name == "quest102")
@@ -221,6 +224,32 @@ public class QuestCollisionHandler : MonoBehaviour
                         foreach (GameObject questObject in completionScript.chackOj)
                         {
                             if (questObject.name == "quest109")
+                            {
+                                questObject.SetActive(true);
+                                break;
+                            }
+                        }
+
+                        break;
+                    }
+                }
+            }
+            if (QuestManager.questID == 17)
+            {
+
+                foreach (GameObject obj in completionScript.chackOj)
+                {
+                    if (obj.name == "quest109")
+                    {
+
+                        QuestManager.quest17Completion = true;
+
+
+                        obj.SetActive(false);
+
+                        foreach (GameObject questObject in completionScript.chackOj)
+                        {
+                            if (questObject.name == "quest110")
                             {
                                 questObject.SetActive(true);
                                 break;

@@ -53,6 +53,12 @@ public class DialogShow : MonoBehaviour
                 //showDialog = true;
                 //obj.SetActive(true);
             }
+            if (Input.GetKey(KeyCode.E) && QuestManager.questID == 18)
+            {
+                QuestManager.quest18Completion = true;
+                //showDialog = true;
+                //obj.SetActive(true);
+            }
 
         }
     }
