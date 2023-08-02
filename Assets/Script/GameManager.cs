@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        SaveManager.instance.NewGame();
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 

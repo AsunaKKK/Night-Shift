@@ -6,12 +6,6 @@ using UnityEngine.SceneManagement;
 public class CutScene : MonoBehaviour
 {
     public float changeTime;
-
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         if(Input.GetKey(KeyCode.K))

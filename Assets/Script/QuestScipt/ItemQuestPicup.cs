@@ -75,7 +75,7 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
         {
             giftTextBar.SetActive(true);
             giftTimer -= Time.deltaTime;
-            if (giftTimer == 0)
+            if (giftTimer <= 0)
             {
                 giftTimer = 0.5f;
                 giftTextBar.SetActive(false);
@@ -147,6 +147,11 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
     }
     public void SaveData(GameData data)
     {
+        if (item == null)
+        {
+            Debug.LogWarning("Item is null. SaveData will not continue.");
+            return;
+        }
         if (data.idItemQuest.ContainsKey(id))
         {
             data.idItemQuest.Remove(id);
@@ -160,6 +165,9 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
     }
     public void TextGift()
     {
-        textgift.text = item.itemName;
+        if (item != null)
+        {
+            textgift.text = item.itemName;
+        }
     }
 }

@@ -37,13 +37,13 @@ public class SaveManager : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.sceneUnloaded += OnSceneUnLoaded;
+        //SceneManager.sceneUnloaded += OnSceneUnLoaded;
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneUnloaded -= OnSceneUnLoaded;
+        //SceneManager.sceneUnloaded -= OnSceneUnLoaded;
     }
 
     public void OnSceneLoaded(Scene scene , LoadSceneMode mode)
@@ -51,10 +51,10 @@ public class SaveManager : MonoBehaviour
         this.dataSavesObjects = FindAllDataSaveObjects();
         LoadGame();
     }
-    public void OnSceneUnLoaded(Scene scene)
+    /*public void OnSceneUnLoaded(Scene scene)
     {
         SaveGame();
-    }
+    }*/
 
     public void NewGame()
     {

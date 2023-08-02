@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class LightDup : MonoBehaviour ,IDataSave
+public class LightDup : MonoBehaviour
 {
     public Light2D light2D;
     public float minIntensity = 0f;
@@ -15,7 +15,7 @@ public class LightDup : MonoBehaviour ,IDataSave
         {
             lighton = 1;
         }
-        if(lighton == 1)
+        if (lighton == 1 && light2D != null) // Add a null check for light2D
         {
             SetIntensity(0f);
         }
@@ -28,7 +28,7 @@ public class LightDup : MonoBehaviour ,IDataSave
         light2D.intensity = clampedValue;
     }
 
-    public void SaveData(GameData data)
+    /*public void SaveData(GameData data)
     {
         data.lightonQ = lighton;
     }
@@ -36,6 +36,6 @@ public class LightDup : MonoBehaviour ,IDataSave
     public void LoadData(GameData data)
     {
        lighton = data.lightonQ;
-    }
+    }*/
 
 }
