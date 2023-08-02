@@ -23,12 +23,13 @@ public class MianMenu : MonoBehaviour
         DisableMenuButtons();
         Debug.Log("New Game");
         SaveManager.instance.NewGame();
-        SceneManager.LoadSceneAsync("Scene01");
+        SceneManager.LoadSceneAsync("CutScene");
     }
     public void LoadGameClik()
     {
         DisableMenuButtons();
         Debug.Log("Continue Game");
+        //SaveManager.instance.SaveGame();
         SceneManager.LoadSceneAsync("Scene01");
 
     }

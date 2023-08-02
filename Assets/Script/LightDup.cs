@@ -28,7 +28,7 @@ public class LightDup : MonoBehaviour ,IDataSave
         light2D.intensity = clampedValue;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.lightonQ = lighton;
     }

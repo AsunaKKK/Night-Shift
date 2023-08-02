@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IDataSave 
 {
-    void SaveData(ref GameData data);
+    void SaveData(GameData data);
 
     void LoadData(GameData data);
 }

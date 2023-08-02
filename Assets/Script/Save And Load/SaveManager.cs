@@ -70,14 +70,9 @@ public class SaveManager : MonoBehaviour
             return;
         }
 
-        if (PlayerController.instance != null)
-        {
-            PlayerController.instance.SaveData(ref gameData);
-        }
-
         foreach (IDataSave dataSaveObj in dataSavesObjects)
         {
-            dataSaveObj.SaveData(ref gameData);
+            dataSaveObj.SaveData(gameData);
         }
 
         dataHendler.Save(gameData);

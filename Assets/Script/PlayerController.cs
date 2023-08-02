@@ -269,7 +269,7 @@ public class PlayerController : MonoBehaviour , IDataSave
         this.maxHp = data.playerHpMax;
     }
 
-    public void SaveData (ref GameData data)
+    public void SaveData (GameData data)
     {
         data.playerPosition = this.transform.position;
         data.playerCurrentHp = this.currenHp;

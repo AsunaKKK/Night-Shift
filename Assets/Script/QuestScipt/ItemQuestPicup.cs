@@ -145,7 +145,7 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
             Destroy(gameObject);
         }
     }
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         if (data.idItemQuest.ContainsKey(id))
         {

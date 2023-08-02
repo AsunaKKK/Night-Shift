@@ -14,6 +14,10 @@ public class CutScene : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKey(KeyCode.K))
+        {
+            changeTime = 0;
+        }
         changeTime -= Time.deltaTime;
         if (changeTime <= 0)
         {

@@ -155,13 +155,24 @@ public class ItemPicup : MonoBehaviour, IDataSave
             Destroy(gameObject);
         }
     }
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
-        if(data.idItem.ContainsKey(id))
+        /*if(data.idItem.ContainsKey(id))
         {
             data.idItem.Remove(id);
         }
-        data.idItem.Add(id,isPicUp);
+        data.idItem.Add(id,isPicUp);*/
+        if (data == null)
+        {
+            Debug.LogWarning("Data is null. Cannot save the item state.");
+            return;
+        }
+        if (data.idItem.ContainsKey(id))
+        {
+            data.idItem.Remove(id);
+        }
+
+        data.idItem.Add(id, isPicUp);
     }
 
     public void ShowBarReload()

@@ -8,9 +8,4 @@ public class OnClickSaveAndLoad : MonoBehaviour
     {
         SaveManager.instance.SaveGame();
     }
-
-    public void OnClickLoadGame()
-    {
-        SaveManager.instance.LoadGame();
-    }
 }

@@ -138,7 +138,7 @@ public class PlayerMap : MonoBehaviour , IDataSave
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.playerMapPosition = savedPosition;
         data.playerMapRotation = savedRotation;

@@ -87,7 +87,7 @@ public class InventoryQuestManager : MonoBehaviour , IDataSave
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.inventoryItemQuest = ItemsQuest.ToArray().ToList();
     }

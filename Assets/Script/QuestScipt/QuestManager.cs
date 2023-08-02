@@ -463,7 +463,7 @@ public class QuestManager : MonoBehaviour , IDataSave
             completionID = 21;
         }
     }
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.questID = newQuestId;
         data.setQuestID = questID;
