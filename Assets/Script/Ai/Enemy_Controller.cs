@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class Enemy_Controller : MonoBehaviour
 {
@@ -8,27 +7,25 @@ public class Enemy_Controller : MonoBehaviour
     public bool isCircular;
     public bool inReverse = true;
     public bool canWalk = true;
+    
     public float runRange = 2f;
-    public string playerTag = "Player";
-    public Transform attackRange; // Reference to the transform representing the attack range
-
+   
     private Waypoint currentWaypoint;
     private int currentIndex = 0;
     private bool isWaiting = false;
     private float originalSpeed;
-    private float attackCooldown = 2f;
-    private bool isAttacking = false;
 
-    private bool isChasingPlayer = false;
-    private Transform playerTransform;
-
+    public bool isChasingPlayer = false;
+    private Vector3 playerPosition;
+    
+    //animation
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
 
     private enum State { Idle, Walk, Run, Attack }
     private State state = State.Idle;
 
-    private void Start()
+    void Start()
     {
         if (wayPoints.Length > 0)
         {
@@ -36,20 +33,20 @@ public class Enemy_Controller : MonoBehaviour
         }
         originalSpeed = speed;
 
-        // Get the Animator component attached to the enemy
         anim = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Update()
     {
         UpdateAnimation(state);
-        if (canWalk && !isChasingPlayer && currentWaypoint != null && !isWaiting && !isAttacking)
+        if (canWalk && !isChasingPlayer && currentWaypoint != null && !isWaiting)
         {
             // Check if the player is within range
-            if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) < runRange)
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null && Vector3.Distance(transform.position, player.transform.position) < runRange)
             {
                 // Call the Run function if the player is within range
-                Run(playerTransform.position);
+                Run(player.transform.position);
             }
             else
             {
@@ -62,38 +59,41 @@ public class Enemy_Controller : MonoBehaviour
             // Move towards the player if we are chasing them
             MoveTowardsPlayer();
         }
-
-        // Update the attack cooldown timer
-        if (isAttacking)
-        {
-            attackCooldown -= Time.deltaTime;
-            state = State.Attack;
-            if (attackCooldown <= 0f)
-            {
-                isAttacking = false;
-                attackCooldown = 2f;
-            }
-        }
     }
 
-    private void Pause()
+    void Pause()
     {
         isWaiting = !isWaiting;
+        state = State.Idle;
     }
 
     private void MoveTowardsWaypoint()
     {
+        Vector3 currentPosition = transform.position;
         Vector3 targetPosition = currentWaypoint.transform.position;
-        targetPosition.y = transform.position.y;
-        targetPosition.z = transform.position.z;
 
-        if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+        // Only move along the x-axis (left or right)
+        targetPosition.y = currentPosition.y;
+        targetPosition.z = currentPosition.z;
+
+        if (Vector3.Distance(currentPosition, targetPosition) > 0.1f)
         {
-            Vector3 directionOfTravel = (targetPosition - transform.position).normalized;
+            Vector3 directionOfTravel = (targetPosition - currentPosition).normalized;
+
             transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
-            anim.SetBool("IsWalking", true); // Play walk animation
             state = State.Walk;
+
+            // Flip the enemy along the x-axis based on the movement direction
+            if (directionOfTravel.x < 0)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else if (directionOfTravel.x > 0)
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
         }
+        
         else
         {
             if (currentWaypoint.waitSeconds > 0)
@@ -112,11 +112,11 @@ public class Enemy_Controller : MonoBehaviour
             }
 
             NextWaypoint();
-            state = State.Idle;
+           // state = State.Idle;
         }
-        }
+    }
 
-        private void NextWaypoint()
+    private void NextWaypoint()
     {
         if (isCircular)
         {
@@ -139,8 +139,6 @@ public class Enemy_Controller : MonoBehaviour
         }
 
         currentWaypoint = wayPoints[currentIndex];
-
-        
     }
 
     private void Run(Vector3 playerPosition)
@@ -148,21 +146,26 @@ public class Enemy_Controller : MonoBehaviour
         // Set the speed to a higher value for running
         speed = 8f;
 
+        // Set the current waypoint to the player's position
+        currentWaypoint.transform.position = playerPosition;
+
         // Start chasing the player
         isChasingPlayer = true;
-        playerTransform = GameObject.FindGameObjectWithTag(playerTag).transform;
-
+        this.playerPosition = playerPosition;
         state = State.Run;
 
     }
 
     private void MoveTowardsPlayer()
     {
-        if (Vector3.Distance(transform.position, playerTransform.position) > 0.1f)
+        if (Vector3.Distance(transform.position, playerPosition) > 0.1f)
         {
-            Vector3 directionOfTravel = (playerTransform.position - transform.position).normalized;
-            transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
-            anim.SetBool("IsWalking", true); // Play walk animation while chasing the player
+            Vector3 directionOfTravel = (playerPosition - transform.position).normalized;
+            transform.Translate(
+           directionOfTravel * speed * Time.deltaTime,Space.World );
+            //state = State.Run;
+
+
         }
         else
         {
@@ -170,53 +173,13 @@ public class Enemy_Controller : MonoBehaviour
             isChasingPlayer = false;
             speed = originalSpeed;
             currentWaypoint = wayPoints[currentIndex];
-
-            // Attack the player when within the attack range
-            Vector3 distanceToPlayer = playerTransform.position - transform.position;
-            if (distanceToPlayer.magnitude < attackRange.localScale.x)
-            {
-                AttackPlayer();
-            }
-        }
-        state = State.Run;
-    }
-
-    // Implement the attack logic here, for example, using a raycast or collision detection with the player
-    // When the enemy successfully hits the player, set isAttacking to true to trigger the attack cooldown
-    // You can call this function from an attack animation event or any other appropriate place in your game logic
-    private void AttackPlayer()
-    {
-        if (!isAttacking)
-        {
-            // Perform attack action here
-            isAttacking = true;
-
-            // Reduce the player's health using the PlayerController script
-            PlayerController playerController = playerTransform.GetComponent<PlayerController>();
-            if (playerController != null)
-            {
-                playerController.TakeDamage(10); // Replace 10 with the amount of damage you want the enemy's attack to deal
-            }
-
-            // Start the attack cooldown
-            StartCoroutine(StartAttackCooldown());
         }
     }
 
-    private IEnumerator StartAttackCooldown()
-    {
-        // Wait for the attack cooldown duration
-        yield return new WaitForSeconds(attackCooldown);
-
-        // Reset the attack cooldown
-        isAttacking = false;
-    }
+    //Animation Updeat
     private void UpdateAnimation(State newState)
     {
-        // Update the Animator "state" parameter based on the current state
+        
         anim.SetInteger("state", (int)newState);
     }
-
-
-
 }
