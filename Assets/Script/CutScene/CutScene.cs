@@ -8,6 +8,7 @@ public class CutScene : MonoBehaviour
     public float changeTime;
     private void Update()
     {
+
         if(Input.GetKey(KeyCode.K))
         {
             changeTime = 0;
@@ -15,7 +16,6 @@ public class CutScene : MonoBehaviour
         changeTime -= Time.deltaTime;
         if (changeTime <= 0)
         {
-            //SaveManager.instance.NewGame();
             SceneManager.LoadSceneAsync("Scene001");
         }
 

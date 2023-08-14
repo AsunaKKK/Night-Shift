@@ -151,8 +151,8 @@ public class PlayerMap : MonoBehaviour , IDataSave
         savedRotation = data.playerMapRotation;
 
         // Set the position and rotation after loading
-        rectTransform.position = savedPosition;
-        rectTransform.rotation = savedRotation;
+        /*rectTransform.position = savedPosition;
+        rectTransform.rotation = savedRotation;*/
     }
 
 

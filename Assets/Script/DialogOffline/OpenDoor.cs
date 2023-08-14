@@ -8,10 +8,6 @@ public class OpenDoor : MonoBehaviour
     public GameObject smyDoor;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        smyDoor.SetActive(false);
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "KPlayer")
@@ -25,7 +21,6 @@ public class OpenDoor : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                //SaveManager.instance.NewGame();
                 SceneManager.LoadSceneAsync("Scene01");
             }
         }

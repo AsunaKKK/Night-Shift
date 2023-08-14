@@ -28,7 +28,6 @@ public class SaveManager : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-
         instance = this;
         DontDestroyOnLoad(this.gameObject);
 
@@ -55,6 +54,12 @@ public class SaveManager : MonoBehaviour
     {
         SaveGame();
     }*/
+
+    public void DeletePallDeta()
+    {
+        dataHendler.DeleteSave();
+        LoadGame();
+    }
 
     public void NewGame()
     {

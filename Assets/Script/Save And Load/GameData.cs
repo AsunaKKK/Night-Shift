@@ -49,8 +49,6 @@ public class GameData
         setQuestID = 1;
         setCompletionID = 0;
 
-
-
         chackQuestId = 0;
         lightonQ = 0;
         doorOnQ = 0;

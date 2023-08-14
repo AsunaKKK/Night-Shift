@@ -5,16 +5,15 @@ using UnityEngine;
 public class KconrollerOutDoor : MonoBehaviour
 {
     private float horizontal;
-    public float dashSpeed = 5f;
-    private float LSpeed = 5f;
-    private float RSpeed = 5f;
+    public float d = 5f;
+    private float ls = 5f;
+    private float rs = 5f;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
 
     private enum State { idle, walk}
     private State state = State.idle;
-
     private void Update()
     {
         //MoveMent Player
@@ -22,7 +21,7 @@ public class KconrollerOutDoor : MonoBehaviour
 
         if (horizontal < 0)
         {
-            rb.velocity = new Vector2(-LSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(-ls, rb.velocity.y);
             transform.localScale = new Vector2(-1, 1);
             state = State.walk;
 
@@ -30,7 +29,7 @@ public class KconrollerOutDoor : MonoBehaviour
         //movement player R
         else if (horizontal > 0)
         {
-            rb.velocity = new Vector2(RSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(rs, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
             state = State.walk;
         }
@@ -53,6 +52,6 @@ public class KconrollerOutDoor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * dashSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontal * d, rb.velocity.y);
     }
 }

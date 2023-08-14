@@ -8,14 +8,12 @@ public class ViroDialogShow : MonoBehaviour
     public DialogK dialog;
     public bool showDialog = false;
     public GameObject obj;
-    public GameObject objDoor;
     // Start is called before the first frame update
     void Start()
     {
         smyboolDialogShow.SetActive(false);
         dialog.gameObject.SetActive(false);
         obj.SetActive(false);
-        objDoor.SetActive(false);
     }
     private void Update()
     {
@@ -36,7 +34,6 @@ public class ViroDialogShow : MonoBehaviour
             {
                 showDialog = true;
                 obj.SetActive(true);
-                objDoor.SetActive(true);
             }
         }
     }
