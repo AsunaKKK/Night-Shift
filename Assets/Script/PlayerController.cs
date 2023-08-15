@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour , IDataSave
 {
@@ -244,23 +245,26 @@ public class PlayerController : MonoBehaviour , IDataSave
         if (currenHp <= 0)
         {
             currenHp = 0;
-            Die();
-             // Call a method to handle the player's death
+            //anim.SetTrigger("die");
+            StartCoroutine(PlayDeathAnimation());
         }
-
-        // Play any damage animation or effects if needed
-        // For example, you can trigger an animation for the player being hit.
-        // anim.SetTrigger("Hit");
+        else
+        {
+            // anim.SetTrigger("Hit");
+        }
     }
     private void Die()
     {
-        
-        Debug.Log("Player died!");
+        SceneManager.LoadSceneAsync("Scene02");
     }
 
+    private IEnumerator PlayDeathAnimation()
+    {
+        yield return new WaitForSeconds(2.0f);
+        Die();
+    }
 
     // Save and Load Data
-
     public void LoadData (GameData data)
     {
         this.transform.position = data.playerPosition;

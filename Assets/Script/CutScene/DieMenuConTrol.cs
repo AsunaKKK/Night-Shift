@@ -3,46 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
-public class MianMenu : MonoBehaviour
+public class DieMenuConTrol : MonoBehaviour
 {
-    [Header("Menu Bottons")]
-    [SerializeField] private Button newGameButton;
-    [SerializeField] private Button continueGameButton;
-    [SerializeField] private Button exitGameButton;
-
     public Image imageClick;
     public float fadeDuration = 1.0f;
+    public TextMeshProUGUI textBlack;
     private bool isFading = false;
 
     private void Start()
     {
-        if (!SaveManager.instance.HasGameData())
-        {
-            continueGameButton.interactable = false;
-        }
+        textBlack.alpha = 0;
     }
-    public void NewGameClicked()
+
+    public void BlackHomesClick()
     {
         if (!isFading)
         {
-            StartCoroutine(FadeInAndStartAction(StartNewGame));
+            StartCoroutine(FadeInAndStartAction(BlackHome));
         }
     }
 
-    public void LoadGameClick()
+    public void ContinueGameClick()
     {
         if (!isFading)
         {
-            StartCoroutine(FadeInAndStartAction(LoadGame));
-        }
-    }
-
-    public void ExitGame()
-    {
-        if (!isFading)
-        {
-            StartCoroutine(FadeInAndStartAction(Exit));
+            StartCoroutine(FadeInAndStartAction(ContinueGame));
         }
     }
 
@@ -51,24 +38,19 @@ public class MianMenu : MonoBehaviour
         isFading = true;
 
         yield return StartCoroutine(Fade(0, 1)); // Fade in
-
+        textBlack.alpha = 1;
         action.Invoke();
-
-        //yield return StartCoroutine(Fade(1, 0)); // Fade out
 
         isFading = false;
     }
 
-    private void StartNewGame()
+    private void BlackHome()
     {
-        DisableMenuButtons();
-        SaveManager.instance.DeletePallDeta();
-        SceneManager.LoadSceneAsync("CutScene");
+        SceneManager.LoadSceneAsync("Scene00");
     }
 
-    private void LoadGame()
+    private void ContinueGame()
     {
-        DisableMenuButtons();
         Debug.Log("Continue Game");
         SaveManager.instance.SaveGame();
         SceneManager.LoadSceneAsync("Scene01");
@@ -76,7 +58,6 @@ public class MianMenu : MonoBehaviour
 
     private void Exit()
     {
-        DisableMenuButtons();
         Application.Quit();
     }
 
@@ -86,24 +67,30 @@ public class MianMenu : MonoBehaviour
         color.a = startOpacity;
         imageClick.color = color;
 
+        Color textMeshProColor = textBlack.color;
+        textMeshProColor.a = startOpacity;
+        textBlack.color = textMeshProColor;
+
         float elapsedTime = 0;
 
         while (elapsedTime < fadeDuration)
         {
+            float normalizedTime = elapsedTime / fadeDuration;
+
             color.a = Mathf.Lerp(startOpacity, targetOpacity, elapsedTime / fadeDuration);
             imageClick.color = color;
+
+            textMeshProColor.a = Mathf.Lerp(startOpacity, targetOpacity, normalizedTime);
+            textBlack.color = textMeshProColor;
+
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         color.a = targetOpacity;
         imageClick.color = color;
-    }
 
-    private void DisableMenuButtons()
-    {
-        newGameButton.interactable = false;
-        continueGameButton.interactable = false;
-        exitGameButton.interactable = false;
+        textMeshProColor.a = targetOpacity;
+        textBlack.color = textMeshProColor;
     }
 }

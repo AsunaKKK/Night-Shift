@@ -9,6 +9,7 @@ public class OnClickSaveAndLoad : MonoBehaviour
         if (SaveManager.instance.HasGameData())
         {
             SaveManager.instance.SaveGame();
+            Debug.Log("Save Game");
         }
         else
         {

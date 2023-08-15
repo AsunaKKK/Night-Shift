@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ViroDialogShow : MonoBehaviour
 {
@@ -8,12 +9,16 @@ public class ViroDialogShow : MonoBehaviour
     public DialogK dialog;
     public bool showDialog = false;
     public GameObject obj;
+
+    public Image blackImage;
+    public float fadeDuration = 10f;
     // Start is called before the first frame update
     void Start()
     {
         smyboolDialogShow.SetActive(false);
         dialog.gameObject.SetActive(false);
         obj.SetActive(false);
+        StartCoroutine(Fade(1, 0));
     }
     private void Update()
     {
@@ -54,5 +59,24 @@ public class ViroDialogShow : MonoBehaviour
             dialog.gameObject.SetActive(false);
             obj.SetActive(false);
         }
+    }
+    private IEnumerator Fade(float startOpacity, float targetOpacity)
+    {
+        Color color = blackImage.color;
+        color.a = startOpacity;
+        blackImage.color = color;
+
+        float elapsedTime = 0;
+
+        while (elapsedTime < fadeDuration)
+        {
+            color.a = Mathf.Lerp(startOpacity, targetOpacity, elapsedTime / fadeDuration);
+            blackImage.color = color;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        color.a = targetOpacity;
+        blackImage.color = color;
     }
 }

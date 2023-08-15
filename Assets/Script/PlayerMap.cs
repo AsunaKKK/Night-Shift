@@ -6,8 +6,8 @@ public class PlayerMap : MonoBehaviour , IDataSave
 {
     private float horizontal;
     public float dashSpeed;
-    private float LSpeed = 30f;
-    private float RSpeed = 30f;
+    private float LSpeed = 40f;
+    private float RSpeed = 40f;
 
     private bool canDash = true;
     private bool isDashing;
@@ -57,10 +57,6 @@ public class PlayerMap : MonoBehaviour , IDataSave
         {
             rb.velocity = new Vector2(RSpeed, rb.velocity.y);
             transform.localScale = new Vector2(1, 1);
-        }
-        else
-        {
-            //audioSource.clip = walkClip;
         }
 
         if (currentEnergy <= maxEnergy)
@@ -121,20 +117,20 @@ public class PlayerMap : MonoBehaviour , IDataSave
     {
         if (Input.GetKey(KeyCode.LeftShift) && currentEnergy != 0)
         {
-            dashSpeed = wall.checkWalls ? 0f : 70f;
+            dashSpeed = wall.checkWalls ? 0f : 80f;
             currentEnergy -= 0.005f + Time.deltaTime;
 
             if (currentEnergy <= 0)
             {
                 currentEnergy = 0;
-                dashSpeed = wall.checkWalls ? 0f : 30f;
+                dashSpeed = wall.checkWalls ? 0f : 40f;
             }
         }
         else
         {
-            dashSpeed = wall.checkWalls ? 0f : 30f;
-            LSpeed = wall.checkWalls ? 0f : 30f;
-            RSpeed = wall.checkWalls ? 0f : 30f;
+            dashSpeed = wall.checkWalls ? 0f : 40f;
+            LSpeed = wall.checkWalls ? 0f : 40f;
+            RSpeed = wall.checkWalls ? 0f : 40f;
         }
     }
 
@@ -149,10 +145,6 @@ public class PlayerMap : MonoBehaviour , IDataSave
     {
         savedPosition = data.playerMapPosition;
         savedRotation = data.playerMapRotation;
-
-        // Set the position and rotation after loading
-        /*rectTransform.position = savedPosition;
-        rectTransform.rotation = savedRotation;*/
     }
 
 

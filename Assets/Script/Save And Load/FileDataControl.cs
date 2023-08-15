@@ -59,7 +59,7 @@ public class FileDataControl
         }
         catch (Exception e)
         {
-            Debug.LogError("Not Deletes" + "SS");
+            Debug.LogError("Not Deletes" + "SS"+e);
         }
     }
 
