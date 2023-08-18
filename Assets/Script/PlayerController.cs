@@ -235,11 +235,6 @@ public class PlayerController : MonoBehaviour , IDataSave
     }
     public void TakeDamage(float damageAmount)
     {
-        if (!canMove)
-        {
-            // The player is invulnerable or unable to move (e.g., during certain animations or states)
-            return;
-        }
 
             currenHp -= damageAmount;
         if (currenHp <= 0)

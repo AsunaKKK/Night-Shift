@@ -68,6 +68,18 @@ public class PlayerTelepot : MonoBehaviour
         {
             currentTeleporter = collision.gameObject;
         }
+        if (Input.GetKeyDown(KeyCode.E) && collision.CompareTag("Teleporter") && Enemy_Controller.isChasingPlayer == true)
+        {
+            collision.tag = "EnemyTele";
+        }
+
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.E)&& collision.CompareTag("Teleporter")&& Enemy_Controller.isChasingPlayer == true)
+        {
+            collision.tag = "EnemyTele";
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

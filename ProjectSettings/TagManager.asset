@@ -11,6 +11,8 @@ TagManager:
   - ItemQuest
   - KPlayer
   - MapTeleporter
+  - EnemyTele
+  - Enemy
   layers:
   - Default
   - TransparentFX

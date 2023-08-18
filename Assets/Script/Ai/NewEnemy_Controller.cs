@@ -4,35 +4,41 @@ using UnityEngine;
 
 public class NewEnemy_Controller : MonoBehaviour
 {
-    public Transform[] waypoints;
-    public float moveSpeed = 5f;
+    public List<Vector2> waypoints;
+    public float speed;
+    public float rotationSpeed;
+    public float rotationThreshold = 1f; // Angle threshold for smooth rotation
 
     private int currentWaypointIndex = 0;
+    private float distanceToNextWaypoint;
+    private Quaternion targetRotation;
 
     private void Start()
     {
-        if (waypoints.Length > 0)
-        {
-            // Set the initial position to the first waypoint
-            transform.position = waypoints[currentWaypointIndex].position;
-        }
+        distanceToNextWaypoint = Vector2.Distance(transform.position, waypoints[currentWaypointIndex]);
+        UpdateRotation();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (waypoints.Length > 0)
-        {
-            // Move towards the current waypoint
-            Transform currentWaypoint = waypoints[currentWaypointIndex];
-            Vector3 direction = (currentWaypoint.position - transform.position).normalized;
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
+        transform.position += transform.right * speed * Time.deltaTime;
 
-            // Check if the enemy is close enough to the current waypoint
-            if (Vector3.Distance(transform.position, currentWaypoint.position) < 0.1f)
-            {
-                // Move to the next waypoint
-                currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
-            }
+        distanceToNextWaypoint -= speed * Time.deltaTime;
+        if (distanceToNextWaypoint < 0f)
+        {
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
+            distanceToNextWaypoint = Vector2.Distance(transform.position, waypoints[currentWaypointIndex]);
+            UpdateRotation();
         }
+
+        // Smoothly rotate towards the target rotation
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    private void UpdateRotation()
+    {
+        Vector2 directionToWaypoint = waypoints[currentWaypointIndex] - (Vector2)transform.position;
+        float targetAngle = Mathf.Atan2(directionToWaypoint.y, directionToWaypoint.x) * Mathf.Rad2Deg;
+        targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
     }
 }

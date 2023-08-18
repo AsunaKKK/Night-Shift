@@ -13,17 +13,18 @@ public class Enemy_Controller : MonoBehaviour
     private Waypoint currentWaypoint;
     private int currentIndex = 0;
     private bool isWaiting = false;
-    private float originalSpeed; 
-    private Vector3 playerPosition;
+    private float originalSpeed;
+    private Vector2 playerPosition;
+
+    private GameObject currentTeleporter;
 
 
-    
-    
     // Attack
-    private bool isChasingPlayer = false;
-   
-    private bool isAttacking = false;
-    public float attackRange = 4f;
+    public static bool isChasingPlayer = false;
+
+    public static bool isAttacking = false;
+    private bool hasHitPlayer = true;
+    //public float attackRange = 0f;
     public int attackDamage = 10;
     public float attackCooldown = 2f;
 
@@ -45,24 +46,10 @@ public class Enemy_Controller : MonoBehaviour
 
     private void Update()
     {
-        UpdateAnimation(state);
 
-        if (canWalk && !isChasingPlayer && currentWaypoint != null && !isWaiting)
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null && Vector3.Distance(transform.position, player.transform.position) < runRange)
-            {
-                Run(player.transform.position);
-            }
-            else
-            {
-                MoveTowardsWaypoint();
-            }
-        }
-        else if (isChasingPlayer)
-        {
-            MoveTowardsPlayer();
-        }
+
+        Move();
+
     }
 
     private void Pause()
@@ -107,7 +94,7 @@ public class Enemy_Controller : MonoBehaviour
             NextWaypoint();
         }
 
-       
+
     }
 
     private void FlipEnemy(float directionX)
@@ -124,45 +111,57 @@ public class Enemy_Controller : MonoBehaviour
 
     private void NextWaypoint()
     {
-        if (isCircular)
+        if (!isChasingPlayer)
         {
-            if (!inReverse)
+            if (isCircular)
             {
-                currentIndex = (currentIndex + 1 >= wayPoints.Length) ? 0 : currentIndex + 1;
+                if (!inReverse)
+                {
+                    currentIndex = (currentIndex + 1 >= wayPoints.Length) ? 0 : currentIndex + 1;
+                }
+                else
+                {
+                    currentIndex = (currentIndex == 0) ? wayPoints.Length - 1 : currentIndex - 1;
+                }
             }
             else
             {
-                currentIndex = (currentIndex == 0) ? wayPoints.Length - 1 : currentIndex - 1;
+                if ((!inReverse && currentIndex + 1 >= wayPoints.Length) || (inReverse && currentIndex == 0))
+                {
+                    inReverse = !inReverse;
+                }
+                currentIndex = (!inReverse) ? currentIndex + 1 : currentIndex - 1;
             }
-        }
-        else
-        {
-            if ((!inReverse && currentIndex + 1 >= wayPoints.Length) || (inReverse && currentIndex == 0))
-            {
-                inReverse = !inReverse;
-            }
-            currentIndex = (!inReverse) ? currentIndex + 1 : currentIndex - 1;
-        }
 
-        currentWaypoint = wayPoints[currentIndex];
+            currentWaypoint = wayPoints[currentIndex];
+        }
     }
 
     private void Run(Vector3 playerPosition)
     {
+        runRange = float.PositiveInfinity;
         speed = 8f;
-        currentWaypoint.transform.position = playerPosition;
         isChasingPlayer = true;
         this.playerPosition = playerPosition;
         state = State.Run;
+        if (currentTeleporter != null)
+        {
+            transform.position = currentTeleporter.GetComponent<Telepor>().GetDestination().position;
+        }
     }
 
     private void MoveTowardsPlayer()
     {
-        if (Vector3.Distance(transform.position, playerPosition) > 0.1f)
+        float playerX = playerPosition.x;
+        float enemyX = transform.position.x;
+
+        if (Mathf.Abs(playerX - enemyX) > 0.1f)
         {
-            Vector3 directionOfTravel = (playerPosition - transform.position).normalized;
+            float directionX = Mathf.Sign(playerX - enemyX);
+            Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
+
             transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
-            FlipEnemy(directionOfTravel.x);
+            FlipEnemy(directionX);
         }
         else
         {
@@ -171,50 +170,141 @@ public class Enemy_Controller : MonoBehaviour
             currentWaypoint = wayPoints[currentIndex];
         }
 
-        if (Vector3.Distance(transform.position, playerPosition) < attackRange)
+        if (isAttacking)
         {
             AttackPlayer();
+        }
+    }
+    private void Move()
+    {
+        UpdateAnimation(state);
+
+        if (canWalk && !isChasingPlayer && currentWaypoint != null && !isWaiting)
+        {
+            // Find the nearest gameobject with the tag "EnemyTele"
+            GameObject enemyTele = GameObject.FindGameObjectWithTag("EnemyTele");
+
+            if (enemyTele != null)
+            {
+                float distanceToTeleporter = Vector3.Distance(transform.position, enemyTele.transform.position);
+
+                if (distanceToTeleporter < runRange)
+                {
+                    Run(enemyTele.transform.position);
+                    return;
+                }
+            }
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            if (player != null && Vector3.Distance(transform.position, player.transform.position) < runRange)
+            {
+                Run(player.transform.position);
+            }
+            else
+            {
+                MoveTowardsWaypoint();
+            }
+        }
+        else if (isChasingPlayer)
+        {
+            float playerX = playerPosition.x;
+            float enemyX = transform.position.x;
+
+            if (Mathf.Abs(playerX - enemyX) > 0.1f)
+            {
+                float directionX = Mathf.Sign(playerX - enemyX);
+                Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
+
+                transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
+                FlipEnemy(directionX);
+            }
+            else
+            {
+                isChasingPlayer = false;
+                speed = originalSpeed;
+                currentWaypoint = wayPoints[currentIndex];
+            }
+
+            if (isAttacking)
+            {
+                AttackPlayer();
+            }
         }
     }
 
     private void AttackPlayer()
     {
-        if (!isAttacking)
+        if (hasHitPlayer)
         {
-            isAttacking = true;
             state = State.Attack;
-
             // Check if the player is within attack range
-            if (Vector3.Distance(transform.position, playerPosition) < attackRange)
+            //if (Vector3.Distance(transform.position, playerPosition) < attackRange)
+
+            // Access the player GameObject
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            if (player != null)
             {
-                // Access the player GameObject
-                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                // Access the player's script
+                PlayerController playerController = player.GetComponent<PlayerController>();
 
-                if (player != null)
+                if (playerController != null)
                 {
-                    // Access the player's script
-                    PlayerController playerController = player.GetComponent<PlayerController>();
-
-                    if (playerController != null)
-                    {
-                        // Deal damage to the player
-                        playerController.TakeDamage(attackDamage);
-                    }
+                    // Deal damage to the player
+                    playerController.TakeDamage(attackDamage);
+                    hasHitPlayer = false;
+                    Debug.Log(attackDamage);
                 }
             }
 
             StartCoroutine(StartAttackCooldown());
         }
+
+
     }
 
     private IEnumerator StartAttackCooldown()
     {
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
+        hasHitPlayer = true;
+        Debug.Log(isAttacking + "AttackStop");
     }
 
     private void UpdateAnimation(State newState)
     {
         anim.SetInteger("state", (int)newState);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EnemyTele"))
+        {
+            currentTeleporter = collision.gameObject;
+        }
+        if (collision.CompareTag("Player"))
+        {
+            isAttacking = true;
+        }
+
+
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isAttacking = true;
+        }
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject == currentTeleporter)
+        {
+            currentTeleporter = null;
+            collision.tag = "Teleporter";
+            isAttacking = false;
+        }
+    }
+
 }
