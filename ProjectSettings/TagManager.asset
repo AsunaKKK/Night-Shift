@@ -13,6 +13,9 @@ TagManager:
   - MapTeleporter
   - EnemyTele
   - Enemy
+  - Hidden
+  - restRoom
+  - isRestRoom
   layers:
   - Default
   - TransparentFX

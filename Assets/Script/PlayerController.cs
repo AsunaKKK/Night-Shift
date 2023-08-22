@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour , IDataSave
     private bool canMove = true;
 
     private bool canDie = false;
+    public  bool canStop = false;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour , IDataSave
     private void OnEnable()
     {
         anim.SetBool("DiePlayer", false);
+        anim.SetBool("Hide", false);
         canDie = false;
     }
     // Start is called before the first frame update
@@ -65,6 +67,21 @@ public class PlayerController : MonoBehaviour , IDataSave
     // Update is called once per frame
     void Update()
     {
+        if(canStop==true)
+        {
+            dashSpeed = 0;
+            LSpeed = 0;
+            RSpeed = 0;
+            canDash = false;
+        }
+        if (canStop == false)
+        {
+            dashSpeed = 5;
+            LSpeed = 5;
+            RSpeed = 5;
+            canDash = true;
+        }
+
         if (canDie)
         {
             return;
@@ -190,6 +207,23 @@ public class PlayerController : MonoBehaviour , IDataSave
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+       if(collision.CompareTag("restRoom")&&Input.GetKey(KeyCode.E))
+        {
+            anim.SetBool("Hide", true);
+        }
+       else
+        {
+            anim.SetBool("Hide", false);
+        }
+        if (collision.tag == "Hidden"&&collision.gameObject.tag == "isRestRoom" && Input.GetKey(KeyCode.E))
+        {
+            canStop = false;
+            collision.tag = "restRoom";
+        }
     }
 
 

@@ -20,7 +20,7 @@ public class Enemy_Controller : MonoBehaviour
     public List<GameObject> enemyTeleporters = new List<GameObject>();
 
     private GameObject currentTeleporter;
-
+    private Vector3 initialWaypointPosition;
 
     // Attack
     public static bool isChasingPlayer = false;
@@ -51,6 +51,7 @@ public class Enemy_Controller : MonoBehaviour
         anim = GetComponent<Animator>();
         cashSound.enabled = false;
         detech.enabled = false;
+        initialWaypointPosition = wayPoints[0].transform.position;
     }
     private void OnEnable()
     {
@@ -83,16 +84,21 @@ public class Enemy_Controller : MonoBehaviour
                 MoveTowardsWaypoint();
             }
         }
-        else
+         if(isChasingPlayer)
         {
             // ตรวจสอบตำแหน่งผู้เล่นและเรียก ChasePlayer() ใหม่
-           GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null)
             {
 
                 StartChasing(player.transform.position);
             }
+            else
+            {
+                StopChasing();
+            }
+
         }
 
     }
@@ -125,14 +131,14 @@ public class Enemy_Controller : MonoBehaviour
 
             // ต่อมาคุณควรตั้งค่าเริ่มการเคลื่อนที่ไปหา EnemyTele
             runRange = float.PositiveInfinity; // ยกเลิกการตรวจสอบระยะกับ Player
-            speed = 8.5f;
+            speed = 7f;
             isChasingPlayer = true;
             this.playerPosition = playerPosition;
             state = State.Run;
         }
         else
         {
-            speed = 8.5f; // ความเร็วในการไล่ล่า Player
+            speed = 7f; // ความเร็วในการไล่ล่า Player
             isChasingPlayer = true;
             this.playerPosition = playerPosition;
             state = State.Run;
@@ -157,14 +163,47 @@ public class Enemy_Controller : MonoBehaviour
     }
     private void StopChasing()
     {
+        runRange = 8f;
+        
+      
+
+        StartCoroutine(MoveToHiddenPosition());
+
+        // ตรวจสอบว่ามี EnemyTele ที่พบอยู่ใน List
+        if (enemyTeleporters.Count > 0)
+        {
+            foreach (GameObject teleporter in enemyTeleporters)
+            {
+                // เปลี่ยน Tag ของแต่ละ GameObject ใน List ให้เป็น "Teleporter"
+                teleporter.tag = "Teleporter";
+            }
+
+            // ลบทุก GameObject ใน List
+            enemyTeleporters.Clear();
+        }
+    }
+    private IEnumerator MoveToHiddenPosition()
+    {
+        yield return new WaitForSeconds(1f); // รอ 1 วินาที
+
+        // หา GameObject ที่มี Tag "Hidden"
+        GameObject hiddenObject = GameObject.FindGameObjectWithTag("Hidden");
+        if (hiddenObject != null)
+        {
+            transform.position = hiddenObject.transform.position;
+
+        }
+        yield return new WaitForSeconds(3f);
+        transform.position = initialWaypointPosition;
         isChasingPlayer = false;
+        cashSound.enabled = false;
+        detech.enabled = false;
         speed = originalSpeed;
-        currentWaypoint = wayPoints[currentIndex];
-        cashSound.enabled=false;
-        detech.enabled=false;
+        currentWaypoint = wayPoints[0];
+
 
     }
-    
+
     private void Pause()
     {
         isWaiting = !isWaiting;
@@ -245,7 +284,7 @@ public class Enemy_Controller : MonoBehaviour
         }
     }
 
-   
+
 
     private void AttackPlayer()
     {
