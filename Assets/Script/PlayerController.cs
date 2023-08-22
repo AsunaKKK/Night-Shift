@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class PlayerController : MonoBehaviour , IDataSave
 {
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour , IDataSave
 
     private bool canMove = true;
 
+    private bool canDie = false;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
     //[SerializeField] private AudioSource audioSource;
@@ -39,22 +42,45 @@ public class PlayerController : MonoBehaviour , IDataSave
     private enum State { idle,walk,run,dash }
     private State state = State.idle;
 
+    public Image bloodImageOne;
+    public Image bloodImageTwo;
+
     private void Awake()
     {
         instance = this;
+    }
+    private void OnEnable()
+    {
+        anim.SetBool("DiePlayer", false);
+        canDie = false;
     }
     // Start is called before the first frame update
     void Start()
     {
         currenHp = maxHp;
+        bloodImageOne.gameObject.SetActive(false);
+        bloodImageTwo.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (canDie)
+        {
+            return;
+        }
         if (isDashing || !canMove)
         {
             return;
+        }
+
+        if(currenHp == 50)
+        {
+            bloodImageOne.gameObject.SetActive(true);
+        }
+        if(currenHp == 25f)
+        {
+            bloodImageTwo.gameObject.SetActive(true);
         }
 
         //MoveMent Player
@@ -240,7 +266,7 @@ public class PlayerController : MonoBehaviour , IDataSave
         if (currenHp <= 0)
         {
             currenHp = 0;
-            //anim.SetTrigger("die");
+            //canDie = true;
             StartCoroutine(PlayDeathAnimation());
         }
         else
@@ -248,15 +274,22 @@ public class PlayerController : MonoBehaviour , IDataSave
             // anim.SetTrigger("Hit");
         }
     }
-    private void Die()
+    /*private void Die()
     {
         SceneManager.LoadSceneAsync("Scene02");
-    }
+    }*/
 
     private IEnumerator PlayDeathAnimation()
     {
-        yield return new WaitForSeconds(2.0f);
-        Die();
+        canDie = true;
+        anim.SetBool("DiePlayer",true);
+        dashSpeed = 0f;
+        LSpeed = 0f;
+        RSpeed = 0f;
+        currenEnergy = 0;
+        currenHp = 0;
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadSceneAsync("Scene02");
     }
 
     // Save and Load Data

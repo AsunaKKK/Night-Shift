@@ -65,3 +65,6 @@ TagManager:
   - name: Door
     uniqueID: 1522098521
     locked: 0
+  - name: ItemOnTop
+    uniqueID: 73597985
+    locked: 0

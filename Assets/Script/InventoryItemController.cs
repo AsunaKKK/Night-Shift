@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class InventoryItemController : MonoBehaviour , IPointerEnterHandler , IPointerExitHandler
 {
     public Button removeButton;
+    public AudioSource soundUseItem;
     Item item;
     private void Start()
     {
@@ -72,5 +73,10 @@ public class InventoryItemController : MonoBehaviour , IPointerEnterHandler , IP
     public Item GetItem()
     {
         return item;
+    }
+
+    public void UseItemSound()
+    {
+        soundUseItem.Play();
     }
 }

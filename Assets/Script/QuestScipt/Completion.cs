@@ -14,6 +14,8 @@ public class Completion : MonoBehaviour
     public GameObject Chacracter2;
     public GameObject Chacracter3;
 
+    public GameObject Enemy;
+
     
 
     //public GameObject quest2;
@@ -35,8 +37,6 @@ public class Completion : MonoBehaviour
 
     public List<GameObject> chackOj = new List<GameObject>();
 
-    public int itemOn = 0;
-
 
     // Update is called once per frame
 
@@ -46,6 +46,7 @@ public class Completion : MonoBehaviour
         quest2.SetActive(false);
         quest3.SetActive(false);
         quest4.SetActive(false);
+        Enemy.SetActive(false);
     }
 
 
@@ -106,6 +107,11 @@ public class Completion : MonoBehaviour
             Chacracter3.SetActive(false);
         }
 
+        // Enemy
+        if (QuestManager.questID == 12)
+        {
+            Enemy.SetActive(true);
+        }
 
 
 
@@ -195,37 +201,7 @@ public class Completion : MonoBehaviour
         }
     }
 
-    /*public void SetOnObj()
-    {
-        //Item
-        if(itemOn == 1)
-        {
-            quest1.SetActive(true);
-        }
-        if (itemOn == 2)
-        {
-            quest2.SetActive(true);
-        }
-        if (itemOn == 3)
-        {
-            quest3.SetActive(true);
-        }
-
-        //Character
-        if (chacracterOn == 1)
-        {
-            Chacracter0.SetActive(true);
-        }
-        if (chacracterOn == 2)
-        {
-            Chacracter1.SetActive(true);
-        }
-        if (chacracterOn == 3)
-        {
-            Chacracter0.SetActive(false);
-        }
-    }*/
-
+    
 }
    
 

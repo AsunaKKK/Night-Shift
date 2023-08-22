@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy_Controller : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Enemy_Controller : MonoBehaviour
     private float originalSpeed;
     private Vector2 playerPosition;
 
+    public List<GameObject> enemyTeleporters = new List<GameObject>();
+
     private GameObject currentTeleporter;
 
 
@@ -24,7 +27,6 @@ public class Enemy_Controller : MonoBehaviour
 
     public static bool isAttacking = false;
     private bool hasHitPlayer = true;
-    //public float attackRange = 0f;
     public int attackDamage = 10;
     public float attackCooldown = 2f;
 
@@ -34,6 +36,11 @@ public class Enemy_Controller : MonoBehaviour
     private enum State { Idle, Walk, Run, Attack }
     private State state = State.Idle;
 
+    /// <summary>
+    /// /sound
+    /// </summary>
+    public AudioSource cashSound;
+    public AudioSource detech;
     private void Start()
     {
         if (wayPoints.Length > 0)
@@ -42,16 +49,122 @@ public class Enemy_Controller : MonoBehaviour
         }
         originalSpeed = speed;
         anim = GetComponent<Animator>();
+        cashSound.enabled = false;
+        detech.enabled = false;
+    }
+    private void OnEnable()
+    {
+        cashSound.enabled = false;
+        detech.enabled = false;
     }
 
     private void Update()
     {
+        UpdateAnimation(state);
+        if (currentTeleporter != null)
+        {
+            transform.position = currentTeleporter.GetComponent<Telepor>().GetDestination().position;
+        }
+        if (!isChasingPlayer)
+        {
+            // หา Player GameObject โดยใช้ tag "Player"
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
 
+            if (player != null && Vector3.Distance(transform.position, player.transform.position) < runRange)
+            {
+                // เมื่อเจอ Player ในระยะ runRange ก็เริ่มการไล่ล่า
+                StartChasing(player.transform.position);
+                cashSound.enabled = true;
+                detech.enabled = true;
+            }
+            else
+            {
+                // หากไม่เจอ Player ในระยะ runRange ให้เดินตาม Waypoint
+                MoveTowardsWaypoint();
+            }
+        }
+        else
+        {
+            // ตรวจสอบตำแหน่งผู้เล่นและเรียก ChasePlayer() ใหม่
+           GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        Move();
+            if (player != null)
+            {
+
+                StartChasing(player.transform.position);
+            }
+        }
 
     }
+    private void StartChasing(Vector3 playerPosition)
+    {
+        // ตรวจสอบว่ามี EnemyTele ในระยะที่กำหนดหรือไม่
+        GameObject[] enemyTeleportersArray = GameObject.FindGameObjectsWithTag("EnemyTele");
 
+        // ใส่รายการ EnemyTele ที่พบลงใน List
+        enemyTeleporters.Clear();
+        enemyTeleporters.AddRange(enemyTeleportersArray);
+
+        if (enemyTeleporters.Count > 0)
+        {
+            // หา EnemyTele ตัวแรกในลำดับการเกิด
+            GameObject nextTeleporter = enemyTeleporters[0];
+
+            // ตรวจสอบทิศทางและเคลื่อนที่ไปหา EnemyTele ตัวถัดไป
+            float enemyTeleX = nextTeleporter.transform.position.x;
+            float enemyX = transform.position.x;
+
+            if (Mathf.Abs(enemyTeleX - enemyX) > 0.1f)
+            {
+                float directionX = Mathf.Sign(enemyTeleX - enemyX);
+                Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
+
+                transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
+                FlipEnemy(directionX);
+            }
+
+            // ต่อมาคุณควรตั้งค่าเริ่มการเคลื่อนที่ไปหา EnemyTele
+            runRange = float.PositiveInfinity; // ยกเลิกการตรวจสอบระยะกับ Player
+            speed = 8.5f;
+            isChasingPlayer = true;
+            this.playerPosition = playerPosition;
+            state = State.Run;
+        }
+        else
+        {
+            speed = 8.5f; // ความเร็วในการไล่ล่า Player
+            isChasingPlayer = true;
+            this.playerPosition = playerPosition;
+            state = State.Run;
+
+            float playerX = playerPosition.x;
+            float enemyX = transform.position.x;
+
+            if (Mathf.Abs(playerX - enemyX) > 0.1f)
+            {
+                float directionX = Mathf.Sign(playerX - enemyX);
+                Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
+
+                transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
+                FlipEnemy(directionX);
+            }
+        }
+
+        if (isAttacking)
+        {
+            AttackPlayer();
+        }
+    }
+    private void StopChasing()
+    {
+        isChasingPlayer = false;
+        speed = originalSpeed;
+        currentWaypoint = wayPoints[currentIndex];
+        cashSound.enabled=false;
+        detech.enabled=false;
+
+    }
+    
     private void Pause()
     {
         isWaiting = !isWaiting;
@@ -62,9 +175,6 @@ public class Enemy_Controller : MonoBehaviour
     {
         Vector3 currentPosition = transform.position;
         Vector3 targetPosition = currentWaypoint.transform.position;
-
-        targetPosition.y = currentPosition.y;
-        targetPosition.z = currentPosition.z;
 
         if (Vector3.Distance(currentPosition, targetPosition) > 0.1f)
         {
@@ -93,8 +203,6 @@ public class Enemy_Controller : MonoBehaviour
 
             NextWaypoint();
         }
-
-
     }
 
     private void FlipEnemy(float directionX)
@@ -137,101 +245,7 @@ public class Enemy_Controller : MonoBehaviour
         }
     }
 
-    private void Run(Vector3 playerPosition)
-    {
-        runRange = float.PositiveInfinity;
-        speed = 8f;
-        isChasingPlayer = true;
-        this.playerPosition = playerPosition;
-        state = State.Run;
-        if (currentTeleporter != null)
-        {
-            transform.position = currentTeleporter.GetComponent<Telepor>().GetDestination().position;
-        }
-    }
-
-    private void MoveTowardsPlayer()
-    {
-        float playerX = playerPosition.x;
-        float enemyX = transform.position.x;
-
-        if (Mathf.Abs(playerX - enemyX) > 0.1f)
-        {
-            float directionX = Mathf.Sign(playerX - enemyX);
-            Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
-
-            transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
-            FlipEnemy(directionX);
-        }
-        else
-        {
-            isChasingPlayer = false;
-            speed = originalSpeed;
-            currentWaypoint = wayPoints[currentIndex];
-        }
-
-        if (isAttacking)
-        {
-            AttackPlayer();
-        }
-    }
-    private void Move()
-    {
-        UpdateAnimation(state);
-
-        if (canWalk && !isChasingPlayer && currentWaypoint != null && !isWaiting)
-        {
-            // Find the nearest gameobject with the tag "EnemyTele"
-            GameObject enemyTele = GameObject.FindGameObjectWithTag("EnemyTele");
-
-            if (enemyTele != null)
-            {
-                float distanceToTeleporter = Vector3.Distance(transform.position, enemyTele.transform.position);
-
-                if (distanceToTeleporter < runRange)
-                {
-                    Run(enemyTele.transform.position);
-                    return;
-                }
-            }
-
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-            if (player != null && Vector3.Distance(transform.position, player.transform.position) < runRange)
-            {
-                Run(player.transform.position);
-            }
-            else
-            {
-                MoveTowardsWaypoint();
-            }
-        }
-        else if (isChasingPlayer)
-        {
-            float playerX = playerPosition.x;
-            float enemyX = transform.position.x;
-
-            if (Mathf.Abs(playerX - enemyX) > 0.1f)
-            {
-                float directionX = Mathf.Sign(playerX - enemyX);
-                Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
-
-                transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
-                FlipEnemy(directionX);
-            }
-            else
-            {
-                isChasingPlayer = false;
-                speed = originalSpeed;
-                currentWaypoint = wayPoints[currentIndex];
-            }
-
-            if (isAttacking)
-            {
-                AttackPlayer();
-            }
-        }
-    }
+   
 
     private void AttackPlayer()
     {
@@ -286,8 +300,6 @@ public class Enemy_Controller : MonoBehaviour
         {
             isAttacking = true;
         }
-
-
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -302,7 +314,7 @@ public class Enemy_Controller : MonoBehaviour
         if (collision.gameObject == currentTeleporter)
         {
             currentTeleporter = null;
-            collision.tag = "Teleporter";
+            collision.gameObject.tag = "Teleporter";
             isAttacking = false;
         }
     }

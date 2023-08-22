@@ -15,7 +15,7 @@ public class Dialog : MonoBehaviour
     public GameObject interfaceFace;
 
     public GameObject[] nameShow;
-    private bool checkNameShow;
+  
     
     
     

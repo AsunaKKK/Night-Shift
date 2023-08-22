@@ -1,14 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class PlayerTelepot : MonoBehaviour
 {
     private GameObject currentTeleporter;
     public Image blackImgTeleport;
+    public bool openDoor = false;
 
     private bool isFading;
+    private bool hasChangedTag = false;
+
+    public AudioSource soundOpenDoor;
 
     private void Start()
     {
@@ -18,13 +21,31 @@ public class PlayerTelepot : MonoBehaviour
 
     void Update()
     {
+        if (Enemy_Controller.isChasingPlayer)
+        {
+            openDoor = true;
+        }
+        else
+        {
+            openDoor = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (currentTeleporter != null)
             {
                 transform.position = currentTeleporter.GetComponent<Telepor>().GetDestination().position;
+                soundOpenDoor.Play();
 
                 StartCoroutine(FadeOut());
+
+                // เช็คว่ายังไม่เปลี่ยนแปลง Tag และเปิดประตู
+                if (!hasChangedTag && openDoor)
+                {
+                    currentTeleporter.gameObject.tag = "EnemyTele";
+                    hasChangedTag = true; // ตั้งค่าให้ตรวจสอบเพียงครั้งเดียว
+                    Debug.Log("Tag changed to EnemyTele.");
+                }
             }
         }
     }
@@ -38,8 +59,7 @@ public class PlayerTelepot : MonoBehaviour
         isFading = true;
         SetOpacity(1f);
 
-
-        yield return new WaitForSeconds(0.1f); 
+        yield return new WaitForSeconds(0.1f);
         float duration = 1f;
         float elapsedTime = 0f;
         float startOpacity = 1f;
@@ -64,22 +84,17 @@ public class PlayerTelepot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("OnTriggerEnter2D called.");
         if (collision.CompareTag("Teleporter"))
         {
             currentTeleporter = collision.gameObject;
+            Debug.Log("Teleporter detected.");
         }
-        if (Input.GetKeyDown(KeyCode.E) && collision.CompareTag("Teleporter") && Enemy_Controller.isChasingPlayer == true)
-        {
-            collision.tag = "EnemyTele";
-        }
-
     }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.E)&& collision.CompareTag("Teleporter")&& Enemy_Controller.isChasingPlayer == true)
-        {
-            collision.tag = "EnemyTele";
-        }
+        // ไม่ต้องตรวจสอบการเปลี่ยนแปลง Tag ที่นี่
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -89,6 +104,7 @@ public class PlayerTelepot : MonoBehaviour
             if (collision.gameObject == currentTeleporter)
             {
                 currentTeleporter = null;
+                hasChangedTag = false; // รีเซ็ตตัวแปรเมื่อออกจาก Collider
             }
         }
     }

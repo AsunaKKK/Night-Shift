@@ -16,6 +16,7 @@ public class DialogRun : MonoBehaviour
     public GameObject dialogQuest9;
     public GameObject dialogQuest10;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,9 +59,10 @@ public class DialogRun : MonoBehaviour
         {
             dialogQuest6.SetActive(true);
         }
-        if (QuestManager.questID == 12)
+        if (QuestManager.quest11Completion)
         {
             dialogQuest7.SetActive(true);
+            
         }
         if (QuestManager.questID == 13)
         {
@@ -75,6 +77,10 @@ public class DialogRun : MonoBehaviour
             dialogQuest10.SetActive(true);
         }
 
+       
+    }
+    public void EnemySpew()
+    {
 
     }
 }

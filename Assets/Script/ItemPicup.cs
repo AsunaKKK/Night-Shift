@@ -30,6 +30,8 @@ public class ItemPicup : MonoBehaviour, IDataSave
     public float giftTimer = 0.5f;
     public bool checkGift = false;
 
+    public AudioSource pickUpSound;
+
     private void Start()
     {
         itemUse.SetActive(false);
@@ -96,6 +98,7 @@ public class ItemPicup : MonoBehaviour, IDataSave
     {
         isPickingUp = true;
         reloadBarObj.SetActive(true);
+        pickUpSound.Play();
         
     }
 
