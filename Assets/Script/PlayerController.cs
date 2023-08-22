@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour , IDataSave
 
     public Image bloodImageOne;
     public Image bloodImageTwo;
+    public Image hitBlood;
 
     private void Awake()
     {
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour , IDataSave
         currenHp = maxHp;
         bloodImageOne.gameObject.SetActive(false);
         bloodImageTwo.gameObject.SetActive(false);
+        hitBlood.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -91,6 +93,11 @@ public class PlayerController : MonoBehaviour , IDataSave
             return;
         }
 
+        if(currenHp >= 50)
+        {
+            bloodImageOne.gameObject.SetActive(false);
+            bloodImageTwo.gameObject.SetActive(false);
+        }
         if(currenHp == 50)
         {
             bloodImageOne.gameObject.SetActive(true);
@@ -98,6 +105,10 @@ public class PlayerController : MonoBehaviour , IDataSave
         if(currenHp == 25f)
         {
             bloodImageTwo.gameObject.SetActive(true);
+        }
+        if(currenHp <= 0)
+        {
+            hitBlood.gameObject.SetActive(true);
         }
 
         //MoveMent Player
@@ -295,24 +306,24 @@ public class PlayerController : MonoBehaviour , IDataSave
     }
     public void TakeDamage(float damageAmount)
     {
-
             currenHp -= damageAmount;
         if (currenHp <= 0)
         {
             currenHp = 0;
-            //canDie = true;
             StartCoroutine(PlayDeathAnimation());
         }
         else
         {
-            // anim.SetTrigger("Hit");
+            StartCoroutine(PlayerHitss());
         }
     }
-    /*private void Die()
-    {
-        SceneManager.LoadSceneAsync("Scene02");
-    }*/
 
+    private IEnumerator PlayerHitss()
+    {
+        hitBlood.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.9f);
+        hitBlood.gameObject.SetActive(false);
+    }
     private IEnumerator PlayDeathAnimation()
     {
         canDie = true;
@@ -322,6 +333,9 @@ public class PlayerController : MonoBehaviour , IDataSave
         RSpeed = 0f;
         currenEnergy = 0;
         currenHp = 0;
+        hpBar.gameObject.SetActive(false);
+        energyBar.gameObject.SetActive(false);
+        hitBlood.gameObject.SetActive(true);
         yield return new WaitForSeconds(3.0f);
         SceneManager.LoadSceneAsync("Scene02");
     }

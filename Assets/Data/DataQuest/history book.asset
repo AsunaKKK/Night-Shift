@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7286d89bd3a9354e948cec8d565ba51, type: 3}
   m_Name: history book
   m_EditorClassIdentifier: 
-  itemName: history book
+  itemName: "\u0E2B\u0E19\u0E31\u0E07\u0E2A\u0E37\u0E2D\u0E40\u0E01\u0E48\u0E32"
   IdItems: 7
-  icon: {fileID: 21300000, guid: 84ca66405f1bc5c418e1b9d89bb1ce07, type: 3}
+  icon: {fileID: 21300000, guid: 476dd8648c97da34c812a19a60359480, type: 3}
   detailItem: "\u0E2B\u0E19\u0E31\u0E07\u0E2A\u0E37\u0E2D\u0E1B\u0E23\u0E30\u0E27\u0E31\u0E15\u0E34\u0E28\u0E32\u0E2A\u0E15\u0E23\u0E4C\u0E17\u0E35\u0E48\u0E02\u0E32\u0E14\u0E46"

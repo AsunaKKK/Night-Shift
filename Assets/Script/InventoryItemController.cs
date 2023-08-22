@@ -37,12 +37,15 @@ public class InventoryItemController : MonoBehaviour , IPointerEnterHandler , IP
         {
             case Item.ItemType.Hp:
                 PlayerController.instance.IncreaseHp(item.hpValue);
+                soundUseItem.Play();
                 break;
             case Item.ItemType.Energy:
                 PlayerController.instance.IncreaseEnergy(item.mpValue);
+                soundUseItem.Play();
                 break;
             case Item.ItemType.mixHpMp:
                 PlayerController.instance.IncreaseMpAndHp(item.hpValue, item.mpValue);
+                soundUseItem.Play();
                 break;
             default:
                 break;
@@ -60,23 +63,15 @@ public class InventoryItemController : MonoBehaviour , IPointerEnterHandler , IP
         if (item != null && item.detailItem != null)
         {
             SetToolTip(item.detailItem);
-            //Debug.Log("Pointer entered the button!");
-            // Additional code or actions to perform when the pointer enters the button
         }
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         SetToolTip(string.Empty);
-        //Debug.Log("Remove");
     }
 
     public Item GetItem()
     {
         return item;
-    }
-
-    public void UseItemSound()
-    {
-        soundUseItem.Play();
     }
 }

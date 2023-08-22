@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7286d89bd3a9354e948cec8d565ba51, type: 3}
   m_Name: school bag
   m_EditorClassIdentifier: 
-  itemName: school bag
+  itemName: "\u0E2A\u0E32\u0E22\u0E02\u0E49\u0E2D\u0E21\u0E37\u0E2D"
   IdItems: 6
-  icon: {fileID: 21300000, guid: f36fa8ab8340b4843a1bfabe8043bea5, type: 3}
-  detailItem: "\u0E01\u0E23\u0E30\u0E40\u0E1B\u0E4B\u0E32\u0E17\u0E35\u0E48\u0E2B\u0E32\u0E22\u0E44\u0E1B\u0E02\u0E2D\u0E07\u0E19\u0E49\u0E2D\u0E07\u0E19\u0E49\u0E33"
+  icon: {fileID: 21300000, guid: 7cf0d2665a2e24e49a3892faab874569, type: 3}
+  detailItem: "\u0E2A\u0E32\u0E22\u0E02\u0E49\u0E2D\u0E21\u0E37\u0E2D\u0E02\u0E2D\u0E07\u0E19\u0E49\u0E2D\u0E07\u0E19\u0E49\u0E33"

@@ -68,25 +68,25 @@ public class Enemy_Controller : MonoBehaviour
         }
         if (!isChasingPlayer)
         {
-            // ËÒ Player GameObject â´Âãªé tag "Player"
+            // ï¿½ï¿½ Player GameObject ï¿½ï¿½ï¿½ï¿½ tag "Player"
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null && Vector3.Distance(transform.position, player.transform.position) < runRange)
             {
-                // àÁ×èÍà¨Í Player ã¹ÃÐÂÐ runRange ¡çàÃÔèÁ¡ÒÃäÅèÅèÒ
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Player ï¿½ï¿½ï¿½ï¿½ï¿½ runRange ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 StartChasing(player.transform.position);
                 cashSound.enabled = true;
                 detech.enabled = true;
             }
             else
             {
-                // ËÒ¡äÁèà¨Í Player ã¹ÃÐÂÐ runRange ãËéà´Ô¹µÒÁ Waypoint
+                // ï¿½Ò¡ï¿½ï¿½ï¿½ï¿½ï¿½ Player ï¿½ï¿½ï¿½ï¿½ï¿½ runRange ï¿½ï¿½ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½ Waypoint
                 MoveTowardsWaypoint();
             }
         }
          if(isChasingPlayer)
         {
-            // µÃÇ¨ÊÍºµÓáË¹è§¼ÙéàÅè¹áÅÐàÃÕÂ¡ ChasePlayer() ãËÁè
+            // ï¿½ï¿½Ç¨ï¿½Íºï¿½ï¿½ï¿½Ë¹è§¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¡ ChasePlayer() ï¿½ï¿½ï¿½ï¿½
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null)
@@ -104,19 +104,19 @@ public class Enemy_Controller : MonoBehaviour
     }
     private void StartChasing(Vector3 playerPosition)
     {
-        // µÃÇ¨ÊÍºÇèÒÁÕ EnemyTele ã¹ÃÐÂÐ·Õè¡ÓË¹´ËÃ×ÍäÁè
+        // ï¿½ï¿½Ç¨ï¿½Íºï¿½ï¿½ï¿½ï¿½ï¿½ EnemyTele ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         GameObject[] enemyTeleportersArray = GameObject.FindGameObjectsWithTag("EnemyTele");
 
-        // ãÊèÃÒÂ¡ÒÃ EnemyTele ·Õè¾ºÅ§ã¹ List
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ EnemyTele ï¿½ï¿½è¾ºÅ§ï¿½ List
         enemyTeleporters.Clear();
         enemyTeleporters.AddRange(enemyTeleportersArray);
 
         if (enemyTeleporters.Count > 0)
         {
-            // ËÒ EnemyTele µÑÇáÃ¡ã¹ÅÓ´Ñº¡ÒÃà¡Ô´
+            // ï¿½ï¿½ EnemyTele ï¿½ï¿½ï¿½ï¿½Ã¡ï¿½ï¿½Ó´Ñºï¿½ï¿½ï¿½ï¿½Ô´
             GameObject nextTeleporter = enemyTeleporters[0];
 
-            // µÃÇ¨ÊÍº·ÔÈ·Ò§áÅÐà¤Å×èÍ¹·Õèä»ËÒ EnemyTele µÑÇ¶Ñ´ä»
+            // ï¿½ï¿½Ç¨ï¿½Íºï¿½ï¿½È·Ò§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ EnemyTele ï¿½ï¿½Ç¶Ñ´ï¿½
             float enemyTeleX = nextTeleporter.transform.position.x;
             float enemyX = transform.position.x;
 
@@ -129,8 +129,8 @@ public class Enemy_Controller : MonoBehaviour
                 FlipEnemy(directionX);
             }
 
-            // µèÍÁÒ¤Ø³¤ÇÃµÑé§¤èÒàÃÔèÁ¡ÒÃà¤Å×èÍ¹·Õèä»ËÒ EnemyTele
-            runRange = float.PositiveInfinity; // Â¡àÅÔ¡¡ÒÃµÃÇ¨ÊÍºÃÐÂÐ¡Ñº Player
+            // ï¿½ï¿½ï¿½ï¿½Ò¤Ø³ï¿½ï¿½Ãµï¿½é§¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ EnemyTele
+            runRange = float.PositiveInfinity; // Â¡ï¿½ï¿½Ô¡ï¿½ï¿½Ãµï¿½Ç¨ï¿½Íºï¿½ï¿½ï¿½Ð¡Ñº Player
             speed = 7f;
             isChasingPlayer = true;
             this.playerPosition = playerPosition;
@@ -138,7 +138,7 @@ public class Enemy_Controller : MonoBehaviour
         }
         else
         {
-            speed = 7f; // ¤ÇÒÁàÃçÇã¹¡ÒÃäÅèÅèÒ Player
+            speed = 7f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Player
             isChasingPlayer = true;
             this.playerPosition = playerPosition;
             state = State.Run;
@@ -169,24 +169,24 @@ public class Enemy_Controller : MonoBehaviour
 
         StartCoroutine(MoveToHiddenPosition());
 
-        // µÃÇ¨ÊÍºÇèÒÁÕ EnemyTele ·Õè¾ºÍÂÙèã¹ List
+        // ï¿½ï¿½Ç¨ï¿½Íºï¿½ï¿½ï¿½ï¿½ï¿½ EnemyTele ï¿½ï¿½è¾ºï¿½ï¿½ï¿½ï¿½ï¿½ List
         if (enemyTeleporters.Count > 0)
         {
             foreach (GameObject teleporter in enemyTeleporters)
             {
-                // à»ÅÕèÂ¹ Tag ¢Í§áµèÅÐ GameObject ã¹ List ãËéà»ç¹ "Teleporter"
+                // ï¿½ï¿½ï¿½ï¿½Â¹ Tag ï¿½Í§ï¿½ï¿½ï¿½ï¿½ GameObject ï¿½ List ï¿½ï¿½ï¿½ï¿½ï¿½ "Teleporter"
                 teleporter.tag = "Teleporter";
             }
 
-            // Åº·Ø¡ GameObject ã¹ List
+            // Åºï¿½Ø¡ GameObject ï¿½ List
             enemyTeleporters.Clear();
         }
     }
     private IEnumerator MoveToHiddenPosition()
     {
-        yield return new WaitForSeconds(1f); // ÃÍ 1 ÇÔ¹Ò·Õ
+        yield return new WaitForSeconds(1f); // ï¿½ï¿½ 1 ï¿½Ô¹Ò·ï¿½
 
-        // ËÒ GameObject ·ÕèÁÕ Tag "Hidden"
+        // ï¿½ï¿½ GameObject ï¿½ï¿½ï¿½ï¿½ï¿½ Tag "Hidden"
         GameObject hiddenObject = GameObject.FindGameObjectWithTag("Hidden");
         if (hiddenObject != null)
         {
