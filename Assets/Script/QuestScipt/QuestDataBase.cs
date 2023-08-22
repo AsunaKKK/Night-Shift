@@ -41,6 +41,12 @@ public class QuestDataBase : MonoBehaviour
         questList.Add(new Quest(19, questNames[18], conditions1[18], conditions2[18], conditions3[18]));
         questList.Add(new Quest(20, questNames[19], conditions1[19], conditions2[19], conditions3[19]));
         questList.Add(new Quest(21, questNames[20], conditions1[20], conditions2[20], conditions3[20]));
+        questList.Add(new Quest(22, questNames[21], conditions1[21], conditions2[21], conditions3[21]));
+        questList.Add(new Quest(23, questNames[22], conditions1[22], conditions2[22], conditions3[22]));
+        questList.Add(new Quest(24, questNames[23], conditions1[23], conditions2[23], conditions3[23]));
+        questList.Add(new Quest(25, questNames[24], conditions1[24], conditions2[24], conditions3[24]));
+
+
 
 
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DialogRun : MonoBehaviour
 {
+    public GameObject dialogQuest0;
     public GameObject dialogQuest;
     public GameObject dialogQuest1;
     public GameObject dialogQuest2;
@@ -15,6 +16,8 @@ public class DialogRun : MonoBehaviour
     public GameObject dialogQuest8;
     public GameObject dialogQuest9;
     public GameObject dialogQuest10;
+    public GameObject dialogQuest11;
+    public GameObject dialogQuest12;
 
 
     // Start is called before the first frame update
@@ -30,7 +33,11 @@ public class DialogRun : MonoBehaviour
     }
     public void RunDialog()
     {
-        if(QuestManager.questID == 4)
+        if (QuestManager.questID == 1)
+        {
+            dialogQuest0.SetActive(true);
+        }
+        if (QuestManager.questID == 4)
         {
             dialogQuest.SetActive(true);
         }
@@ -76,11 +83,16 @@ public class DialogRun : MonoBehaviour
         {
             dialogQuest10.SetActive(true);
         }
+        if(QuestManager.questID == 17)
+        {
+            dialogQuest11.SetActive(true);
+        }
+        if (QuestManager.questID == 20)
+        {
+            dialogQuest12.SetActive(true);
+        }
 
-       
-    }
-    public void EnemySpew()
-    {
 
     }
+    
 }

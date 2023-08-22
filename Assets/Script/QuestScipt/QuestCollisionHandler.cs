@@ -260,6 +260,32 @@ public class QuestCollisionHandler : MonoBehaviour
                     }
                 }
             }
+            if (QuestManager.questID == 19)
+            {
+
+                foreach (GameObject obj in completionScript.chackOj)
+                {
+                    if (obj.name == "quest110")
+                    {
+
+                        QuestManager.quest19Completion = true;
+
+
+                        obj.SetActive(false);
+
+                        foreach (GameObject questObject in completionScript.chackOj)
+                        {
+                            if (questObject.name == "quest111")
+                            {
+                                questObject.SetActive(true);
+                                break;
+                            }
+                        }
+
+                        break;
+                    }
+                }
+            }
 
 
         }

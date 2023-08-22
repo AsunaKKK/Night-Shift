@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7286d89bd3a9354e948cec8d565ba51, type: 3}
   m_Name: flannel
   m_EditorClassIdentifier: 
-  itemName: "\u0E1C\u0E49\u0E32\u0E40\u0E0A\u0E47\u0E14\u0E2B\u0E19\u0E49\u0E32"
+  itemName: flannel
   IdItems: 5
   icon: {fileID: 21300000, guid: c641c666144e8e3439ca13de882aa077, type: 3}
   detailItem: "\u0E2B\u0E19\u0E49\u0E32\u0E40\u0E0A\u0E47\u0E14\u0E2B\u0E19\u0E49\u0E32\u0E40\u0E1B\u0E37\u0E2D\u0E19\u0E40\u0E25\u0E37\u0E2D\u0E14\u0E02\u0E2D\u0E07\u0E19\u0E49\u0E2D\u0E07\u0E19\u0E49\u0E33"

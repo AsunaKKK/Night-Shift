@@ -104,19 +104,19 @@ public class Enemy_Controller : MonoBehaviour
     }
     private void StartChasing(Vector3 playerPosition)
     {
-        // ��Ǩ�ͺ����� EnemyTele ����з���˹��������
+        
         GameObject[] enemyTeleportersArray = GameObject.FindGameObjectsWithTag("EnemyTele");
 
-        // �����¡�� EnemyTele ��辺ŧ� List
+        
         enemyTeleporters.Clear();
         enemyTeleporters.AddRange(enemyTeleportersArray);
 
         if (enemyTeleporters.Count > 0)
         {
-            // �� EnemyTele ����á��ӴѺ����Դ
+          
             GameObject nextTeleporter = enemyTeleporters[0];
 
-            // ��Ǩ�ͺ��ȷҧ�������͹������ EnemyTele ��ǶѴ�
+           
             float enemyTeleX = nextTeleporter.transform.position.x;
             float enemyX = transform.position.x;
 
@@ -129,8 +129,7 @@ public class Enemy_Controller : MonoBehaviour
                 FlipEnemy(directionX);
             }
 
-            // ����Ҥس��õ�駤��������������͹������ EnemyTele
-            runRange = float.PositiveInfinity; // ¡��ԡ��õ�Ǩ�ͺ���СѺ Player
+            runRange = float.PositiveInfinity; 
             speed = 7f;
             isChasingPlayer = true;
             this.playerPosition = playerPosition;
@@ -138,7 +137,7 @@ public class Enemy_Controller : MonoBehaviour
         }
         else
         {
-            speed = 7f; // ��������㹡�������� Player
+            speed = 7f; 
             isChasingPlayer = true;
             this.playerPosition = playerPosition;
             state = State.Run;
@@ -169,16 +168,15 @@ public class Enemy_Controller : MonoBehaviour
 
         StartCoroutine(MoveToHiddenPosition());
 
-        // ��Ǩ�ͺ����� EnemyTele ��辺����� List
+        
         if (enemyTeleporters.Count > 0)
         {
             foreach (GameObject teleporter in enemyTeleporters)
             {
-                // ����¹ Tag �ͧ���� GameObject � List ����� "Teleporter"
                 teleporter.tag = "Teleporter";
             }
 
-            // ź�ء GameObject � List
+          
             enemyTeleporters.Clear();
         }
     }
@@ -186,7 +184,7 @@ public class Enemy_Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(1f); // �� 1 �Թҷ�
 
-        // �� GameObject ����� Tag "Hidden"
+       
         GameObject hiddenObject = GameObject.FindGameObjectWithTag("Hidden");
         if (hiddenObject != null)
         {

@@ -8,6 +8,11 @@ public class Completion : MonoBehaviour
     public GameObject quest2;
     public GameObject quest3;
     public GameObject quest4;
+    public GameObject quest5;
+    public GameObject quest6;
+    public GameObject quest7;
+    public GameObject quest8;
+    public GameObject quest9;
     
     public GameObject Chacracter0;
     public GameObject Chacracter1;
@@ -24,7 +29,7 @@ public class Completion : MonoBehaviour
     public bool itemQuest3 = false;
     public bool itemQuest4 = false;
 
-
+    //FinalQuest 
 
 
     bool foundTuup = false;
@@ -46,6 +51,15 @@ public class Completion : MonoBehaviour
         quest2.SetActive(false);
         quest3.SetActive(false);
         quest4.SetActive(false);
+        quest5.SetActive(false);
+        quest6.SetActive(false);
+        quest7.SetActive(false);
+        quest8.SetActive(false);
+        quest9.SetActive(false);
+
+
+
+
         Enemy.SetActive(false);
     }
 
@@ -74,6 +88,26 @@ public class Completion : MonoBehaviour
         if (QuestManager.questID == 16)
         {
             quest4.SetActive(true);
+        }
+        if (QuestManager.questID == 20)
+        {
+            quest5.SetActive(true);
+        }
+        if (QuestManager.questID == 21)
+        {
+            quest6.SetActive(true);
+        }
+        if (QuestManager.questID == 22)
+        {
+            quest7.SetActive(true);
+        }
+        if (QuestManager.questID == 23)
+        {
+            quest8.SetActive(true);
+        }
+        if (QuestManager.questID == 24)
+        {
+            quest9.SetActive(true);
         }
 
         //ChaSet
@@ -104,7 +138,7 @@ public class Completion : MonoBehaviour
         }
         if (QuestManager.questID == 18)
         {
-            Chacracter3.SetActive(false);
+            Chacracter3.SetActive(true);
         }
 
         // Enemy
@@ -142,7 +176,7 @@ public class Completion : MonoBehaviour
     {
         foreach (ItemQuest item in InventoryQuestManager.Instance.ItemsQuest)
         {
-            if (item.itemName == "Tuup")
+            if (item.itemName == "Incense")
             {
                 foundTuup = true;
                 
@@ -166,7 +200,7 @@ public class Completion : MonoBehaviour
             {
                 fondFlannel= true;
             }
-            if (item.itemName == "school bag")
+            if (item.itemName == "Bracelet")
             {
                 fondSchoolBag = true;
             }

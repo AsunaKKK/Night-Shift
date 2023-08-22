@@ -30,6 +30,9 @@ public class QuestManager : MonoBehaviour , IDataSave
     public static bool quest19;
     public static bool quest20;
     public static bool quest21;
+    public static bool quest22;
+    public static bool quest23;
+    public static bool quest24;
 
 
     public static bool quest1Completion = false;
@@ -53,6 +56,10 @@ public class QuestManager : MonoBehaviour , IDataSave
     public static bool quest19Completion = false;
     public static bool quest20Completion = false;
     public static bool quest21Completion = false;
+    public static bool quest22Completion = false;
+    public static bool quest23Completion = false;
+    public static bool quest24Completion = false;
+
 
     // The ID of the new quest task we want to retrieve from the list
     public static int newQuestId = 1;
@@ -280,6 +287,30 @@ public class QuestManager : MonoBehaviour , IDataSave
             Debug.Log("qu" + questID);
             Debug.Log("com" + completionID);
         }
+        if (newQuestId == 22 && questID == 22 && quest21Completion == true && completionID == 22)
+        {
+            newQuestId = 23;
+            questID = 23;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
+        }
+        if (newQuestId == 23 && questID == 23 && quest21Completion == true && completionID == 23)
+        {
+            newQuestId = 24;
+            questID = 24;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
+        }
+        if (newQuestId == 24 && questID == 24 && quest21Completion == true && completionID == 24)
+        {
+            newQuestId = 25;
+            questID = 25;
+            Debug.Log("new" + newQuestId);
+            Debug.Log("qu" + questID);
+            Debug.Log("com" + completionID);
+        }
 
 
     }
@@ -369,6 +400,18 @@ public class QuestManager : MonoBehaviour , IDataSave
         if (questID == 21)
         {
             quest21 = true;
+        }
+        if (questID == 22)
+        {
+            quest22 = true;
+        }
+        if (questID == 23)
+        {
+            quest23 = true;
+        }
+        if (questID == 24)
+        {
+            quest24 = true;
         }
     }
 
@@ -461,6 +504,18 @@ public class QuestManager : MonoBehaviour , IDataSave
         if (quest21Completion == true)
         {
             completionID = 21;
+        }
+        if (quest22Completion == true)
+        {
+            completionID = 22;
+        }
+        if (quest23Completion == true)
+        {
+            completionID = 23;
+        }
+        if (quest24Completion == true)
+        {
+            completionID = 24;
         }
     }
     public void SaveData(GameData data)

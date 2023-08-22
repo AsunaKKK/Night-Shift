@@ -22,6 +22,31 @@ public class SendQuest : MonoBehaviour
                 QuestManager.quest10Completion = true;
                 Debug.Log("Quest 10 completed!");
             }
+            if (Input.GetKeyDown(KeyCode.E) && lockDoorScript.talisManpaper1)
+            {
+                QuestManager.quest20Completion = true;
+              
+            }
+            if (Input.GetKeyDown(KeyCode.E) && lockDoorScript.talisManpaper2)
+            {
+                QuestManager.quest21Completion = true;
+
+            }
+            if (Input.GetKeyDown(KeyCode.E) && lockDoorScript.talisManpaper3)
+            {
+                QuestManager.quest22Completion = true;
+
+            }
+            if (Input.GetKeyDown(KeyCode.E) && lockDoorScript.talisManpaper4)
+            {
+                QuestManager.quest23Completion = true;
+
+            }
+            if (Input.GetKeyDown(KeyCode.E) && lockDoorScript.talisManpaper5)
+            {
+                QuestManager.quest24Completion = true;
+
+            }
         }
     }
 }
