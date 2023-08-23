@@ -68,25 +68,25 @@ public class Enemy_Controller : MonoBehaviour
         }
         if (!isChasingPlayer)
         {
-            // �� Player GameObject ���� tag "Player"
+           
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null && Vector3.Distance(transform.position, player.transform.position) < runRange)
             {
-                // ������� Player ����� runRange ����������������
+                
                 StartChasing(player.transform.position);
                 cashSound.enabled = true;
                 detech.enabled = true;
             }
             else
             {
-                // �ҡ����� Player ����� runRange ����Թ��� Waypoint
+                
                 MoveTowardsWaypoint();
             }
         }
          if(isChasingPlayer)
         {
-            // ��Ǩ�ͺ���˹觼�����������¡ ChasePlayer() ����
+            
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null)
@@ -130,14 +130,14 @@ public class Enemy_Controller : MonoBehaviour
             }
 
             runRange = float.PositiveInfinity; 
-            speed = 7f;
+            speed = 8.5f;
             isChasingPlayer = true;
             this.playerPosition = playerPosition;
             state = State.Run;
         }
         else
         {
-            speed = 7f; 
+            speed = 8.5f; 
             isChasingPlayer = true;
             this.playerPosition = playerPosition;
             state = State.Run;
@@ -157,7 +157,9 @@ public class Enemy_Controller : MonoBehaviour
 
         if (isAttacking)
         {
+            state = State.Attack;
             AttackPlayer();
+           
         }
     }
     private void StopChasing()
@@ -182,7 +184,7 @@ public class Enemy_Controller : MonoBehaviour
     }
     private IEnumerator MoveToHiddenPosition()
     {
-        yield return new WaitForSeconds(1f); // �� 1 �Թҷ�
+        yield return new WaitForSeconds(1f); 
 
        
         GameObject hiddenObject = GameObject.FindGameObjectWithTag("Hidden");
@@ -192,12 +194,13 @@ public class Enemy_Controller : MonoBehaviour
 
         }
         yield return new WaitForSeconds(3f);
+        currentWaypoint = wayPoints[0];
         transform.position = initialWaypointPosition;
         isChasingPlayer = false;
         cashSound.enabled = false;
         detech.enabled = false;
         speed = originalSpeed;
-        currentWaypoint = wayPoints[0];
+        
 
 
     }
@@ -286,13 +289,10 @@ public class Enemy_Controller : MonoBehaviour
 
     private void AttackPlayer()
     {
+        
         if (hasHitPlayer)
         {
-            state = State.Attack;
-            // Check if the player is within attack range
-            //if (Vector3.Distance(transform.position, playerPosition) < attackRange)
-
-            // Access the player GameObject
+           
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null)
@@ -340,6 +340,10 @@ public class Enemy_Controller : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.CompareTag("EnemyTele"))
+        {
+            currentTeleporter = collision.gameObject;
+        }
         if (collision.CompareTag("Player"))
         {
             isAttacking = true;

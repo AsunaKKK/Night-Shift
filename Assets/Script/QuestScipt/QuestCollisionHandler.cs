@@ -163,7 +163,7 @@ public class QuestCollisionHandler : MonoBehaviour
                 {
                     if (obj.name == "quest106")
                     {
-
+                        Enemy_Controller.isChasingPlayer = false;
                         QuestManager.quest12Completion = true;
 
 

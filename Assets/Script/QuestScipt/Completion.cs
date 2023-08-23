@@ -21,6 +21,7 @@ public class Completion : MonoBehaviour
 
     public GameObject Enemy;
 
+    public GameObject PlayerCutSecne;
     
 
     //public GameObject quest2;
@@ -56,7 +57,7 @@ public class Completion : MonoBehaviour
         quest7.SetActive(false);
         quest8.SetActive(false);
         quest9.SetActive(false);
-
+        PlayerCutSecne.SetActive(false);
 
 
 
@@ -146,7 +147,12 @@ public class Completion : MonoBehaviour
         {
             Enemy.SetActive(true);
         }
-
+        //Animation
+        if(QuestManager.questID == 11)
+        {
+            PlayerCutSecne.SetActive(true);
+        }
+        
 
 
         if (itemQuest1 == true)
