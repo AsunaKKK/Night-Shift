@@ -89,7 +89,8 @@ public class GameManager : MonoBehaviour
     }
     public void ExitGame()
     {
-        Application.Quit();
+        SceneManager.LoadSceneAsync("Scene00");
+        SaveManager.instance.SaveGame();
     }
 
 }

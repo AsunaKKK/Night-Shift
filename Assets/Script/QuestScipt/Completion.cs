@@ -182,35 +182,35 @@ public class Completion : MonoBehaviour
     {
         foreach (ItemQuest item in InventoryQuestManager.Instance.ItemsQuest)
         {
-            if (item.itemName == "Incense")
+            if (item.IdItems == 1)
             {
                 foundTuup = true;
                 
             }
 
-            if (item.itemName == "light-steel")
+            if (item.IdItems == 2)
             {
                 foundLightSteel = true;
                
             }
-            if (item.itemName == "Key")
+            if (item.IdItems == 3)
             {
                 foundKey = true;
                
             }
-            if(item.itemName == "Electric-fuse")
+            if(item.IdItems == 4)
             {
                 fondElectricfuse = true;
             }
-            if (item.itemName == "flannel")
+            if (item.IdItems == 5)
             {
                 fondFlannel= true;
             }
-            if (item.itemName == "Bracelet")
+            if (item.IdItems == 6)
             {
                 fondSchoolBag = true;
             }
-            if (item.itemName == "history book")
+            if (item.IdItems == 7)
             {
                 fondHistoryBook = true;
             }

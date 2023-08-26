@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7286d89bd3a9354e948cec8d565ba51, type: 3}
   m_Name: incense
   m_EditorClassIdentifier: 
-  itemName: Incense
+  itemName: "\u0E18\u0E39\u0E1B"
   IdItems: 1
   icon: {fileID: 21300000, guid: 489aa1214e073dc4aaa1ce6743d48c91, type: 3}
   detailItem: "\u0E18\u0E39\u0E1B\u0E2B\u0E2D\u0E21\u0E44\u0E27\u0E49\u0E2A\u0E33\u0E2B\u0E23\u0E31\u0E1A\u0E01\u0E32\u0E23\u0E44\u0E2B\u0E27\u0E49"

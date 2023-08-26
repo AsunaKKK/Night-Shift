@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class QuestCollisionHandler : MonoBehaviour
 {
     private Completion completionScript;
-
     private void Start()
     {
         // Get the Completion component on the same GameObject
@@ -163,6 +162,7 @@ public class QuestCollisionHandler : MonoBehaviour
                 {
                     if (obj.name == "quest106")
                     {
+
                         Enemy_Controller.isChasingPlayer = false;
                         QuestManager.quest12Completion = true;
 

@@ -27,12 +27,12 @@ public class LockDoor : MonoBehaviour
     {
         foreach (ItemQuest item in InventoryQuestManager.Instance.ItemsQuest)
         {
-            if (item.itemName == "Key")
+            if (item.IdItems == 3)
             {
                 key = true;
                 
             }
-            if(item.itemName == "Electric-fuse")
+            if(item.IdItems == 4)
             {
                 electricFuse = true;
                 

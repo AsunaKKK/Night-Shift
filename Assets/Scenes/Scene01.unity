@@ -945,10 +945,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E27\u0E34\u0E42\u0E23\u0E08\u0E19\u0E4C"
+  m_text: "\u0E27\u0E34\u0E42\u0E23\u0E08"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_margin: {x: -522.87317, y: -103.019455, z: -514.029, w: -126.694595}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &10697741
@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_text: "\u0E19\u0E49\u0E33\u0E2B\u0E19\u0E36\u0E48\u0E07"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1734,7 +1734,7 @@ MonoBehaviour:
   m_margin: {x: -522.87317, y: -103.019455, z: -514.029, w: -126.694595}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &32362048
@@ -4230,12 +4230,11 @@ MonoBehaviour:
   textSpeed: 0.08
   obj: {fileID: 2012230827}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 1272017954}
   charecterTalk2: {fileID: 129784961}
   nameTalk: {fileID: 1022349441}
   nameTalk2: {fileID: 1616327069}
-  playerController: {fileID: 0}
+  boolArray: 00
 --- !u!114 &101183306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4384,7 +4383,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1404360331}
   m_Father: {fileID: 1921678952}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5661,16 +5661,15 @@ MonoBehaviour:
   line:
   - "\u0E25\u0E38\u0E07\u0E2B\u0E32\u0E22\u0E44\u0E1B\u0E44\u0E2B\u0E19\u0E01\u0E31\u0E19\u0E40\u0E40\u0E25\u0E49\u0E27"
   - "\u0E19\u0E35\u0E49\u0E09\u0E31\u0E19\u0E15\u0E49\u0E2D\u0E07\u0E17\u0E33\u0E15\u0E32\u0E21\u0E01\u0E0E\u0E1A\u0E49\u0E32\u0E1E\u0E27\u0E01\u0E19\u0E35\u0E49\u0E40\u0E2B\u0E23\u0E2D"
-  - "\u0E0A\u0E31\u0E01\u0E08\u0E30\u0E01\u0E25\u0E31\u0E27\u0E17\u0E35\u0E48\u0E19\u0E35\u0E48\u0E40\u0E40\u0E25\u0E49\u0E27\u0E2A\u0E34"
+  - "\u0E1A\u0E23\u0E23\u0E22\u0E32\u0E01\u0E32\u0E28\u0E40\u0E23\u0E34\u0E48\u0E21\u0E41\u0E22\u0E48\u0E02\u0E36\u0E49\u0E19\u0E17\u0E38\u0E01\u0E17\u0E35"
   textSpeed: 0.08
   obj: {fileID: 1530728629}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 1526814760}
   charecterTalk2: {fileID: 146555741}
   nameTalk: {fileID: 457749169}
   nameTalk2: {fileID: 2073269866}
-  playerController: {fileID: 0}
+  boolArray: 000000
 --- !u!114 &138453044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6603,7 +6602,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 675216512}
   m_Father: {fileID: 1921678952}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7691,17 +7691,17 @@ MonoBehaviour:
   textComponent: {fileID: 1678591067}
   line:
   - "\u0E44\u0E14\u0E49\u0E02\u0E2D\u0E07\u0E17\u0E35\u0E48\u0E40\u0E18\u0E2D\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E04\u0E23\u0E1A\u0E41\u0E25\u0E49\u0E27"
-  - "\u0E44\u0E1B\u0E2B\u0E32\u0E40\u0E18\u0E2D\u0E41\u0E25\u0E49\u0E27\u0E40\u0E2D\u0E32\u0E02\u0E2D\u0E07\u0E44\u0E1B\u0E43\u0E2B\u0E49\u0E14\u0E35\u0E01\u0E27\u0E48\u0E32"
-  - "\u0E02\u0E2D\u0E07\u0E1E\u0E27\u0E01\u0E19\u0E35\u0E49\u0E14\u0E39\u0E2A\u0E33\u0E04\u0E31\u0E0D\u0E01\u0E31\u0E1A\u0E40\u0E18\u0E2D\u0E19\u0E30"
+  - "\u0E44\u0E1B\u0E2B\u0E32\u0E40\u0E18\u0E2D\u0E41\u0E25\u0E49\u0E27\u0E40\u0E2D\u0E32\u0E02\u0E2D\u0E07\u0E44\u0E1B\u0E43\u0E2B\u0E49
+    \u0E41\u0E25\u0E49\u0E27\u0E40\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E1A\u0E49\u0E32\u0E46\u0E1E\u0E27\u0E01\u0E19\u0E35\u0E49\u0E08\u0E30\u0E44\u0E14\u0E49\u0E08\u0E1A\u0E2A\u0E31\u0E01\u0E17\u0E35"
+  - "\u0E41\u0E15\u0E48\u0E02\u0E2D\u0E07\u0E1E\u0E27\u0E01\u0E19\u0E35\u0E49\u0E14\u0E39\u0E2A\u0E33\u0E04\u0E31\u0E0D\u0E01\u0E31\u0E1A\u0E40\u0E18\u0E2D\u0E19\u0E30"
   textSpeed: 0.08
   obj: {fileID: 784623704}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 1916939954}
   charecterTalk2: {fileID: 1713285633}
   nameTalk: {fileID: 1699982995}
   nameTalk2: {fileID: 2138054835}
-  playerController: {fileID: 0}
+  boolArray: 000000
 --- !u!114 &186952116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8839,12 +8839,11 @@ MonoBehaviour:
   textSpeed: 0.08
   obj: {fileID: 262053836}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 1379524125}
   charecterTalk2: {fileID: 1724953939}
   nameTalk: {fileID: 257536705}
   nameTalk2: {fileID: 115767237}
-  playerController: {fileID: 0}
+  boolArray: 000000
 --- !u!114 &210466829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8941,7 +8940,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1848550692}
   m_Father: {fileID: 1921678952}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9513,7 +9513,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11894,7 +11894,7 @@ MonoBehaviour:
   m_text: "\u0E19\u0E49\u0E33\u0E2B\u0E19\u0E36\u0E48\u0E07"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13071,7 +13071,7 @@ MonoBehaviour:
   m_text: "\u0E21\u0E32\u0E19\u0E30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15779,7 +15779,7 @@ MonoBehaviour:
   m_text: "\u0E40\u0E04"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16864,7 +16864,7 @@ MonoBehaviour:
   isCircular: 0
   inReverse: 1
   canWalk: 1
-  runRange: 8
+  runRange: 15
   enemyTeleporters:
   - {fileID: 0}
   attackDamage: 25
@@ -17956,12 +17956,11 @@ MonoBehaviour:
   textSpeed: 0.08
   obj: {fileID: 1371801958}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 1036202623}
   charecterTalk2: {fileID: 1024089263}
   nameTalk: {fileID: 1560554817}
   nameTalk2: {fileID: 845287204}
-  playerController: {fileID: 0}
+  boolArray: 00
 --- !u!114 &426348231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20165,7 +20164,7 @@ MonoBehaviour:
   m_text: "\u0E40\u0E04"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23012,7 +23011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 482, y: -185}
+  m_AnchoredPosition: {x: -635, y: -185}
   m_SizeDelta: {x: 148.0416, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &552044100
@@ -23028,7 +23027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -26529,7 +26528,7 @@ MonoBehaviour:
   m_text: "\u0E40\u0E04"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -27600,7 +27599,7 @@ MonoBehaviour:
   m_text: "\u0E27\u0E34\u0E42\u0E23\u0E08"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28688,16 +28687,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675216511}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1921678952}
-  m_RootOrder: 7
+  m_Father: {fileID: 157174465}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -269, y: -879}
+  m_AnchoredPosition: {x: -63, y: -14}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675216513
@@ -37905,12 +37904,11 @@ MonoBehaviour:
   textSpeed: 0.08
   obj: {fileID: 734137412}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 881919814}
   charecterTalk2: {fileID: 1797249744}
   nameTalk: {fileID: 339746322}
   nameTalk2: {fileID: 1103567177}
-  playerController: {fileID: 0}
+  boolArray: 000000000000
 --- !u!114 &941772506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43325,12 +43323,11 @@ MonoBehaviour:
   textSpeed: 0.08
   obj: {fileID: 1403880258}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 543107294}
   charecterTalk2: {fileID: 1751782872}
   nameTalk: {fileID: 1219705726}
   nameTalk2: {fileID: 1813241465}
-  playerController: {fileID: 0}
+  boolArray: 000000
 --- !u!114 &1075176866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46672,17 +46669,16 @@ MonoBehaviour:
   textComponent: {fileID: 1588029623}
   line:
   - "\u0E19\u0E35\u0E49\u0E04\u0E37\u0E2D\u0E01\u0E38\u0E0D\u0E41\u0E08\u0E2A\u0E33\u0E2B\u0E23\u0E31\u0E1A\u0E40\u0E1B\u0E34\u0E14\u0E17\u0E38\u0E01\u0E2B\u0E49\u0E2D\u0E07\u0E43\u0E19\u0E2D\u0E32\u0E04\u0E32\u0E23"
-  - "\u0E16\u0E49\u0E32\u0E44\u0E1F\u0E14\u0E31\u0E1A \u0E15\u0E49\u0E2D\u0E07\u0E40\u0E1B\u0E47\u0E19\u0E40\u0E1E\u0E23\u0E32\u0E30\u0E1F\u0E34\u0E27\u0E2A\u0E4C\u0E40\u0E2A\u0E35\u0E22\u0E41\u0E19\u0E48\u0E40\u0E25\u0E22"
+  - "\u0E16\u0E49\u0E32\u0E44\u0E1F\u0E14\u0E31\u0E1A \u0E15\u0E49\u0E2D\u0E07\u0E40\u0E1B\u0E47\u0E19\u0E40\u0E1E\u0E23\u0E32\u0E30\u0E1F\u0E34\u0E27\u0E2A\u0E4C\u0E02\u0E32\u0E14\u0E41\u0E19\u0E48\u0E40\u0E25\u0E22"
   - "\u0E07\u0E31\u0E49\u0E19\u0E44\u0E1B\u0E2B\u0E32\u0E1F\u0E34\u0E32\u0E2A\u0E4C\u0E21\u0E32\u0E43\u0E2A\u0E48\u0E01\u0E48\u0E2D\u0E19\u0E40\u0E16\u0E2D\u0E30"
   textSpeed: 0.08
   obj: {fileID: 15895922}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 338676949}
   charecterTalk2: {fileID: 534060669}
   nameTalk: {fileID: 235808054}
   nameTalk2: {fileID: 680744918}
-  playerController: {fileID: 0}
+  boolArray: 000000
 --- !u!114 &1173855722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50718,7 +50714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E40\u0E04\u0E2A\u0E27"
+  m_text: "\u0E40\u0E04\u0E27\u0E2A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
@@ -51491,7 +51487,7 @@ MonoBehaviour:
   m_text: "\u0E19\u0E49\u0E33\u0E2B\u0E19\u0E36\u0E48\u0E07"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -51942,12 +51938,11 @@ MonoBehaviour:
   textSpeed: 0.08
   obj: {fileID: 976051790}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 234025898}
   charecterTalk2: {fileID: 158121428}
   nameTalk: {fileID: 401599207}
   nameTalk2: {fileID: 1089929188}
-  playerController: {fileID: 0}
+  boolArray: 000000
 --- !u!114 &1342018442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53386,7 +53381,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -53449,7 +53444,7 @@ MonoBehaviour:
   m_margin: {x: -522.87317, y: -103.019455, z: -514.029, w: -126.694595}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1369938697
@@ -55029,16 +55024,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404360330}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1921678952}
-  m_RootOrder: 5
+  m_Father: {fileID: 105730799}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -269, y: -761}
+  m_AnchoredPosition: {x: -60, y: -12}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1404360332
@@ -59745,7 +59740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 331, y: -346}
+  m_AnchoredPosition: {x: -528, y: -346}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1540465397
@@ -64221,7 +64216,7 @@ MonoBehaviour:
   textComponent: {fileID: 1980093666}
   line:
   - "\u0E25\u0E38\u0E07\u0E04\u0E23\u0E31\u0E1A\u0E40\u0E01\u0E34\u0E14\u0E2D\u0E30\u0E44\u0E23\u0E02\u0E36\u0E49\u0E19\u0E17\u0E33\u0E44\u0E21\u0E44\u0E1F\u0E14\u0E31\u0E1A"
-  - "\u0E19\u0E48\u0E32\u0E08\u0E30\u0E1F\u0E34\u0E25\u0E02\u0E32\u0E14\u0E19\u0E30
+  - "\u0E19\u0E48\u0E32\u0E08\u0E30\u0E1F\u0E34\u0E27\u0E2A\u0E4C\u0E02\u0E32\u0E14\u0E19\u0E30
     \u0E44\u0E1B\u0E40\u0E2D\u0E32\u0E01\u0E38\u0E0D\u0E41\u0E08\u0E1A\u0E19\u0E42\u0E15\u0E4A\u0E30\u0E25\u0E34
     \u0E21\u0E31\u0E19\u0E0A\u0E48\u0E27\u0E22\u0E43\u0E2B\u0E49\u0E40\u0E1B\u0E34\u0E14\u0E1B\u0E23\u0E30\u0E15\u0E39\u0E2B\u0E49\u0E2D\u0E07
     \u0E44\u0E1F\u0E1F\u0E49\u0E32\u0E44\u0E14\u0E49"
@@ -64231,12 +64226,11 @@ MonoBehaviour:
   textSpeed: 0.08
   obj: {fileID: 1147762861}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 825216573}
   charecterTalk2: {fileID: 919507927}
-  nameTalk: {fileID: 203759078}
+  nameTalk: {fileID: 1650815688}
   nameTalk2: {fileID: 203759078}
-  playerController: {fileID: 700912439}
+  boolArray: 0001010100
 --- !u!1 &1653992440
 GameObject:
   m_ObjectHideFlags: 0
@@ -64875,17 +64869,16 @@ MonoBehaviour:
   line:
   - "\u0E1B\u0E23\u0E30\u0E15\u0E39\u0E16\u0E39\u0E01\u0E25\u0E47\u0E2D\u0E04\u0E08\u0E32\u0E01\u0E02\u0E49\u0E32\u0E07\u0E19\u0E2D\u0E01"
   - "\u0E40\u0E01\u0E34\u0E14\u0E2D\u0E30\u0E44\u0E23\u0E02\u0E36\u0E49\u0E19!!!"
-  - "\u0E25\u0E38\u0E07\u0E27\u0E34\u0E42\u0E23\u0E2A\u0E40\u0E1B\u0E47\u0E19\u0E04\u0E19\u0E17\u0E33\u0E40\u0E2B\u0E23\u0E2D
+  - "\u0E25\u0E38\u0E07\u0E27\u0E34\u0E42\u0E23\u0E08\u0E40\u0E1B\u0E47\u0E19\u0E04\u0E19\u0E17\u0E33\u0E40\u0E2B\u0E23\u0E2D
     \u0E41\u0E01\u0E2B\u0E32\u0E22\u0E44\u0E1B\u0E44\u0E2B\u0E19"
   textSpeed: 0.08
   obj: {fileID: 1264081097}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 1328393555}
   charecterTalk2: {fileID: 1282978176}
   nameTalk: {fileID: 629473745}
   nameTalk2: {fileID: 1390184778}
-  playerController: {fileID: 0}
+  boolArray: 000000
 --- !u!114 &1660433296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65029,7 +65022,7 @@ MonoBehaviour:
   m_text: "\u0E40\u0E04"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65092,7 +65085,7 @@ MonoBehaviour:
   m_margin: {x: -522.87317, y: -103.019455, z: -514.029, w: -126.694595}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1662005996
@@ -67440,18 +67433,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 2018944992}
   line:
-  - "\u0E25\u0E38\u0E07\u0E2B\u0E32\u0E22\u0E44\u0E1B\u0E44\u0E2B\u0E19"
-  - "\u0E19\u0E48\u0E32\u0E25\u0E07\u0E25\u0E31\u0E22\u0E08\u0E31\u0E07"
-  - "\u0E44\u0E1B\u0E14\u0E39\u0E17\u0E35\u0E48\u0E17\u0E32\u0E07\u0E2D\u0E2D\u0E01\u0E14\u0E35\u0E01\u0E27\u0E48\u0E32"
+  - "\u0E27\u0E34\u0E42\u0E23\u0E08\u0E2B\u0E32\u0E22\u0E44\u0E1B \u0E15\u0E49\u0E2D\u0E07\u0E17\u0E33\u0E2D\u0E30\u0E44\u0E23\u0E15\u0E48\u0E2D\u0E19\u0E30"
+  - "\u0E2B\u0E23\u0E37\u0E2D\u0E27\u0E34\u0E42\u0E23\u0E08\u0E08\u0E30\u0E2D\u0E2D\u0E01\u0E44\u0E1B\u0E02\u0E49\u0E32\u0E07\u0E19\u0E2D\u0E01"
   textSpeed: 0.08
   obj: {fileID: 342155428}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 1014302686}
   charecterTalk2: {fileID: 1973614827}
   nameTalk: {fileID: 1487851357}
   nameTalk2: {fileID: 6359253}
-  playerController: {fileID: 0}
+  boolArray: 0000
 --- !u!114 &1720037055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69577,7 +69568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -69611,14 +69602,14 @@ RectTransform:
   m_GameObject: {fileID: 1788823876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.595099, y: 9.251599, z: 6.1155}
+  m_LocalScale: {x: -9.217737, y: 8.048891, z: 5.320485}
   m_Children: []
   m_Father: {fileID: 736386339}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -678, y: -192}
+  m_AnchoredPosition: {x: 524, y: -208}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1789245351
@@ -70137,16 +70128,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 525123213}
   line:
-  - "\u0E01\u0E23\u0E35\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14 "
+  - "\"\u0E40\u0E2A\u0E35\u0E22\u0E07\u0E01\u0E23\u0E35\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14\u0E14
+    \""
   textSpeed: 0.08
   obj: {fileID: 2083477619}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 2097423272}
   charecterTalk2: {fileID: 2097423272}
   nameTalk: {fileID: 2097423272}
   nameTalk2: {fileID: 2097423272}
-  playerController: {fileID: 0}
+  boolArray: 00
 --- !u!114 &1801018159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72354,16 +72345,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848550691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1921678952}
-  m_RootOrder: 6
+  m_Father: {fileID: 215423655}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -269, y: -823}
+  m_AnchoredPosition: {x: -60, y: -14.600098}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1848550693
@@ -73444,18 +73435,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1277095202}
   line:
-  - "\u0E44\u0E1F\u0E01\u0E47\u0E22\u0E31\u0E07\u0E44\u0E21\u0E48\u0E15\u0E34\u0E14\u0E19\u0E35\u0E48\u0E2B\u0E19\u0E48\u0E32"
-  - "\u0E07\u0E31\u0E49\u0E19\u0E01\u0E25\u0E31\u0E1A\u0E44\u0E1B\u0E16\u0E32\u0E21\u0E25\u0E38\u0E07\u0E21\u0E32\u0E19\u0E30\u0E2D\u0E35\u0E01\u0E23\u0E2D\u0E1A\u0E14\u0E35\u0E01\u0E27\u0E48\u0E32"
-  - "\u0E40\u0E1C\u0E37\u0E48\u0E2D\u0E40\u0E40\u0E01\u0E08\u0E30\u0E23\u0E39\u0E49\u0E2D\u0E30\u0E44\u0E23\u0E17\u0E35\u0E48\u0E19\u0E35\u0E48"
+  - "\u0E44\u0E1F\u0E22\u0E31\u0E07\u0E44\u0E21\u0E48\u0E01\u0E25\u0E31\u0E1A\u0E21\u0E32\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E44\u0E14\u0E49"
+  - "\u0E25\u0E2D\u0E07\u0E01\u0E25\u0E31\u0E1A\u0E44\u0E1B\u0E16\u0E32\u0E21\u0E25\u0E38\u0E07\u0E21\u0E32\u0E19\u0E30
+    \u0E40\u0E1C\u0E37\u0E48\u0E2D\u0E40\u0E40\u0E01\u0E08\u0E30\u0E23\u0E39\u0E49\u0E2D\u0E30\u0E44\u0E23\u0E40\u0E01\u0E35\u0E48\u0E22\u0E27\u0E01\u0E31\u0E1A\u0E17\u0E35\u0E48\u0E19\u0E35\u0E49"
   textSpeed: 0.08
   obj: {fileID: 1196440193}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 542148796}
   charecterTalk2: {fileID: 218273190}
   nameTalk: {fileID: 395738236}
   nameTalk2: {fileID: 2122716737}
-  playerController: {fileID: 0}
+  boolArray: 0000
 --- !u!114 &1886073944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74553,12 +74543,11 @@ MonoBehaviour:
   textSpeed: 0.08
   obj: {fileID: 736386338}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
-  charecterTalk1: {fileID: 1788823876}
-  charecterTalk2: {fileID: 552044098}
-  nameTalk: {fileID: 241049395}
-  nameTalk2: {fileID: 1540465395}
-  playerController: {fileID: 700912439}
+  charecterTalk1: {fileID: 552044098}
+  charecterTalk2: {fileID: 1788823876}
+  nameTalk: {fileID: 1540465395}
+  nameTalk2: {fileID: 241049395}
+  boolArray: 00
 --- !u!114 &1920480459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74725,9 +74714,6 @@ RectTransform:
   - {fileID: 105730799}
   - {fileID: 215423655}
   - {fileID: 157174465}
-  - {fileID: 1404360331}
-  - {fileID: 1848550692}
-  - {fileID: 675216512}
   m_Father: {fileID: 141348841}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76568,7 +76554,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -77017,16 +77003,15 @@ MonoBehaviour:
   - "\u0E41\u0E25\u0E49\u0E27\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E15\u0E30\u0E01\u0E35\u0E49\u0E40\u0E2A\u0E35\u0E22\u0E07\u0E2D\u0E30\u0E44\u0E23"
   - "\u0E43\u0E19\u0E01\u0E0E\u0E1A\u0E2D\u0E01\u0E43\u0E2B\u0E49\u0E25\u0E2D\u0E07\u0E44\u0E1B\u0E2B\u0E49\u0E2D\u0E07
     101"
-  - "\u0E0A\u0E48\u0E27\u0E22\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E04\u0E07\u0E15\u0E49\u0E2D\u0E07\u0E44\u0E1B"
+  - "\u0E07\u0E31\u0E49\u0E19\u0E04\u0E07\u0E08\u0E30\u0E15\u0E49\u0E2D\u0E07\u0E44\u0E1B\u0E2A\u0E33\u0E23\u0E27\u0E08\u0E14\u0E39\u0E2B\u0E19\u0E48\u0E2D\u0E22"
   textSpeed: 0.08
   obj: {fileID: 1367670507}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 253697254}
   charecterTalk2: {fileID: 1101202606}
   nameTalk: {fileID: 1043570951}
   nameTalk2: {fileID: 247344609}
-  playerController: {fileID: 0}
+  boolArray: 00000000
 --- !u!114 &1987220913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79365,7 +79350,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
-  m_sharedMaterial: {fileID: -6686603669251887717, guid: 0cb5703bd4d902a45be7f13eec36fc40, type: 2}
+  m_sharedMaterial: {fileID: -2649437262403787628, guid: 72e6dbecbfe6e064aaf6ba2acc3e5db8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -80416,18 +80401,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 664429666}
   line:
-  - "\u0E02\u0E2D\u0E1A\u0E04\u0E38\u0E13\u0E21\u0E32\u0E01 \u0E09\u0E31\u0E19\u0E08\u0E30\u0E1A\u0E2D\u0E01\u0E17\u0E32\u0E07\u0E2D\u0E2D\u0E01\u0E43\u0E2B\u0E49\u0E40\u0E18\u0E2D\u0E01\u0E47\u0E44\u0E14\u0E49"
+  - "\u0E19\u0E35\u0E49\u0E02\u0E2D\u0E07\u0E40\u0E18\u0E2D"
   - "\u0E25\u0E2D\u0E07\u0E44\u0E1B\u0E41\u0E16\u0E27\u0E46\u0E2B\u0E49\u0E2D\u0E07\u0E44\u0E1F\u0E14\u0E39
     \u0E40\u0E18\u0E2D\u0E08\u0E30\u0E40\u0E08\u0E2D\u0E01\u0E31\u0E1A\u0E17\u0E32\u0E07\u0E17\u0E35\u0E48\u0E09\u0E31\u0E19\u0E40\u0E1B\u0E34\u0E14\u0E44\u0E27\u0E49"
+  - "\u0E02\u0E2D\u0E1A\u0E04\u0E38\u0E13\u0E21\u0E32\u0E01 \u0E09\u0E31\u0E19\u0E08\u0E30\u0E1A\u0E2D\u0E01\u0E17\u0E32\u0E07\u0E2D\u0E2D\u0E01\u0E43\u0E2B\u0E49\u0E40\u0E18\u0E2D"
   textSpeed: 0.08
   obj: {fileID: 1803023471}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 426221421}
   charecterTalk2: {fileID: 134326748}
   nameTalk: {fileID: 162396223}
   nameTalk2: {fileID: 807841433}
-  playerController: {fileID: 700912439}
+  boolArray: 000101
 --- !u!114 &2097480576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80902,16 +80887,17 @@ MonoBehaviour:
   textComponent: {fileID: 1369938696}
   line:
   - "\u0E40\u0E18\u0E2D\u0E0A\u0E37\u0E48\u0E2D\u0E2D\u0E30\u0E44\u0E23\u0E21\u0E32\u0E17\u0E33\u0E2D\u0E30\u0E44\u0E23\u0E17\u0E35\u0E48\u0E19\u0E35\u0E49"
-  - "\u0E40\u0E2A\u0E37\u0E2D\u0E01"
+  - "\u0E09\u0E31\u0E19\u0E0A\u0E37\u0E48\u0E2D\u0E19\u0E49\u0E33\u0E2B\u0E19\u0E36\u0E07\u0E48\u0E01\u0E33\u0E25\u0E31\u0E07\u0E15\u0E32\u0E21\u0E2B\u0E32\u0E02\u0E2D\u0E07
+    3 \u0E2D\u0E22\u0E48\u0E32\u0E07"
+  - "\u0E19\u0E33\u0E21\u0E31\u0E19\u0E21\u0E32\u0E43\u0E2B\u0E49\u0E09\u0E31\u0E19\u0E39\u0E41\u0E25\u0E49\u0E27\u0E09\u0E31\u0E19\u0E08\u0E30\u0E1A\u0E2D\u0E01\u0E17\u0E32\u0E07\u0E2D\u0E2D\u0E01\u0E08\u0E32\u0E01\u0E17\u0E35\u0E48\u0E19\u0E35\u0E49"
   textSpeed: 0.08
   obj: {fileID: 1002389947}
   interfaceFace: {fileID: 1921678951}
-  nameShow: []
   charecterTalk1: {fileID: 1676954930}
   charecterTalk2: {fileID: 1902268316}
   nameTalk: {fileID: 1915077287}
   nameTalk2: {fileID: 1588891167}
-  playerController: {fileID: 700912439}
+  boolArray: 000101
 --- !u!114 &2103334955
 MonoBehaviour:
   m_ObjectHideFlags: 0

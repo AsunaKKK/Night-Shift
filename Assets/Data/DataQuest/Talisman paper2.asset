@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7286d89bd3a9354e948cec8d565ba51, type: 3}
   m_Name: Talisman paper2
   m_EditorClassIdentifier: 
-  itemName: Talisman paper2
+  itemName: "\u0E22\u0E31\u0E19\u0E15\u0E4C 2"
   IdItems: 9
   icon: {fileID: 21300000, guid: f8a252bedabb6d243bafe49029cfe2a4, type: 3}
   detailItem: 

@@ -6,11 +6,11 @@ public class Enemy_Controller : MonoBehaviour
 {
     //Move
     public Waypoint[] wayPoints;
-    public float speed = 5f;
+    public float speed = 6f;
     public bool isCircular;
     public bool inReverse = true;
     public bool canWalk = true;
-    public float runRange = 2f;
+    public float runRange = 15f;
     private Waypoint currentWaypoint;
     private int currentIndex = 0;
     private bool isWaiting = false;
@@ -137,7 +137,7 @@ public class Enemy_Controller : MonoBehaviour
         }
         else
         {
-            speed = 8.5f; 
+            speed = 9f; 
             isChasingPlayer = true;
             this.playerPosition = playerPosition;
             state = State.Run;
@@ -157,14 +157,13 @@ public class Enemy_Controller : MonoBehaviour
 
         if (isAttacking)
         {
-            state = State.Attack;
             AttackPlayer();
-           
         }
+       
     }
-    private void StopChasing()
+    public void StopChasing()
     {
-        runRange = 8f;
+        runRange = 15f;
         
       
 
@@ -289,7 +288,7 @@ public class Enemy_Controller : MonoBehaviour
 
     private void AttackPlayer()
     {
-        
+       
         if (hasHitPlayer)
         {
            
@@ -302,6 +301,7 @@ public class Enemy_Controller : MonoBehaviour
 
                 if (playerController != null)
                 {
+                    
                     // Deal damage to the player
                     playerController.TakeDamage(attackDamage);
                     hasHitPlayer = false;
@@ -317,6 +317,7 @@ public class Enemy_Controller : MonoBehaviour
 
     private IEnumerator StartAttackCooldown()
     {
+       
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
         hasHitPlayer = true;
@@ -336,6 +337,7 @@ public class Enemy_Controller : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isAttacking = true;
+               
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -347,6 +349,7 @@ public class Enemy_Controller : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isAttacking = true;
+           
         }
 
     }

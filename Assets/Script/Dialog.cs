@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+
 
 public class Dialog : MonoBehaviour
 {
@@ -14,41 +16,45 @@ public class Dialog : MonoBehaviour
     public GameObject obj;
     public GameObject interfaceFace;
 
-    public GameObject[] nameShow;
-  
-    
-    
-    
     public GameObject charecterTalk1;
     public GameObject charecterTalk2;
+    
     public GameObject nameTalk;
     public GameObject nameTalk2;
-    
+    public bool[] boolArray;
 
-    public PlayerController playerController;
+   public PlayerController playerController;
+
+
+  
 
     private int index;
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = string.Empty;
-        StartDialogue();
         playerController = FindObjectOfType<PlayerController>();
-        interfaceFace.SetActive(false);
-       
+
+        if (playerController != null)
+        {
+            StartDialogue();
+            interfaceFace.SetActive(false);
+            nameTalk.SetActive(true);
+            nameTalk2.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
+        playerController.ToggleMovement(false);
         charecterTalk1.SetActive(true);
         charecterTalk2.SetActive(true);
-        nameTalk.SetActive(true);
-        nameTalk2.SetActive(true);
 
         if (Input.GetMouseButtonDown(0))
             if (textComponent.text == line[index])
             {
+                nameTalk.SetActive(true);
                 NextLine();
             }
             else
@@ -62,6 +68,8 @@ public class Dialog : MonoBehaviour
     {
         index = 0;
         StartCoroutine(TypeLine());
+        playerController.ToggleMovement(false);
+
     }
 
     IEnumerator TypeLine()
@@ -79,6 +87,22 @@ public class Dialog : MonoBehaviour
             index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
+
+            // Check the value of boolArray at the current index
+            if (boolArray[index])
+            {
+                charecterTalk1.GetComponent<Image>().color = Color.gray;
+                charecterTalk2.GetComponent<Image>().color = Color.white; 
+                nameTalk.SetActive(false);
+                nameTalk2.SetActive(true);
+            }
+            else
+            {
+                charecterTalk1.GetComponent<Image>().color = Color.white; 
+                charecterTalk2.GetComponent<Image>().color = Color.gray;
+                nameTalk.SetActive(true);
+                nameTalk2.SetActive(false);
+            }
         }
         else
         {
@@ -91,7 +115,7 @@ public class Dialog : MonoBehaviour
             gameObject.SetActive(false);
             textComponent.text = string.Empty;
             index = 0;
-
+            playerController.ToggleMovement(true);
             foreach (char c in line[index].ToCharArray())
             {
                 textComponent.text += c;

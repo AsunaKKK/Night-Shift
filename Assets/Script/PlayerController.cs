@@ -69,20 +69,6 @@ public class PlayerController : MonoBehaviour , IDataSave
     // Update is called once per frame
     void Update()
     {
-        if(canStop==true)
-        {
-            dashSpeed = 0;
-            LSpeed = 0;
-            RSpeed = 0;
-            canDash = false;
-        }
-        if (canStop == false)
-        {
-            dashSpeed = 5;
-            LSpeed = 5;
-            RSpeed = 5;
-            canDash = true;
-        }
 
         if (canDie)
         {
@@ -112,30 +98,28 @@ public class PlayerController : MonoBehaviour , IDataSave
         }
 
         //MoveMent Player
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        //movement player L
-        if(horizontal < 0)
+       
+        if(canMove)
         {
-            rb.velocity = new Vector2(-LSpeed, rb.velocity.y);
-            transform.localScale = new Vector2(-1, 1);
-            state = State.walk;
+            horizontal = Input.GetAxisRaw("Horizontal");
+            if(horizontal < 0)
+            {
+                rb.velocity = new Vector2(-LSpeed, rb.velocity.y);
+                transform.localScale = new Vector2(-1, 1);
+                state = State.walk;
 
-        }
+            }
         //movement player R
-        else if(horizontal > 0)
-        {
-            rb.velocity = new Vector2(RSpeed, rb.velocity.y);
-            transform.localScale = new Vector2(1, 1);
-            state = State.walk;
+             else if(horizontal > 0)
+            {
+                rb.velocity = new Vector2(RSpeed, rb.velocity.y);
+                transform.localScale = new Vector2(1, 1);
+                state = State.walk;
+            }
         }
-        //play sound Run
-        else
-        {
-            //audioSource.clip = walkClip;
-        }
-
-        //Add Energy
+        //movement player L
+       
+        
         if(currenEnergy <= maxEnergy)
         {
             currenEnergy += 0.001f+Time.deltaTime;
