@@ -31,13 +31,13 @@ public class Completion : MonoBehaviour , IDataSave
     public bool itemQuest4 = false;
 
     //FinalQuest 
-    bool foundTuup = false;
-    bool foundLightSteel = false;
-    bool foundKey = false;
-    bool fondElectricfuse = false;
-    bool fondFlannel = false;
-    bool fondSchoolBag = false;
-    bool fondHistoryBook = false;
+   public bool foundTuup = false;
+   public bool foundLightSteel = false;
+   public bool foundKey = false;
+   public bool fondElectricfuse = false;
+   public bool fondFlannel = false;
+   public bool fondSchoolBag = false;
+   public bool fondHistoryBook = false;
     public List<GameObject> chackOj = new List<GameObject>();
 
     //Save

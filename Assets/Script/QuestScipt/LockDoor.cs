@@ -7,7 +7,7 @@ public class LockDoor : MonoBehaviour , IDataSave
     public GameObject doorAll;
     public GameObject buChaDoor;
     
-    public static bool key;
+    public bool key = false;
     public bool electricFuse;
     public bool talisManpaper1;
     public bool talisManpaper2;
@@ -29,15 +29,6 @@ public class LockDoor : MonoBehaviour , IDataSave
     // Update is called once per frame
     void Update()
     {
-        if (doorAll != null)
-        {
-            doorAll.SetActive(false);
-        }
-
-        if (buChaDoor != null)
-        {
-            buChaDoor.SetActive(false);
-        }
         foreach (ItemQuest item in InventoryQuestManager.Instance.ItemsQuest)
         {
             if (item.IdItems == 3)
@@ -72,10 +63,11 @@ public class LockDoor : MonoBehaviour , IDataSave
             }
 
         }
-        if (QuestManager.questID == 9 && key == true)
+        if (QuestManager.questID == 8 && key == true)
         {
             doorAllSave = 1;
         }
+        
         if(doorAllSave == 1)
         {
             doorAll.SetActive(true);

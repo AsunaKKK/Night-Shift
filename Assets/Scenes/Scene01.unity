@@ -566,7 +566,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8140192
 MonoBehaviour:
@@ -16317,6 +16317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorAll: {fileID: 728365498}
   buChaDoor: {fileID: 1247145910}
+  key: 0
   electricFuse: 0
   talisManpaper1: 0
   talisManpaper2: 0
@@ -16338,7 +16339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &400107612 stripped
 MonoBehaviour:
@@ -29557,7 +29558,6 @@ MonoBehaviour:
   bloodImageOne: {fileID: 1374578452}
   bloodImageTwo: {fileID: 1323869854}
   hitBlood: {fileID: 667078487}
-  diePane: {fileID: 0}
 --- !u!82 &700912440
 AudioSource:
   m_ObjectHideFlags: 0
@@ -52476,6 +52476,13 @@ MonoBehaviour:
   itemQuest2: 0
   itemQuest3: 0
   itemQuest4: 0
+  foundTuup: 0
+  foundLightSteel: 0
+  foundKey: 0
+  fondElectricfuse: 0
+  fondFlannel: 0
+  fondSchoolBag: 0
+  fondHistoryBook: 0
   chackOj:
   - {fileID: 1916535201}
   - {fileID: 1664784681}
@@ -52520,6 +52527,18 @@ MonoBehaviour:
   dialogQuest10: {fileID: 1371801958}
   dialogQuest11: {fileID: 784623704}
   dialogQuest12: {fileID: 734137412}
+  dialogSave1: 0
+  dialogSave2: 0
+  dialogSave3: 0
+  dialogSave4: 0
+  dialogSave5: 0
+  dialogSave6: 0
+  dialogSave7: 0
+  dialogSave8: 0
+  dialogSave9: 0
+  dialogSave10: 0
+  dialogSave11: 0
+  dialogSave12: 0
 --- !u!114 &1346743031
 MonoBehaviour:
   m_ObjectHideFlags: 0
