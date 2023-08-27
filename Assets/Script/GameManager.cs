@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject pause;
-
+    private GameData gameData;
     [Header("Sound Setting")]
     public AudioMixer soundMixer;
     public AudioMixer effectMixer;
@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        /*if(gameData == null)
+        {
+            SaveManager.instance.NewGame();
+        }*/
+
+        //SaveManager.instance.LoadGame();
         SaveManager.instance.NewGame();
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -89,8 +95,7 @@ public class GameManager : MonoBehaviour
     }
     public void ExitGame()
     {
-        SceneManager.LoadSceneAsync("Scene00");
-        SaveManager.instance.SaveGame();
+        Application.Quit();
     }
 
 }

@@ -39,11 +39,11 @@ public class PlayerTelepot : MonoBehaviour
 
                 StartCoroutine(FadeOut());
 
-                // เช็คว่ายังไม่เปลี่ยนแปลง Tag และเปิดประตู
+               
                 if (!hasChangedTag && openDoor)
                 {
                     currentTeleporter.gameObject.tag = "EnemyTele";
-                    hasChangedTag = true; // ตั้งค่าให้ตรวจสอบเพียงครั้งเดียว
+                    hasChangedTag = true;
                     Debug.Log("Tag changed to EnemyTele.");
                 }
             }
@@ -60,7 +60,7 @@ public class PlayerTelepot : MonoBehaviour
         SetOpacity(1f);
 
         yield return new WaitForSeconds(0.1f);
-        float duration = 1f;
+        float duration = 0.7f;
         float elapsedTime = 0f;
         float startOpacity = 1f;
         while (elapsedTime < duration)
@@ -94,7 +94,7 @@ public class PlayerTelepot : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        // ไม่ต้องตรวจสอบการเปลี่ยนแปลง Tag ที่นี่
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -104,7 +104,7 @@ public class PlayerTelepot : MonoBehaviour
             if (collision.gameObject == currentTeleporter)
             {
                 currentTeleporter = null;
-                hasChangedTag = false; // รีเซ็ตตัวแปรเมื่อออกจาก Collider
+                hasChangedTag = false;
             }
         }
     }

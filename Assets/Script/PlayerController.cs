@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour , IDataSave
     public Image bloodImageOne;
     public Image bloodImageTwo;
     public Image hitBlood;
-
     private void Awake()
     {
         instance = this;
@@ -69,7 +68,13 @@ public class PlayerController : MonoBehaviour , IDataSave
     // Update is called once per frame
     void Update()
     {
-
+        if(!canMove)
+        {
+            dashSpeed = 0f;
+            LSpeed = 0f;
+            RSpeed = 0f;
+            anim.SetInteger("state", 0);
+        }
         if (canDie)
         {
             return;
@@ -101,6 +106,9 @@ public class PlayerController : MonoBehaviour , IDataSave
        
         if(canMove)
         {
+            dashSpeed = 5f;
+            LSpeed = 5f;
+            RSpeed = 5f;
             horizontal = Input.GetAxisRaw("Horizontal");
             if(horizontal < 0)
             {
@@ -176,6 +184,7 @@ public class PlayerController : MonoBehaviour , IDataSave
     public void ToggleMovement(bool canMove)
     {
         this.canMove = canMove;
+        state = State.idle;
     }
 
     private void FixedUpdate()

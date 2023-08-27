@@ -8,9 +8,6 @@ public class QuestCollisionHandler : MonoBehaviour
     {
         // Get the Completion component on the same GameObject
         completionScript = FindObjectOfType<Completion>();
-
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

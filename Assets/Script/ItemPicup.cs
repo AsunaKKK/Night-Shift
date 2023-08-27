@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ItemPicup : MonoBehaviour, IDataSave
+public class ItemPicup : MonoBehaviour
 {
     [SerializeField] private string id;
 
@@ -87,11 +87,6 @@ public class ItemPicup : MonoBehaviour, IDataSave
             }
             
         }
-        /*if(checkGift)
-        {
-            giftTextBar.SetActive(false);
-        }*/
-        //ShowBarReload();
     }
     void StartPickup()
     {
@@ -116,7 +111,6 @@ public class ItemPicup : MonoBehaviour, IDataSave
 
         InventoryManager.Instance.Add(item);
         isPicUp = true;
-        SaveManager.instance.SaveGame();
         Destroy(gameObject);
     }
 
@@ -158,11 +152,6 @@ public class ItemPicup : MonoBehaviour, IDataSave
     }
     public void SaveData(GameData data)
     {
-        /*if(data.idItem.ContainsKey(id))
-        {
-            data.idItem.Remove(id);
-        }
-        data.idItem.Add(id,isPicUp);*/
         if (data == null)
         {
             Debug.LogWarning("Data is null. Cannot save the item state.");

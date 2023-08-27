@@ -19,12 +19,19 @@ public class DialogRun : MonoBehaviour
     public GameObject dialogQuest11;
     public GameObject dialogQuest12;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-    }
+    //Save dialog
+    public int dialogSave1 = 0;
+    public int dialogSave2 = 0;
+    public int dialogSave3 = 0;
+    public int dialogSave4 = 0;
+    public int dialogSave5 = 0;
+    public int dialogSave6 = 0;
+    public int dialogSave7 = 0;
+    public int dialogSave8 = 0;
+    public int dialogSave9 = 0;
+    public int dialogSave10 = 0;
+    public int dialogSave11 = 0;
+    public int dialogSave12 = 0;
 
     // Update is called once per frame
     void Update()

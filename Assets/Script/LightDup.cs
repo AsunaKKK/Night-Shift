@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class LightDup : MonoBehaviour
+public class LightDup : MonoBehaviour , IDataSave
 {
     public Light2D light2D;
     public float minIntensity = 0f;
@@ -28,7 +28,7 @@ public class LightDup : MonoBehaviour
         light2D.intensity = clampedValue;
     }
 
-    /*public void SaveData(GameData data)
+    public void SaveData(GameData data)
     {
         data.lightonQ = lighton;
     }
@@ -36,6 +36,6 @@ public class LightDup : MonoBehaviour
     public void LoadData(GameData data)
     {
        lighton = data.lightonQ;
-    }*/
+    }
 
 }

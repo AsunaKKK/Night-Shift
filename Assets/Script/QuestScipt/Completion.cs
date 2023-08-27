@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Completion : MonoBehaviour
+public class Completion : MonoBehaviour , IDataSave
 {
     public GameObject quest1;
     public GameObject quest2;
@@ -31,8 +31,6 @@ public class Completion : MonoBehaviour
     public bool itemQuest4 = false;
 
     //FinalQuest 
-
-
     bool foundTuup = false;
     bool foundLightSteel = false;
     bool foundKey = false;
@@ -40,10 +38,16 @@ public class Completion : MonoBehaviour
     bool fondFlannel = false;
     bool fondSchoolBag = false;
     bool fondHistoryBook = false;
-
     public List<GameObject> chackOj = new List<GameObject>();
 
-
+    //Save
+    public int saveItem1 = 0;
+    public int saveItem2 = 0;
+    public int saveItem3 = 0;
+    public int saveItem4 = 0;
+    public int saveItem5 = 0;
+    public int saveItem6 = 0;
+    public int saveItem7 = 0;
     // Update is called once per frame
 
     void Start()
@@ -184,37 +188,66 @@ public class Completion : MonoBehaviour
         {
             if (item.IdItems == 1)
             {
+                saveItem1 = 1;
+            }
+            if(saveItem1 == 1)
+            {
                 foundTuup = true;
-                
             }
 
             if (item.IdItems == 2)
             {
-                foundLightSteel = true;
-               
+                saveItem2 = 1;
             }
+            if (saveItem2 == 1)
+            {
+                foundLightSteel = true;
+            }
+
             if (item.IdItems == 3)
             {
-                foundKey = true;
+                saveItem3 = 1;
                
             }
-            if(item.IdItems == 4)
+            if (saveItem3 == 1)
+            {
+                foundKey = true;
+            }
+
+            if (item.IdItems == 4)
+            {
+                saveItem4 = 1;
+            }
+            if (saveItem4 == 1)
             {
                 fondElectricfuse = true;
             }
+
             if (item.IdItems == 5)
             {
-                fondFlannel= true;
+                saveItem5 = 1;
             }
+            if (saveItem5 == 1)
+            {
+                fondFlannel = true;
+            }
+
             if (item.IdItems == 6)
+            {
+                saveItem6 = 1;
+            }
+            if (saveItem6 == 1)
             {
                 fondSchoolBag = true;
             }
             if (item.IdItems == 7)
             {
+                saveItem7 = 1;
+            }
+            if (saveItem7 == 1)
+            {
                 fondHistoryBook = true;
             }
-
 
             // If both items are found, set itemQuest1 to true and break out of the loop
             if (foundTuup && foundLightSteel)
@@ -240,8 +273,29 @@ public class Completion : MonoBehaviour
   
         }
     }
+    public void SaveData(GameData data)
+    {
+        data.saveItem1 = saveItem1;
+        data.saveItem2 = saveItem2;
+        data.saveItem3 = saveItem3;
+        data.saveItem4 = saveItem4;
+        data.saveItem5 = saveItem5;
+        data.saveItem6 = saveItem6;
+        data.saveItem7 = saveItem7;
+    }
 
-    
+    public void LoadData(GameData data)
+    {
+        saveItem1 = data.saveItem1;
+        saveItem2 = data.saveItem2;
+        saveItem3 = data.saveItem3;
+        saveItem4 = data.saveItem4;
+        saveItem5 = data.saveItem5;
+        saveItem6 = data.saveItem6;
+        saveItem7 = data.saveItem7;
+    }
+
+
 }
    
 

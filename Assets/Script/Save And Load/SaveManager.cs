@@ -85,14 +85,13 @@ public class SaveManager : MonoBehaviour
 
     public void LoadGame()
     {
+        if (dataSavesObjects == null)
+        {
+            Debug.LogError("dataSavesObjects is null. Make sure it's properly initialized.");
+            return;
+        }
 
         this.gameData = dataHendler.Load();
-
-       /* if(this.gameData == null && initializeDataIfNull)
-        {
-            NewGame();
-        }*/
-
         if(this.gameData == null)
         {
             Debug.Log("No data not found , a new game need to be start befor data can be load");
@@ -105,10 +104,15 @@ public class SaveManager : MonoBehaviour
         }
 
     }
-
     private List<IDataSave> FindAllDataSaveObjects()
     {
-        IEnumerable<IDataSave> dataSavesObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataSave>();
+        IEnumerable<IDataSave> dataSavesObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IDataSave>();
+
+        if (dataSavesObjects == null)
+        {
+            Debug.LogWarning("No IDataSave objects found in the scene.");
+            return new List<IDataSave>();
+        }
 
         return new List<IDataSave>(dataSavesObjects);
     }

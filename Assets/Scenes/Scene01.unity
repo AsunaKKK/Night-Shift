@@ -2106,7 +2106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 39fc08f7-e5c2-4ae0-a0fa-37aa4715b46c
+  id: 7fe6ae00-e0af-47c8-ae50-86c463215386
   item: {fileID: 11400000, guid: a92058c9fb38abc44877534feb703a8c, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -2250,6 +2250,10 @@ PrefabInstance:
     - target: {fileID: 7183844847572537902, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: m_Name
       value: Pakeen (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
+      propertyPath: id
+      value: 260805ac-e14e-47ff-9cd4-68139e101630
       objectReference: {fileID: 0}
     - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: textgift
@@ -2738,6 +2742,10 @@ PrefabInstance:
     - target: {fileID: 7183844847572537902, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: m_Name
       value: Pakeen (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
+      propertyPath: id
+      value: 6b6dcbc8-8b83-45d7-8bd3-6f5c60393aa6
       objectReference: {fileID: 0}
     - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: textgift
@@ -4235,6 +4243,7 @@ MonoBehaviour:
   nameTalk: {fileID: 1022349441}
   nameTalk2: {fileID: 1616327069}
   boolArray: 00
+  playerController: {fileID: 0}
 --- !u!114 &101183306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5670,6 +5679,7 @@ MonoBehaviour:
   nameTalk: {fileID: 457749169}
   nameTalk2: {fileID: 2073269866}
   boolArray: 000000
+  playerController: {fileID: 0}
 --- !u!114 &138453044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7702,6 +7712,7 @@ MonoBehaviour:
   nameTalk: {fileID: 1699982995}
   nameTalk2: {fileID: 2138054835}
   boolArray: 000000
+  playerController: {fileID: 0}
 --- !u!114 &186952116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8844,6 +8855,7 @@ MonoBehaviour:
   nameTalk: {fileID: 257536705}
   nameTalk2: {fileID: 115767237}
   boolArray: 000000
+  playerController: {fileID: 0}
 --- !u!114 &210466829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10013,7 +10025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 753740f2-6707-475f-852d-f9cde53ef7d7
+  id: e26a7a8e-bb48-43aa-b359-0975262a9c47
   item: {fileID: 11400000, guid: 3209c7d0c47a4d34493e79c0dea54529, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -16312,6 +16324,8 @@ MonoBehaviour:
   talisManpaper4: 0
   talisManpaper5: 0
   doorOn: 0
+  doorAllSave: 0
+  buChaDoorSave: 0
 --- !u!4 &398355586
 Transform:
   m_ObjectHideFlags: 0
@@ -17961,6 +17975,7 @@ MonoBehaviour:
   nameTalk: {fileID: 1560554817}
   nameTalk2: {fileID: 845287204}
   boolArray: 00
+  playerController: {fileID: 0}
 --- !u!114 &426348231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19467,7 +19482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: dc216931-f60a-4fa2-a868-6a781afd482e
+  id: 1ecc8a6a-d84d-406b-8fc0-89c381611587
   item: {fileID: 11400000, guid: 88e36e99259da3d49bb98e368ebc1887, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -20681,6 +20696,10 @@ PrefabInstance:
     - target: {fileID: 1882633092343030053, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: m_Name
       value: Nam (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
+      propertyPath: id
+      value: bcece613-3b08-45c7-ae0b-1de710139e52
       objectReference: {fileID: 0}
     - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: textgift
@@ -22227,7 +22246,7 @@ GameObject:
   - component: {fileID: 526378285}
   - component: {fileID: 526378284}
   m_Layer: 5
-  m_Name: Setting (1)
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23886,6 +23905,10 @@ PrefabInstance:
     - target: {fileID: 7183844847572537902, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: m_Name
       value: Pakeen (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
+      propertyPath: id
+      value: 9ec37db5-d94b-4081-b433-153cf655cd5f
       objectReference: {fileID: 0}
     - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: textgift
@@ -29534,6 +29557,7 @@ MonoBehaviour:
   bloodImageOne: {fileID: 1374578452}
   bloodImageTwo: {fileID: 1323869854}
   hitBlood: {fileID: 667078487}
+  diePane: {fileID: 0}
 --- !u!82 &700912440
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30357,7 +30381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: ab623663-9aab-41cf-90e1-9d0ccf3c5eb6
+  id: 067d0f58-8fd4-44dc-a884-34ee63368107
   item: {fileID: 11400000, guid: d6c5f736452de134199fea30d59c9b5e, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -30529,7 +30553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: b87e6256-e139-4668-99b0-b7ee5f730448
+  id: 589bb1fd-9202-496a-8e9d-846957283cde
   item: {fileID: 11400000, guid: 77954251b0ed42f45990f3f101b0be3c, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -31775,7 +31799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: id
-      value: 5a6593da-87f8-4b06-8847-6baf121b7db1
+      value: 1e487a92-edfc-4cb9-a44d-521746ed9729
       objectReference: {fileID: 0}
     - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: textgift
@@ -31862,6 +31886,10 @@ PrefabInstance:
     - target: {fileID: 7183844847572537902, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: m_Name
       value: Pakeen (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
+      propertyPath: id
+      value: bfa689f6-cb12-463c-a301-4b020bd98076
       objectReference: {fileID: 0}
     - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: textgift
@@ -37909,6 +37937,7 @@ MonoBehaviour:
   nameTalk: {fileID: 339746322}
   nameTalk2: {fileID: 1103567177}
   boolArray: 000000000000
+  playerController: {fileID: 0}
 --- !u!114 &941772506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40196,7 +40225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 9e90fd70-0544-4731-91a4-24b10f48b739
+  id: c92bc14a-5707-48f4-b466-28f2cfa17012
   item: {fileID: 11400000, guid: ab18b16a8fac13e4bb4e098281f67141, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -42729,6 +42758,10 @@ PrefabInstance:
       value: Nam (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
+      propertyPath: id
+      value: fd8270ec-25e0-43e2-8763-48c27ea88938
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: textgift
       value: 
       objectReference: {fileID: 78650350}
@@ -43328,6 +43361,7 @@ MonoBehaviour:
   nameTalk: {fileID: 1219705726}
   nameTalk2: {fileID: 1813241465}
   boolArray: 000000
+  playerController: {fileID: 0}
 --- !u!114 &1075176866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43933,6 +43967,10 @@ PrefabInstance:
     - target: {fileID: 7183844847572537902, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: m_Name
       value: Pakeen (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
+      propertyPath: id
+      value: c299852a-dbd9-483e-a58a-ebd858396194
       objectReference: {fileID: 0}
     - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: textgift
@@ -46679,6 +46717,7 @@ MonoBehaviour:
   nameTalk: {fileID: 235808054}
   nameTalk2: {fileID: 680744918}
   boolArray: 000000
+  playerController: {fileID: 0}
 --- !u!114 &1173855722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48618,7 +48657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0a5d84a8-c329-43a6-96ca-79414132628d
+  id: 676661de-b9cc-414f-8fbf-3027cbc219e2
   item: {fileID: 11400000, guid: 68f3f5adaee1b2b409a9664abf90ba0b, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -50912,7 +50951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 7712a12a-0584-446c-b966-808236550d6f
+  id: 9bd1d67a-fba0-43f8-bc69-a68e04eb6bac
   item: {fileID: 11400000, guid: 697e267592ffef547a031ab188b4c3e7, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -51608,7 +51647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0f2c03d6-38e4-494b-8ed2-c7eee6bbe53b
+  id: 852aa1d4-3ea8-41e5-af28-a31ecd0b1f8e
   item: {fileID: 11400000, guid: 2428744fd2291de43a7d2d0a2c7f6f8a, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -51943,6 +51982,7 @@ MonoBehaviour:
   nameTalk: {fileID: 401599207}
   nameTalk2: {fileID: 1089929188}
   boolArray: 000000
+  playerController: {fileID: 0}
 --- !u!114 &1342018442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52069,6 +52109,10 @@ PrefabInstance:
     - target: {fileID: 1882633092343030053, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: m_Name
       value: Nam (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
+      propertyPath: id
+      value: d8e2b880-baf9-4f7b-ac34-e79777e7d16d
       objectReference: {fileID: 0}
     - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: textgift
@@ -52443,6 +52487,13 @@ MonoBehaviour:
   - {fileID: 1258205386}
   - {fileID: 1668234622}
   - {fileID: 2126077273}
+  saveItem1: 0
+  saveItem2: 0
+  saveItem3: 0
+  saveItem4: 0
+  saveItem5: 0
+  saveItem6: 0
+  saveItem7: 0
 --- !u!114 &1346743030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52681,7 +52732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: id
-      value: 5a6593da-87f8-4b06-8847-6baf121b7db1
+      value: b84747d1-91f0-48f3-8e75-7cb05ddaeedb
       objectReference: {fileID: 0}
     - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: textgift
@@ -54147,6 +54198,10 @@ PrefabInstance:
       value: Nam (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
+      propertyPath: id
+      value: 87616133-7e5f-4a94-9016-dfcd0bdadb78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: textgift
       value: 
       objectReference: {fileID: 78650350}
@@ -54903,6 +54958,10 @@ PrefabInstance:
     - target: {fileID: 1882633092343030053, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: m_Name
       value: Nam (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
+      propertyPath: id
+      value: 2f597609-4fe1-4343-a858-029f59660738
       objectReference: {fileID: 0}
     - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: textgift
@@ -56264,7 +56323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 55c20094-7f82-470a-969e-c25a7727ddc7
+  id: d1e49310-7fea-4a5a-b061-dfe77491ab03
   item: {fileID: 11400000, guid: 497ced9aed480d44f875d0dd8f314d47, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -60109,7 +60168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: bfb99245-2546-4532-a7ef-b94a9dae11a8
+  id: 0262bf5d-2b69-4979-9a58-e4e23ffce42f
   item: {fileID: 11400000, guid: bfa2ca44a67544049804f7e08fe5c5f6, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -64231,6 +64290,7 @@ MonoBehaviour:
   nameTalk: {fileID: 1650815688}
   nameTalk2: {fileID: 203759078}
   boolArray: 0001010100
+  playerController: {fileID: 0}
 --- !u!1 &1653992440
 GameObject:
   m_ObjectHideFlags: 0
@@ -64879,6 +64939,7 @@ MonoBehaviour:
   nameTalk: {fileID: 629473745}
   nameTalk2: {fileID: 1390184778}
   boolArray: 000000
+  playerController: {fileID: 0}
 --- !u!114 &1660433296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67443,6 +67504,7 @@ MonoBehaviour:
   nameTalk: {fileID: 1487851357}
   nameTalk2: {fileID: 6359253}
   boolArray: 0000
+  playerController: {fileID: 0}
 --- !u!114 &1720037055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68340,6 +68402,10 @@ PrefabInstance:
     - target: {fileID: 7183844847572537902, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: m_Name
       value: Pakeen (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
+      propertyPath: id
+      value: 7e48683a-d82c-4ee7-9e1b-0f5905392876
       objectReference: {fileID: 0}
     - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: textgift
@@ -69969,7 +70035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: id
-      value: 5a6593da-87f8-4b06-8847-6baf121b7db1
+      value: c0fd8b3e-d20f-484e-9ea9-c378fef0dc23
       objectReference: {fileID: 0}
     - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: textgift
@@ -70138,6 +70204,7 @@ MonoBehaviour:
   nameTalk: {fileID: 2097423272}
   nameTalk2: {fileID: 2097423272}
   boolArray: 00
+  playerController: {fileID: 0}
 --- !u!114 &1801018159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70297,7 +70364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d067128052d9e4b82deede30d2f23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 22cba067-1bc4-4eb6-99f8-2c25ee3d874d
+  id: 6a8302c6-73f7-4eee-9767-838dcdcfa9c1
   item: {fileID: 11400000, guid: 4e50cf9398473cb40a65976b2f00ed93, type: 2}
   pickupDelay: 1
   reloadBar: {fileID: 10057727}
@@ -73446,6 +73513,7 @@ MonoBehaviour:
   nameTalk: {fileID: 395738236}
   nameTalk2: {fileID: 2122716737}
   boolArray: 0000
+  playerController: {fileID: 0}
 --- !u!114 &1886073944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74548,6 +74616,7 @@ MonoBehaviour:
   nameTalk: {fileID: 1540465395}
   nameTalk2: {fileID: 241049395}
   boolArray: 00
+  playerController: {fileID: 0}
 --- !u!114 &1920480459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75827,6 +75896,10 @@ PrefabInstance:
       value: Nam (5)
       objectReference: {fileID: 0}
     - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
+      propertyPath: id
+      value: 1484714c-595e-42f8-b498-d5e50d381b6b
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: textgift
       value: 
       objectReference: {fileID: 78650350}
@@ -77012,6 +77085,7 @@ MonoBehaviour:
   nameTalk: {fileID: 1043570951}
   nameTalk2: {fileID: 247344609}
   boolArray: 00000000
+  playerController: {fileID: 0}
 --- !u!114 &1987220913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79579,7 +79653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: id
-      value: 5a6593da-87f8-4b06-8847-6baf121b7db1
+      value: de0b1e67-417e-4eea-8a33-6adb06bcec5e
       objectReference: {fileID: 0}
     - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: textgift
@@ -80413,6 +80487,7 @@ MonoBehaviour:
   nameTalk: {fileID: 162396223}
   nameTalk2: {fileID: 807841433}
   boolArray: 000101
+  playerController: {fileID: 0}
 --- !u!114 &2097480576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80898,6 +80973,7 @@ MonoBehaviour:
   nameTalk: {fileID: 1915077287}
   nameTalk2: {fileID: 1588891167}
   boolArray: 000101
+  playerController: {fileID: 0}
 --- !u!114 &2103334955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81390,6 +81466,10 @@ PrefabInstance:
     - target: {fileID: 7183844847572537902, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: m_Name
       value: Pakeen (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
+      propertyPath: id
+      value: 4023a85b-c791-4a2c-b83f-708cc23a1547
       objectReference: {fileID: 0}
     - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: textgift
@@ -82665,6 +82745,10 @@ PrefabInstance:
       value: Pakeen
       objectReference: {fileID: 0}
     - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
+      propertyPath: id
+      value: 276540b1-28ae-44be-8a90-c93a28e5165f
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183844847572537903, guid: 6723cb7718fc2114b8f1c24865f547c7, type: 3}
       propertyPath: textgift
       value: 
       objectReference: {fileID: 78650350}
@@ -82736,6 +82820,10 @@ PrefabInstance:
     - target: {fileID: 5206482375320817335, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
+      propertyPath: id
+      value: 746520a7-00ba-4309-9dd1-a323879e38d3
       objectReference: {fileID: 0}
     - target: {fileID: 6504116580143954860, guid: a7a4daf7d379acc4abfca46b65ed68bd, type: 3}
       propertyPath: textgift
@@ -82956,6 +83044,10 @@ PrefabInstance:
     - target: {fileID: 1882633092343030053, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: m_Name
       value: Nam
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
+      propertyPath: id
+      value: c24967dc-01f9-46f3-89a9-814b990fe5a9
       objectReference: {fileID: 0}
     - target: {fileID: 1932598642787061187, guid: d18e9c750aef2a74ab81b1ac226da836, type: 3}
       propertyPath: textgift

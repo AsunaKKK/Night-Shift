@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 
-public class InventoryManager : MonoBehaviour , IDataSave
+public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 

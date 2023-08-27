@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 
-public class InventoryQuestManager : MonoBehaviour , IDataSave
+public class InventoryQuestManager : MonoBehaviour
 {
     public static InventoryQuestManager Instance;
     public List<ItemQuest> ItemsQuest = new List<ItemQuest>(50);
@@ -45,10 +45,17 @@ public class InventoryQuestManager : MonoBehaviour , IDataSave
 
     public void ListItemsQuest()
     {
+        if (ItemContent == null)
+        {
+            Debug.LogError("ItemContent is not assigned in the Inspector.");
+            return;
+        }
+
         foreach (Transform item in ItemContent)
         {
             Destroy(item.gameObject);
         }
+
         inventoryItemsQuest = new InventoryQuestController[50];
 
         for (int i = 0; i < ItemsQuest.Count; i++)
@@ -65,10 +72,16 @@ public class InventoryQuestManager : MonoBehaviour , IDataSave
             inventoryItemsQuest[i] = newItem;
             inventoryItemsQuest[i].AddItem(ItemsQuest[i]);
 
-
+            if (i < inventoryItemsQuest.Length)
+            {
+                inventoryItemsQuest[i] = newItem;
+                inventoryItemsQuest[i].AddItem(ItemsQuest[i]);
+            }
         }
+
         // Remove any null elements from the inventoryItems array
         inventoryItemsQuest = inventoryItemsQuest.Where(x => x != null).ToArray();
+
     }
 
     public void DrawToolTip(string DetailItem)
@@ -85,17 +98,6 @@ public class InventoryQuestManager : MonoBehaviour , IDataSave
         {
             inventoryItemsQuest[i].AddItem(ItemsQuest[i]);
         }
-    }
-
-    public void SaveData(GameData data)
-    {
-        data.inventoryItemQuest = ItemsQuest.ToArray().ToList();
-    }
-
-    public void LoadData(GameData data)
-    {
-        ItemsQuest = new List<ItemQuest>(data.inventoryItemQuest);
-        ListItemsQuest();
     }
 
 }

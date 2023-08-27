@@ -62,6 +62,7 @@ public class OpenDoor : MonoBehaviour
     private void ChangScenes()
     {
         SceneManager.LoadSceneAsync("Scene01");
+        SaveManager.instance.NewGame();
     }
     private IEnumerator Fade(float startOpacity, float targetOpacity)
     {
