@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMap : MonoBehaviour , IDataSave
 {
     private float horizontal;
-    public float dashSpeed;
+    private float dashSpeed = 40;
     private float LSpeed = 40f;
     private float RSpeed = 40f;
 
@@ -18,7 +18,8 @@ public class PlayerMap : MonoBehaviour , IDataSave
     private float maxEnergy = 100f;
     public float currentEnergy;
 
-    private CheckWall wall;
+    //private CheckWall wall;
+    private bool canMove = true;
 
     [SerializeField] private Rigidbody2D rb;
 
@@ -36,35 +37,47 @@ public class PlayerMap : MonoBehaviour , IDataSave
     void Start()
     {
         currentEnergy = maxEnergy;
-        wall = FindObjectOfType<CheckWall>();
+        //wall = FindObjectOfType<CheckWall>();
     }
 
     void Update()
     {
-        if (isDashing)
+        if (!canMove)
+        {
+            dashSpeed = 0f;
+            LSpeed = 0f;
+            RSpeed = 0f;
+        }
+        if (isDashing || !canMove)
         {
             return;
         }
 
-        horizontal = Input.GetAxisRaw("Horizontal");
+        if(canMove)
+        {
+            dashSpeed = 40f;
+            LSpeed = 40f;
+            RSpeed = 40f;
+            horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (horizontal < 0)
-        {
-            rb.velocity = new Vector2(-LSpeed, rb.velocity.y);
-            transform.localScale = new Vector2(-1, 1);
-        }
-        else if (horizontal > 0)
-        {
-            rb.velocity = new Vector2(RSpeed, rb.velocity.y);
-            transform.localScale = new Vector2(1, 1);
-        }
-
-        if (currentEnergy <= maxEnergy)
-        {
-            currentEnergy += 0.001f + Time.deltaTime;
-            if (currentEnergy >= maxEnergy)
+            if (horizontal < 0)
             {
-                currentEnergy = maxEnergy;
+                rb.velocity = new Vector2(-LSpeed, rb.velocity.y);
+                transform.localScale = new Vector2(-1, 1);
+            }
+            else if (horizontal > 0)
+            {
+                rb.velocity = new Vector2(RSpeed, rb.velocity.y);
+                transform.localScale = new Vector2(1, 1);
+            }
+
+            if (currentEnergy <= maxEnergy)
+            {
+                currentEnergy += 0.001f + Time.deltaTime;
+                if (currentEnergy >= maxEnergy)
+                {
+                    currentEnergy = maxEnergy;
+                }
             }
         }
 
@@ -112,25 +125,28 @@ public class PlayerMap : MonoBehaviour , IDataSave
 
         canDash = true;
     }
-
+    public void ToggleMovement(bool canMove)
+    {
+        this.canMove = canMove;
+    }
     public void CheckDash()
     {
         if (Input.GetKey(KeyCode.LeftShift) && currentEnergy != 0)
         {
-            dashSpeed = wall.checkWalls ? 0f : 80f;
+            dashSpeed = 80f;
             currentEnergy -= 0.005f + Time.deltaTime;
 
             if (currentEnergy <= 0)
             {
                 currentEnergy = 0;
-                dashSpeed = wall.checkWalls ? 0f : 40f;
+                dashSpeed = 40;
             }
         }
         else
         {
-            dashSpeed = wall.checkWalls ? 0f : 40f;
-            LSpeed = wall.checkWalls ? 0f : 40f;
-            RSpeed = wall.checkWalls ? 0f : 40f;
+            dashSpeed = 40f;
+            LSpeed = 40f;
+            RSpeed = 40f;
         }
     }
 

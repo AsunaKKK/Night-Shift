@@ -8,12 +8,12 @@ public class LockDoor : MonoBehaviour , IDataSave
     public GameObject buChaDoor;
     
     public bool key = false;
-    public bool electricFuse;
-    public bool talisManpaper1;
-    public bool talisManpaper2;
-    public bool talisManpaper3;
-    public bool talisManpaper4;
-    public bool talisManpaper5;
+    public bool electricFuse = false;
+    public bool talisManpaper1 = false;
+    public bool talisManpaper2 = false;
+    public bool talisManpaper3 = false;
+    public bool talisManpaper4 = false;
+    public bool talisManpaper5 = false;
     public int doorOn = 0;
 
 
@@ -129,6 +129,13 @@ public class LockDoor : MonoBehaviour , IDataSave
         data.talisManpaper3Save = talisManpaper3Save;
         data.talisManpaper4Save = talisManpaper4Save;
         data.talisManpaper5Save = talisManpaper5Save;
+        data.key = key;
+        data.electricFuse = electricFuse;
+        data.talisManpaper1 = talisManpaper1;
+        data.talisManpaper2 = talisManpaper2;
+        data.talisManpaper3 = talisManpaper3;
+        data.talisManpaper4 = talisManpaper4;
+        data.talisManpaper5 = talisManpaper5;
     }
 
     public void LoadData(GameData data)
@@ -141,6 +148,13 @@ public class LockDoor : MonoBehaviour , IDataSave
         talisManpaper3Save= data.talisManpaper3Save;
         talisManpaper4Save= data.talisManpaper4Save;
         talisManpaper5Save= data.talisManpaper5Save;
+        key = data.key;
+        electricFuse = data.electricFuse;
+        talisManpaper1 = data.talisManpaper1;
+        talisManpaper2 = data.talisManpaper2;
+        talisManpaper3 = data.talisManpaper3;
+        talisManpaper4 = data.talisManpaper4;
+        talisManpaper5 = data.talisManpaper5;
     }
 
 }

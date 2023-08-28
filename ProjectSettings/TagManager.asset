@@ -56,18 +56,21 @@ TagManager:
   - name: Save
     uniqueID: 2639427545
     locked: 0
-  - name: Item
-    uniqueID: 3076309565
-    locked: 0
   - name: ground
     uniqueID: 1706234221
     locked: 0
   - name: Map
     uniqueID: 3847462687
     locked: 0
-  - name: Door
-    uniqueID: 1522098521
-    locked: 0
   - name: ItemOnTop
     uniqueID: 73597985
+    locked: 0
+  - name: Item
+    uniqueID: 3076309565
+    locked: 0
+  - name: Questicon
+    uniqueID: 1208107425
+    locked: 0
+  - name: Door
+    uniqueID: 1522098521
     locked: 0

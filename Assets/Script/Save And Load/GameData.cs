@@ -38,21 +38,17 @@ public class GameData
     public int saveItem6 = 0;
     public int saveItem7 = 0;
 
+    //SaveBoolItem
+    public bool key = false;
+    public bool electricFuse = false;
+    public bool talisManpaper1 = false;
+    public bool talisManpaper2 = false;
+    public bool talisManpaper3 = false;
+    public bool talisManpaper4 = false;
+    public bool talisManpaper5 = false;
+
     //DialogSave
     public int dialogSave1s = 0;
-    public int dialogSave2s = 0;
-    public int dialogSave3s = 0;
-    public int dialogSave4s = 0;
-    public int dialogSave5s = 0;
-    public int dialogSave6s = 0;
-    public int dialogSave7s = 0;
-    public int dialogSave8s = 0;
-    public int dialogSave9s = 0;
-    public int dialogSave10s = 0;
-    public int dialogSave11s = 0;
-    public int dialogSave12s = 0;
-    public int dialogSave13s = 0;
-    public int dialogSave14s = 0;
 
     //Save Elec
     public int electriFuseSave = 0;
@@ -66,15 +62,6 @@ public class GameData
 
     //Save SenQuest
     public int seveSen1s = 0;
-    public int seveSen2s = 0;
-    public int seveSen3s = 0;
-    public int seveSen4s = 0;
-    public int seveSen5s = 0;
-    public int seveSen6s = 0;
-    public int seveSen7s = 0;
-    public int seveSen8s = 0;
-    public int seveSen9s = 0;
-    public int seveSen10s = 0;
 
     public bool itemQuest1 = false;
     public bool itemQuest2 = false;
@@ -175,19 +162,6 @@ public class GameData
         saveItem7 = 0;
 
         dialogSave1s = 0;
-        dialogSave2s = 0;
-        dialogSave3s = 0;
-        dialogSave4s = 0;
-        dialogSave5s = 0;
-        dialogSave6s = 0;
-        dialogSave7s = 0;
-        dialogSave8s = 0;
-        dialogSave9s = 0;
-        dialogSave10s = 0;
-        dialogSave11s = 0;
-        dialogSave12s = 0;
-        dialogSave13s = 0;
-        dialogSave14s = 0;
 
         electriFuseSave = 0;
         talisManpaper1Save = 0;
@@ -197,15 +171,7 @@ public class GameData
         talisManpaper5Save = 0;
 
         seveSen1s = 0;
-        seveSen2s = 0;
-        seveSen3s = 0;
-        seveSen4s = 0;
-        seveSen5s = 0;
-        seveSen6s = 0;
-        seveSen7s = 0;
-        seveSen8s = 0;
-        seveSen9s = 0;
-        seveSen10s = 0;
+
         itemQuest1 = false;
         itemQuest2 = false;
         itemQuest3 = false;
@@ -270,6 +236,15 @@ public class GameData
         quest22Completion = false;
         quest23Completion = false;
         quest24Completion = false;
+
+        //Save ItemBool
+        key = false;
+        electricFuse = false;
+        talisManpaper1 = false;
+        talisManpaper2 = false;
+        talisManpaper3 = false;
+        talisManpaper4 = false;
+        talisManpaper5 = false;
 
 
         saaveEnemys = 0;

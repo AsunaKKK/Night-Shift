@@ -29,11 +29,14 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
     public float giftTimer = 0.5f;
     public bool checkGift = false;
 
+    public GameObject iconQuest;
+
     private void Start()
     {
         reloadBarObj.SetActive(false);
         giftTextBar.SetActive(false);
         checkGift = true;
+        iconQuest.SetActive(false);
     }
 
     private void Update()
@@ -112,6 +115,10 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
 
     private void OnTriggerStay2D(Collider2D other)
     {
+        if(other.tag == "Player")
+        {
+            iconQuest.SetActive(true);
+        }
         if (!isPicUp)
         {
             if (other.CompareTag("Player"))
@@ -133,6 +140,7 @@ public class ItemQuestPicup : MonoBehaviour , IDataSave
         {
             StopPickup();
             gameObject.tag = "notItem";
+            iconQuest.SetActive(false);
         }
     }
 
