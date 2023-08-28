@@ -19,6 +19,17 @@ public class LockDoor : MonoBehaviour , IDataSave
 
     public int doorAllSave = 0;
     public int buChaDoorSave = 0;
+
+    //Save Elec
+    public int electriFuseSave = 0;
+
+    //SavetalisManpaper
+    public int talisManpaper1Save = 0;
+    public int talisManpaper2Save = 0;
+    public int talisManpaper3Save = 0;
+    public int talisManpaper4Save = 0;
+    public int talisManpaper5Save = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,29 +45,54 @@ public class LockDoor : MonoBehaviour , IDataSave
             if (item.IdItems == 3)
             {
                 key = true;
-                
             }
+
             if(item.IdItems == 4)
+            {
+                electriFuseSave = 1;
+            }
+            if(electriFuseSave == 1)
             {
                 electricFuse = true;
             }
+
             if(item.IdItems == 8)
+            {
+                talisManpaper1Save = 1;
+            }
+            if(talisManpaper1Save == 1)
             {
                 talisManpaper1 = true;
             }
             if (item.IdItems == 9)
             {
+                talisManpaper2Save = 1;
+            }
+            if (talisManpaper2Save == 1)
+            {
                 talisManpaper2 = true;
             }
             if (item.IdItems == 10)
+            {
+                talisManpaper3Save = 1;
+            }
+            if (talisManpaper3Save == 1)
             {
                 talisManpaper3 = true;
             }
             if (item.IdItems == 11)
             {
+                talisManpaper4Save = 1;
+            }
+            if (talisManpaper4Save == 1)
+            {
                 talisManpaper4 = true;
             }
             if (item.IdItems == 12)
+            {
+                talisManpaper5Save = 1;
+            }
+            if (talisManpaper5Save == 1)
             {
                 talisManpaper5 = true;
                 break;
@@ -87,12 +123,24 @@ public class LockDoor : MonoBehaviour , IDataSave
     {
         data.doorAlls = doorAllSave;
         data.buchaDoor = buChaDoorSave;
+        data.electriFuseSave = electriFuseSave;
+        data.talisManpaper1Save = talisManpaper1Save;
+        data.talisManpaper2Save = talisManpaper2Save;
+        data.talisManpaper3Save = talisManpaper3Save;
+        data.talisManpaper4Save = talisManpaper4Save;
+        data.talisManpaper5Save = talisManpaper5Save;
     }
 
     public void LoadData(GameData data)
     {
         doorAllSave = data.doorAlls;
         buChaDoorSave = data.buchaDoor;
+        electriFuseSave = data.electriFuseSave;
+        talisManpaper1Save= data.talisManpaper1Save;
+        talisManpaper2Save = data.talisManpaper2Save;
+        talisManpaper3Save= data.talisManpaper3Save;
+        talisManpaper4Save= data.talisManpaper4Save;
+        talisManpaper5Save= data.talisManpaper5Save;
     }
 
 }

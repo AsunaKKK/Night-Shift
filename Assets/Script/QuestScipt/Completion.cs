@@ -39,7 +39,6 @@ public class Completion : MonoBehaviour , IDataSave
    public bool fondSchoolBag = false;
    public bool fondHistoryBook = false;
     public List<GameObject> chackOj = new List<GameObject>();
-
     //Save
     public int saveItem1 = 0;
     public int saveItem2 = 0;
@@ -48,6 +47,7 @@ public class Completion : MonoBehaviour , IDataSave
     public int saveItem5 = 0;
     public int saveItem6 = 0;
     public int saveItem7 = 0;
+    public int saaveEnemy = 0;
     // Update is called once per frame
 
     void Start()
@@ -148,6 +148,10 @@ public class Completion : MonoBehaviour , IDataSave
 
         // Enemy
         if (QuestManager.questID == 12)
+        {
+            saaveEnemy = 1;
+        }
+        if(saaveEnemy == 1)
         {
             Enemy.SetActive(true);
         }
@@ -282,6 +286,20 @@ public class Completion : MonoBehaviour , IDataSave
         data.saveItem5 = saveItem5;
         data.saveItem6 = saveItem6;
         data.saveItem7 = saveItem7;
+        data.saaveEnemys = saaveEnemy;
+        data.itemQuest1 = itemQuest1;
+        data.itemQuest2 = itemQuest2;
+        data.itemQuest3 = itemQuest3;
+        data.itemQuest4 = itemQuest4;
+
+        data.foundTuup = foundTuup;
+        data.fondElectricfuse = fondElectricfuse;
+        data.fondFlannel = fondFlannel;
+        data.fondHistoryBook = fondHistoryBook;
+        data.fondSchoolBag = fondSchoolBag;
+        data.foundLightSteel = foundLightSteel;
+        data.foundKey = foundKey;
+
     }
 
     public void LoadData(GameData data)
@@ -293,6 +311,20 @@ public class Completion : MonoBehaviour , IDataSave
         saveItem5 = data.saveItem5;
         saveItem6 = data.saveItem6;
         saveItem7 = data.saveItem7;
+        saaveEnemy = data.saaveEnemys;
+        itemQuest1 = data.itemQuest1;
+        itemQuest2 = data.itemQuest2;
+        itemQuest3 = data.itemQuest3;
+        itemQuest4 = data.itemQuest4;
+
+        foundKey = data.foundKey;
+        foundLightSteel = data.foundLightSteel;
+        foundTuup = data.foundTuup;
+        fondElectricfuse = data.fondElectricfuse;
+        fondFlannel = data.fondFlannel;
+        fondHistoryBook = data.fondHistoryBook;
+        fondSchoolBag = data.fondSchoolBag;
+
     }
 
 

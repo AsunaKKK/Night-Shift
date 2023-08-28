@@ -84,11 +84,9 @@ public class PlayerTelepot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2D called.");
         if (collision.CompareTag("Teleporter"))
         {
             currentTeleporter = collision.gameObject;
-            Debug.Log("Teleporter detected.");
         }
     }
 

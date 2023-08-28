@@ -9,30 +9,30 @@ public class QuestManager : MonoBehaviour , IDataSave
     public TextMeshProUGUI condition2TextUI;
     public TextMeshProUGUI condition3TextUI;
 
-    public static bool quest1;
-    public static bool quest2;
-    public static bool quest3;
-    public static bool quest4;
-    public static bool quest5;
-    public static bool quest6;
-    public static bool quest7;
-    public static bool quest8;
-    public static bool quest9;
-    public static bool quest10;
-    public static bool quest11;
-    public static bool quest12;
-    public static bool quest13;
-    public static bool quest14;
-    public static bool quest15;
-    public static bool quest16;
-    public static bool quest17;
-    public static bool quest18;
-    public static bool quest19;
-    public static bool quest20;
-    public static bool quest21;
-    public static bool quest22;
-    public static bool quest23;
-    public static bool quest24;
+    public static bool quest1 = false;
+    public static bool quest2 = false;
+    public static bool quest3 = false;
+    public static bool quest4 = false;
+    public static bool quest5 = false;
+    public static bool quest6 = false;
+    public static bool quest7 = false;
+    public static bool quest8 = false;
+    public static bool quest9 = false;
+    public static bool quest10 = false;
+    public static bool quest11 = false;
+    public static bool quest12 = false;
+    public static bool quest13 = false;
+    public static bool quest14 = false;
+    public static bool quest15 = false;
+    public static bool quest16 = false;
+    public static bool quest17 = false;
+    public static bool quest18 = false;
+    public static bool quest19 = false;
+    public static bool quest20 = false;
+    public static bool quest21 = false;
+    public static bool quest22 = false;
+    public static bool quest23 = false;
+    public static bool quest24 = false;
 
 
     public static bool quest1Completion = false;
@@ -447,6 +447,56 @@ public class QuestManager : MonoBehaviour , IDataSave
         data.questID = newQuestId;
         data.setQuestID = questID;
         data.setCompletionID = completionID;
+        data.quest1 = quest1;
+        data.quest2 = quest2;
+        data.quest3 = quest3;
+        data.quest4 = quest4;
+        data.quest5 = quest5;
+        data.quest6 = quest6;
+        data.quest7 = quest7;
+        data.quest8 = quest8;
+        data.quest9 = quest9;
+        data.quest10 = quest10;
+        data.quest11 = quest11;
+        data.quest12 = quest12;
+        data.quest13 = quest13;
+        data.quest14 = quest14;
+        data.quest15 = quest15;
+        data.quest16 = quest16;
+        data.quest17 = quest17;
+        data.quest18 = quest18;
+        data.quest19 = quest19;
+        data.quest20 = quest20;
+        data.quest21 = quest21;
+        data.quest22 = quest22;
+        data.quest23 = quest23;
+        data.quest24 = quest24;
+
+        data.quest1Completion = quest1Completion;
+        data.quest2Completion = quest2Completion;
+        data.quest3Completion = quest3Completion;
+        data.quest4Completion = quest4Completion;
+        data.quest5Completion = quest5Completion;
+        data.quest6Completion = quest6Completion;
+        data.quest7Completion = quest7Completion;
+        data.quest8Completion = quest8Completion;
+        data.quest9Completion = quest9Completion;
+        data.quest10Completion = quest10Completion;
+        data.quest11Completion = quest11Completion;
+        data.quest12Completion = quest12Completion;
+        data.quest13Completion = quest13Completion;
+        data.quest14Completion = quest14Completion;
+        data.quest15Completion = quest15Completion;
+        data.quest16Completion = quest16Completion;
+        data.quest17Completion = quest17Completion;
+        data.quest18Completion = quest18Completion;
+        data.quest19Completion = quest19Completion;
+        data.quest20Completion = quest20Completion;
+        data.quest21Completion = quest21Completion;
+        data.quest22Completion = quest22Completion;
+        data.quest23Completion = quest23Completion;
+        data.quest24Completion = quest24Completion;
+
     }
 
     public void LoadData(GameData data)
@@ -454,6 +504,56 @@ public class QuestManager : MonoBehaviour , IDataSave
         newQuestId = data.questID;
         questID = data.setQuestID;
         completionID = data.setCompletionID;
+        quest1 = data.quest1;
+        quest2 = data.quest2;
+        quest3 = data.quest3;
+        quest4 = data.quest4;
+        quest5 = data.quest5;
+        quest6 = data.quest6;
+        quest7 = data.quest7;
+        quest8 = data.quest8;
+        quest9 = data.quest9;
+        quest10 = data.quest10;
+        quest11 = data.quest11;
+        quest12 = data.quest12;
+        quest13 = data.quest13;
+        quest14 = data.quest14;
+        quest15 = data.quest15;
+        quest16 = data.quest16;
+        quest17 = data.quest17;
+        quest18 = data.quest18;
+        quest19 = data.quest19;
+        quest20 = data.quest20;
+        quest21 = data.quest21;
+        quest22 = data.quest22;
+        quest23 = data.quest23;
+        quest24 = data.quest24;
+
+        quest1Completion = data.quest1Completion;
+        quest2Completion = data.quest2Completion;
+        quest3Completion = data.quest3Completion;
+        quest4Completion = data.quest4Completion;
+        quest5Completion = data.quest5Completion;
+        quest6Completion = data.quest6Completion;
+        quest7Completion = data.quest7Completion;
+        quest8Completion = data.quest8Completion;
+        quest9Completion = data.quest9Completion;
+        quest10Completion = data.quest10Completion;
+        quest11Completion = data.quest11Completion;
+        quest12Completion = data.quest12Completion;
+        quest13Completion = data.quest13Completion;
+        quest14Completion = data.quest14Completion;
+        quest15Completion = data.quest15Completion;
+        quest16Completion = data.quest16Completion;
+        quest17Completion = data.quest17Completion;
+        quest18Completion = data.quest18Completion;
+        quest19Completion = data.quest19Completion;
+        quest20Completion = data.quest20Completion;
+        quest21Completion = data.quest21Completion;
+        quest22Completion = data.quest22Completion;
+        quest23Completion = data.quest23Completion;
+        quest24Completion = data.quest24Completion;
+
     }
 
 }
