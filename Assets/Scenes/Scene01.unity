@@ -24697,6 +24697,7 @@ MonoBehaviour:
   box1: {fileID: 350480465}
   box2: {fileID: 1377392544}
   symo: {fileID: 1929722276}
+  anim: {fileID: 0}
 --- !u!61 &568138365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53715,6 +53716,8 @@ GameObject:
   - component: {fileID: 1344282984}
   - component: {fileID: 1344282982}
   - component: {fileID: 1344282981}
+  - component: {fileID: 1344282983}
+  - component: {fileID: 1344282985}
   m_Layer: 0
   m_Name: RestRoom
   m_TagString: restRoom
@@ -53732,7 +53735,7 @@ Animator:
   m_GameObject: {fileID: 1344282980}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4051fc9299d7e9048b0726f577d77649, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -53792,6 +53795,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1344282983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344282980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9bf619c73d565648a07a11ef4d13a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  box1: {fileID: 677227871}
+  box2: {fileID: 614680970}
+  symo: {fileID: 577549237}
+  anim: {fileID: 1344282981}
 --- !u!4 &1344282984
 Transform:
   m_ObjectHideFlags: 0
@@ -53809,6 +53828,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1344282985
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344282980}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.28}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.08, y: 7.83}
+    newSize: {x: 7.08, y: 7.83}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.05, y: 7.07}
+  m_EdgeRadius: 0
 --- !u!1 &1346743026
 GameObject:
   m_ObjectHideFlags: 0
@@ -64771,6 +64816,7 @@ MonoBehaviour:
   box1: {fileID: 2079875028}
   box2: {fileID: 1067190658}
   symo: {fileID: 217407419}
+  anim: {fileID: 0}
 --- !u!61 &1607112061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68514,6 +68560,7 @@ MonoBehaviour:
   box1: {fileID: 219006033}
   box2: {fileID: 1347897508}
   symo: {fileID: 795908774}
+  anim: {fileID: 0}
 --- !u!61 &1676514166
 BoxCollider2D:
   m_ObjectHideFlags: 0

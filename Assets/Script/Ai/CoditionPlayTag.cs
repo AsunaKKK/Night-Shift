@@ -10,7 +10,15 @@ public class CoditionPlayTag : MonoBehaviour
     public GameObject box1;
     public GameObject box2;
     public GameObject symo;
+    [SerializeField] private Animator anim;
+    private Collider2D collision;
+    bool OK = false;
+    private void OnEnable()
+    {
+        anim.SetBool("IsHide", false);
+        anim.SetBool("outHide", false);
 
+    }
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -19,44 +27,65 @@ public class CoditionPlayTag : MonoBehaviour
         box2.SetActive(false);
         symo.SetActive(false);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        symo.SetActive(true);
-        if (collision.CompareTag("Player") && Input.GetKey(KeyCode.E))
+        if(collision != null&&OK)
         {
-            ToggleTag(collision.gameObject);
-            initialOrder = 11;
-            box1.SetActive(true);
-            box2.SetActive(true);
-            symo.SetActive(false);
+            if (collision.CompareTag("Player") && Input.GetKey(KeyCode.E))
+            {
+                StartCoroutine(playHide());
+                ToggleTag(collision.gameObject);
+                initialOrder = 11;
+                box1.SetActive(true);
+                box2.SetActive(true);
+                symo.SetActive(false);
+            }
+            else if (collision.CompareTag("Hidden") && Input.GetKey(KeyCode.E))
+            {
+                StartCoroutine(playOutHide());
+                ToggleTag(collision.gameObject);
+                initialOrder = 0;
+                box1.SetActive(false);
+                box2.SetActive(false);
+            }
+            spriteRenderer.sortingOrder = initialOrder;
         }
-        spriteRenderer.sortingOrder = initialOrder;
+    }
+    private void OnTriggerEnter2D(Collider2D otherCollision)
+    {
+        collision = otherCollision;
+        symo.SetActive(true);
+        OK = true;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D otherCollision)
     {
+        collision = otherCollision;
         symo.SetActive(true);
-        if (collision.CompareTag("Player") && Input.GetKey(KeyCode.E))
-        {
-            ToggleTag(collision.gameObject);
-            initialOrder = 11;
-            box1.SetActive(true);
-            box2.SetActive(true);
-            symo.SetActive(false);
-        }
-        else if (collision.CompareTag("Hidden") && Input.GetKey(KeyCode.E))
-        {
-            ToggleTag(collision.gameObject);
-            initialOrder = 0;
-            box1.SetActive(false);
-            box2.SetActive(false);
-        }
-        spriteRenderer.sortingOrder = initialOrder;
+        OK = true;
+        
 
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D()
     {
         symo.SetActive(false);
+        collision = null;
+    }
+
+
+    IEnumerator playHide()
+    {
+        anim.SetBool("IsHide", true);
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool("IsHide", false);
+
+    }
+    IEnumerator playOutHide()
+    {
+        anim.SetBool("outHide", true);
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool("outHide", false);
+
     }
 
     private void ToggleTag(GameObject obj)
@@ -70,6 +99,6 @@ public class CoditionPlayTag : MonoBehaviour
             obj.tag = "Player";
         }
     }
-    
-   
+
+
 }
