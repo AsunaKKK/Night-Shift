@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour , IDataSave
     private void OnEnable()
     {
         anim.SetBool("DiePlayer", false);
-        anim.SetBool("Hide", false);
         canDie = false;
     }
     // Start is called before the first frame update
@@ -215,19 +214,7 @@ public class PlayerController : MonoBehaviour , IDataSave
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-       if(collision.CompareTag("restRoom")&&Input.GetKey(KeyCode.E))
-        {
-            anim.SetBool("Hide", true);
-        }
-       else
-        {
-            anim.SetBool("Hide", false);
-        }
-        if (collision.tag == "Hidden"&&collision.gameObject.tag == "isRestRoom" && Input.GetKey(KeyCode.E))
-        {
-            canStop = false;
-            collision.tag = "restRoom";
-        }
+       
     }
 
 

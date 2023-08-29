@@ -22,7 +22,7 @@ public class CoditionPlayTag : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         symo.SetActive(true);
-        if (collision.CompareTag("Player") && Input.GetKeyUp(KeyCode.E))
+        if (collision.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
             ToggleTag(collision.gameObject);
             initialOrder = 11;
@@ -36,7 +36,7 @@ public class CoditionPlayTag : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         symo.SetActive(true);
-        if (collision.CompareTag("Player") && Input.GetKeyUp(KeyCode.E))
+        if (collision.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
             ToggleTag(collision.gameObject);
             initialOrder = 11;
@@ -44,7 +44,7 @@ public class CoditionPlayTag : MonoBehaviour
             box2.SetActive(true);
             symo.SetActive(false);
         }
-        else if (collision.CompareTag("Hidden") && Input.GetKeyUp(KeyCode.E))
+        else if (collision.CompareTag("Hidden") && Input.GetKey(KeyCode.E))
         {
             ToggleTag(collision.gameObject);
             initialOrder = 0;
