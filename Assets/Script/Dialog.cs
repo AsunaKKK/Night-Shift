@@ -24,7 +24,6 @@ public class Dialog : MonoBehaviour
     public bool[] boolArray;
 
     public PlayerController playerController;
-    public PlayerMap playerMap;
 
     private int index;
     // Start is called before the first frame update
@@ -32,7 +31,6 @@ public class Dialog : MonoBehaviour
     {
         textComponent.text = string.Empty;
         playerController = FindObjectOfType<PlayerController>();
-        playerMap = FindObjectOfType<PlayerMap>();
 
         if (playerController != null)
         {
@@ -47,7 +45,6 @@ public class Dialog : MonoBehaviour
         void Update()
     {
         playerController.ToggleMovement(false);
-        playerMap.ToggleMovement(false);
         charecterTalk1.SetActive(true);
         charecterTalk2.SetActive(true);
 
@@ -69,7 +66,6 @@ public class Dialog : MonoBehaviour
         index = 0;
         StartCoroutine(TypeLine());
         playerController.ToggleMovement(false);
-        playerMap.ToggleMovement(false);
 
     }
 
@@ -117,7 +113,6 @@ public class Dialog : MonoBehaviour
             textComponent.text = string.Empty;
             index = 0;
             playerController.ToggleMovement(true);
-            playerMap.ToggleMovement(true);
             foreach (char c in line[index].ToCharArray())
             {
                 textComponent.text += c;

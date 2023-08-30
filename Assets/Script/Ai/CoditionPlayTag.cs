@@ -13,6 +13,7 @@ public class CoditionPlayTag : MonoBehaviour
     [SerializeField] private Animator anim;
     private Collider2D collision;
     bool OK = false;
+    public GameObject lightP;
     private void OnEnable()
     {
         anim.SetBool("IsHide", false);
@@ -26,23 +27,26 @@ public class CoditionPlayTag : MonoBehaviour
         box1.SetActive(false);
         box2.SetActive(false);
         symo.SetActive(false);
+        
     }
     private void Update()
     {
         if(collision != null&&OK)
         {
-            if (collision.CompareTag("Player") && Input.GetKey(KeyCode.E))
+            if (collision.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {
                 StartCoroutine(playHide());
+                lightP.SetActive(false);
                 ToggleTag(collision.gameObject);
                 initialOrder = 11;
                 box1.SetActive(true);
                 box2.SetActive(true);
                 symo.SetActive(false);
             }
-            else if (collision.CompareTag("Hidden") && Input.GetKey(KeyCode.E))
+            else if (collision.CompareTag("Hidden") && Input.GetKeyDown(KeyCode.E))
             {
                 StartCoroutine(playOutHide());
+                lightP.SetActive(true);
                 ToggleTag(collision.gameObject);
                 initialOrder = 0;
                 box1.SetActive(false);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMap : MonoBehaviour , IDataSave
+public class PlayerMap : MonoBehaviour
 {
     private float horizontal;
     private float dashSpeed = 40;
@@ -149,19 +149,5 @@ public class PlayerMap : MonoBehaviour , IDataSave
             RSpeed = 40f;
         }
     }
-
-    public void SaveData(GameData data)
-    {
-        data.playerMapPosition = savedPosition;
-        data.playerMapRotation = savedRotation;
-
-    }
-
-    public void LoadData(GameData data)
-    {
-        savedPosition = data.playerMapPosition;
-        savedRotation = data.playerMapRotation;
-    }
-
 
 }

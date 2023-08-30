@@ -5,18 +5,16 @@ using UnityEngine;
 public class CheckWall : MonoBehaviour
 {
     public bool checkWalls = false;
-    public PlayerMap playerMap;
 
     private void Start()
     {
-        playerMap = FindObjectOfType<PlayerMap>();
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             checkWalls = true;
-            playerMap.ToggleMovement(false);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -24,7 +22,6 @@ public class CheckWall : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             checkWalls = true;
-            playerMap.ToggleMovement(false);
         }
     }
 
@@ -33,7 +30,6 @@ public class CheckWall : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             checkWalls = false;
-            playerMap.ToggleMovement(true);
         }
     }
 

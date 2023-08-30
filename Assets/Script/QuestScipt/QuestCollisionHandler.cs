@@ -1,19 +1,19 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class QuestCollisionHandler : MonoBehaviour
+public class QuestCollisionHandler : MonoBehaviour , IDataSave
 {
     private Completion completionScript;
-    public bool chack101;
-    public bool chack102;
-    public bool chack103;
-    public bool chack104;
-    public bool chack105;
-    public bool chack106;
-    public bool chack107;
-    public bool chack108;
-    public bool chack109;
-    public bool chack110;
+    public bool chack101 = false;
+    public bool chack102 = false;
+    public bool chack103 = false;
+    public bool chack104 = false;
+    public bool chack105 = false;
+    public bool chack106 = false;
+    public bool chack107 = false;
+    public bool chack108 = false;
+    public bool chack109 = false;
+    public bool chack110 = false;
     private void Start()
     {
         // Get the Completion component on the same GameObject
@@ -132,26 +132,19 @@ public class QuestCollisionHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
             if (collision.CompareTag("Player"))
             {
              foreach (GameObject obj in completionScript.chackOj)
                {
                 if (chack101)
                 {
-
                     if (obj.name == "quest101")
                     {
                         QuestManager.quest2Completion = true;
                         obj.SetActive(false);
                         break;
-
                     }
-                    
-
                 }
-
-
                 if (chack102)
                 {
 
@@ -269,6 +262,36 @@ public class QuestCollisionHandler : MonoBehaviour
 
             }
     }
-    
+
+    public void SaveData(GameData data)
+    {
+        data.chack101 = chack101;
+        data.chack102 = chack102;
+        data.chack103 = chack103;
+        data.chack104 = chack104;
+        data.chack105 = chack105;
+        data.chack106 = chack106;
+        data.chack107 = chack107;
+        data.chack108 = chack108;
+        data.chack109 = chack109;
+        data.chack110 = chack110;
+
+    }
+
+    public void LoadData(GameData data)
+    {
+        chack101 = data.chack101;
+        chack102 = data.chack102;
+        chack103 = data.chack103;
+        chack104 = data.chack104;
+        chack105 = data.chack105;
+        chack106 = data.chack106;
+        chack107 = data.chack107;
+        chack108 = data.chack108;
+        chack109 = data.chack109;
+        chack110 = data.chack110;
+
+    }
+
 
 }

@@ -60,9 +60,6 @@ public class GameData
     public int talisManpaper4Save = 0;
     public int talisManpaper5Save = 0;
 
-    //Save SenQuest
-    public int seveSen1s = 0;
-
     public bool itemQuest1 = false;
     public bool itemQuest2 = false;
     public bool itemQuest3 = false;
@@ -130,8 +127,19 @@ public class GameData
     public  bool quest23Completion = false;
     public  bool quest24Completion = false;
 
-    public Vector3 playerMapPosition;
-    public Quaternion playerMapRotation;
+
+    //Save Sen
+    public bool chack101 = false;
+    public bool chack102 = false;
+    public bool chack103 = false;
+    public bool chack104 = false;
+    public bool chack105 = false;
+    public bool chack106 = false;
+    public bool chack107 = false;
+    public bool chack108 = false;
+    public bool chack109 = false;
+    public bool chack110 = false;
+
     public GameData()
     {
         this.playerHpMax = 100;
@@ -142,8 +150,6 @@ public class GameData
         inventoryItems = new List<Item>();
         idItemQuest = new SerealizableDictionary<string, bool>();
         inventoryItemQuest = new List<ItemQuest>();
-        playerMapPosition = new Vector3(654f, 1556f, 0f);
-        playerMapRotation = Quaternion.identity;
 
 
         questID = 1;
@@ -169,8 +175,6 @@ public class GameData
         talisManpaper3Save = 0;
         talisManpaper4Save = 0;
         talisManpaper5Save = 0;
-
-        seveSen1s = 0;
 
         itemQuest1 = false;
         itemQuest2 = false;
@@ -245,6 +249,19 @@ public class GameData
         talisManpaper3 = false;
         talisManpaper4 = false;
         talisManpaper5 = false;
+
+
+        chack101 = false;
+        chack102 = false;
+        chack103 = false;
+        chack104 = false;
+        chack105 = false;
+        chack106 = false;
+        chack107 = false;
+        chack108 = false;
+        chack109 = false;
+        chack110 = false;
+
 
 
         saaveEnemys = 0;

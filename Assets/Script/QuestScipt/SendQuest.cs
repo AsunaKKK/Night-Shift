@@ -5,12 +5,14 @@ using TMPro;
 public class SendQuest : MonoBehaviour
 {
     private LockDoor lockDoorScript;
-    public GameObject textNoItem;
+    public TextMeshProUGUI textNoItem;
+    public TextMeshProUGUI textItem;
 
     private void Start()
     {
         lockDoorScript = FindObjectOfType<LockDoor>();
-        textNoItem.SetActive(false);
+        textNoItem.gameObject.SetActive(false);
+        textItem.gameObject.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -18,27 +20,7 @@ public class SendQuest : MonoBehaviour
         if (collision.tag == "Player")
         {
             //if no item
-            if(Input.GetKey(KeyCode.E)&& lockDoorScript.electricFuse == false)
-            {
-                StartCoroutine(GiftItem());
-            }
-            if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper1 == false)
-            {
-                StartCoroutine(GiftItem());
-            }
-            if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper2 == false)
-            {
-                StartCoroutine(GiftItem());
-            }
-            if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper3 == false)
-            {
-                StartCoroutine(GiftItem());
-            }
-            if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper4 == false)
-            {
-                StartCoroutine(GiftItem());
-            }
-            if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper5 == false)
+            if(Input.GetKey(KeyCode.E) && lockDoorScript.electricFuse == false)
             {
                 StartCoroutine(GiftItem());
             }
@@ -46,47 +28,57 @@ public class SendQuest : MonoBehaviour
             if (Input.GetKey(KeyCode.E) && lockDoorScript.electricFuse)
             {
                 QuestManager.quest10Completion = true;
-                Debug.Log("Quest 10 completed!");
+                StartCoroutine(UseItem());
             }
             if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper1)
             {
                 QuestManager.quest20Completion = true;
-              
+                StartCoroutine(UseItem());
+
             }
             if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper2)
             {
                 QuestManager.quest21Completion = true;
+                StartCoroutine(UseItem());
 
             }
             if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper3)
             {
                 QuestManager.quest22Completion = true;
+                StartCoroutine(UseItem());
 
             }
             if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper4)
             {
                 QuestManager.quest23Completion = true;
+                StartCoroutine(UseItem());
 
             }
             if (Input.GetKey(KeyCode.E) && lockDoorScript.talisManpaper5)
             {
                 QuestManager.quest24Completion = true;
-
+                StartCoroutine(UseItem());
             }
         }
     }
 
     IEnumerator GiftItem()
     {
-        textNoItem.SetActive(true);
+        textNoItem.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
-        textNoItem.SetActive(false);
+        textNoItem.gameObject.SetActive(false);
+    }
+    IEnumerator UseItem()
+    {
+        textItem.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        textItem.gameObject.SetActive(false);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            textNoItem.SetActive(false);
+            textNoItem.gameObject.SetActive(false);
         }
     }
 }

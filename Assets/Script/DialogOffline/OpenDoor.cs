@@ -12,6 +12,7 @@ public class OpenDoor : MonoBehaviour
     public float fadeDuration = 1.0f;
     private bool isFading = false;
     public TextMeshProUGUI textFade;
+    public AudioSource fadeSource;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class OpenDoor : MonoBehaviour
     private IEnumerator FadeInAndStartAction(System.Action action)
     {
         isFading = true;
-
+        fadeSource.Play();
         yield return StartCoroutine(Fade(0, 1)); // Fade in
         textFade.alpha = 1;
 

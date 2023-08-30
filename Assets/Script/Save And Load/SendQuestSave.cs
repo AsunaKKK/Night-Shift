@@ -20,15 +20,4 @@ public class SendQuestSave : MonoBehaviour
         }
     }
 
-
-    public void SaveData(GameData data)
-    {
-        data.seveSen1s = seveSen1;
-    }
-
-    public void LoadData(GameData data)
-    {
-        seveSen1 = data.seveSen1s;
-    }
-
 }
