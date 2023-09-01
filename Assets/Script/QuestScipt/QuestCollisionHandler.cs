@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class QuestCollisionHandler : MonoBehaviour , IDataSave
+public class QuestCollisionHandler : MonoBehaviour 
 {
     private Completion completionScript;
     public bool chack101 = false;
@@ -262,36 +262,5 @@ public class QuestCollisionHandler : MonoBehaviour , IDataSave
 
             }
     }
-
-    public void SaveData(GameData data)
-    {
-        data.chack101 = chack101;
-        data.chack102 = chack102;
-        data.chack103 = chack103;
-        data.chack104 = chack104;
-        data.chack105 = chack105;
-        data.chack106 = chack106;
-        data.chack107 = chack107;
-        data.chack108 = chack108;
-        data.chack109 = chack109;
-        data.chack110 = chack110;
-
-    }
-
-    public void LoadData(GameData data)
-    {
-        chack101 = data.chack101;
-        chack102 = data.chack102;
-        chack103 = data.chack103;
-        chack104 = data.chack104;
-        chack105 = data.chack105;
-        chack106 = data.chack106;
-        chack107 = data.chack107;
-        chack108 = data.chack108;
-        chack109 = data.chack109;
-        chack110 = data.chack110;
-
-    }
-
 
 }
