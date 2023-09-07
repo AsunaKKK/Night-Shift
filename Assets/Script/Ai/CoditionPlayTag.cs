@@ -31,7 +31,7 @@ public class CoditionPlayTag : MonoBehaviour
     }
     private void Update()
     {
-        if(collision != null&&OK)
+        if(collision != null&&OK&&Enemy_Controller.stopDoThat==false)
         {
             if (collision.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
             {

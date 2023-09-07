@@ -9,7 +9,7 @@ public class QuestCollisionHandler : MonoBehaviour
     public bool chack103 = false;
     public bool chack104 = false;
     public bool chack105 = false;
-    public bool chack106 = false;
+    //public bool chack106 = false;
     public bool chack107 = false;
     public bool chack108 = false;
     public bool chack109 = false;
@@ -77,7 +77,7 @@ public class QuestCollisionHandler : MonoBehaviour
 
                 }               
             }
-            if (QuestManager.questID == 12)
+           /* if (QuestManager.questID == 12)
             {              
                     if (questObject.name == "quest106")
                     {
@@ -86,7 +86,7 @@ public class QuestCollisionHandler : MonoBehaviour
                     break;
                 }
                 
-            }
+            }*/
             if (QuestManager.questID == 13)
             {  
                     if (questObject.name == "quest107")
@@ -198,7 +198,7 @@ public class QuestCollisionHandler : MonoBehaviour
                     }
 
                 }
-                if (chack106)
+                /*if (chack106)
                 {
                     if (obj.name == "quest106")
                     {
@@ -210,7 +210,7 @@ public class QuestCollisionHandler : MonoBehaviour
 
                     }
 
-                }
+                }*/
                 if (chack107)
                 {
                     if (obj.name == "quest107")

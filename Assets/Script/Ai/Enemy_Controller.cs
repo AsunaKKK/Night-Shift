@@ -11,11 +11,14 @@ public class Enemy_Controller : MonoBehaviour
     public bool inReverse = true;
     public bool canWalk = true;
     public float runRange = 15f;
+    public float lockDoor = 15f;
+    public static bool stopDoThat = false;
     private Waypoint currentWaypoint;
     private int currentIndex = 0;
     private bool isWaiting = false;
     private float originalSpeed;
     private Vector2 playerPosition;
+    public static bool chackQuest12 = false;
 
     public List<GameObject> enemyTeleporters = new List<GameObject>();
 
@@ -30,6 +33,7 @@ public class Enemy_Controller : MonoBehaviour
     public int attackDamage = 10;
     public float attackCooldown = 2f;
 
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
 
@@ -41,6 +45,7 @@ public class Enemy_Controller : MonoBehaviour
     /// </summary>
     public AudioSource cashSound;
     public AudioSource detech;
+
     private void Start()
     {
         if (wayPoints.Length > 0)
@@ -53,6 +58,7 @@ public class Enemy_Controller : MonoBehaviour
         detech.enabled = false;
         initialWaypointPosition = wayPoints[0].transform.position;
     }
+
     private void OnEnable()
     {
         cashSound.enabled = false;
@@ -66,110 +72,126 @@ public class Enemy_Controller : MonoBehaviour
         {
             transform.position = currentTeleporter.GetComponent<Telepor>().GetDestination().position;
         }
+
         if (!isChasingPlayer)
         {
-           
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null && Vector3.Distance(transform.position, player.transform.position) < runRange)
             {
-                
                 StartChasing(player.transform.position);
                 cashSound.enabled = true;
                 detech.enabled = true;
             }
             else
             {
-                
                 MoveTowardsWaypoint();
             }
         }
-         if(isChasingPlayer)
-        {
-            
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
 
+        if (isChasingPlayer)
+        {
+           
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null && Vector3.Distance(transform.position, player.transform.position) < lockDoor)
+            {
+               stopDoThat = true;
+            }
+            else
+            {
+                stopDoThat = false;
+            }
             if (player != null)
             {
-
                 StartChasing(player.transform.position);
             }
             else
             {
                 StopChasing();
-            }
-
-        }
-
-    }
-    private void StartChasing(Vector3 playerPosition)
-    {
-        
-        GameObject[] enemyTeleportersArray = GameObject.FindGameObjectsWithTag("EnemyTele");
-
-        
-        enemyTeleporters.Clear();
-        enemyTeleporters.AddRange(enemyTeleportersArray);
-
-        if (enemyTeleporters.Count > 0)
-        {
-          
-            GameObject nextTeleporter = enemyTeleporters[0];
-
-           
-            float enemyTeleX = nextTeleporter.transform.position.x;
-            float enemyX = transform.position.x;
-
-            if (Mathf.Abs(enemyTeleX - enemyX) > 0.1f)
-            {
-                float directionX = Mathf.Sign(enemyTeleX - enemyX);
-                Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
-
-                transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
-                FlipEnemy(directionX);
-            }
-
-            runRange = float.PositiveInfinity; 
-            speed = 8.5f;
-            isChasingPlayer = true;
-            this.playerPosition = playerPosition;
-            state = State.Run;
-        }
-        else
-        {
-            speed = 9f; 
-            isChasingPlayer = true;
-            this.playerPosition = playerPosition;
-            state = State.Run;
-
-            float playerX = playerPosition.x;
-            float enemyX = transform.position.x;
-
-            if (Mathf.Abs(playerX - enemyX) > 0.1f)
-            {
-                float directionX = Mathf.Sign(playerX - enemyX);
-                Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
-
-                transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
-                FlipEnemy(directionX);
+                chackQuest12 = true;
             }
         }
-
         if (isAttacking)
         {
             AttackPlayer();
+           
+           
         }
-       
+        
     }
+
+    private void StartChasing(Vector3 playerPosition)
+    {
+        GameObject[] enemyTeleportersArray = GameObject.FindGameObjectsWithTag("EnemyTele");
+
+        enemyTeleporters.Clear();
+        enemyTeleporters.AddRange(enemyTeleportersArray);
+        
+
+            if (enemyTeleporters.Count > 0)
+            {
+                GameObject nextTeleporter = enemyTeleporters[0];
+                float enemyTeleX = nextTeleporter.transform.position.x;
+                float enemyX = transform.position.x;
+
+                if (Mathf.Abs(enemyTeleX - enemyX) > 0.1f)
+                {
+                    float directionX = Mathf.Sign(enemyTeleX - enemyX);
+                    Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
+
+                    transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
+                    FlipEnemy(directionX);
+                }
+                if (!isAttacking)
+                {
+                    runRange = float.PositiveInfinity;
+                    speed = 8f;
+                    isChasingPlayer = true;
+                    this.playerPosition = playerPosition;
+                    state = State.Run;
+                }
+                else
+                {
+                    speed = 0;                   
+
+                }
+            }
+            else
+            {
+                if (!isAttacking)
+                {
+                    speed = 9f;
+                    isChasingPlayer = true;
+                    this.playerPosition = playerPosition;
+                    state = State.Run;
+                }
+                else
+                {
+                    speed = 0;                 
+                }
+
+                float playerX = playerPosition.x;
+                float enemyX = transform.position.x;
+
+                if (Mathf.Abs(playerX - enemyX) > 0.1f)
+                {
+                    float directionX = Mathf.Sign(playerX - enemyX);
+                    Vector3 directionOfTravel = new Vector3(directionX, 0, 0);
+
+                    transform.Translate(directionOfTravel * speed * Time.deltaTime, Space.World);
+                    FlipEnemy(directionX);
+                }
+            }
+
+        
+    }
+
     public void StopChasing()
     {
         runRange = 15f;
-        
-      
-
+        speed = 4.5f;       
         StartCoroutine(MoveToHiddenPosition());
 
-        
         if (enemyTeleporters.Count > 0)
         {
             foreach (GameObject teleporter in enemyTeleporters)
@@ -177,31 +199,93 @@ public class Enemy_Controller : MonoBehaviour
                 teleporter.tag = "Teleporter";
             }
 
-          
             enemyTeleporters.Clear();
         }
     }
+
     private IEnumerator MoveToHiddenPosition()
     {
-        yield return new WaitForSeconds(1f); 
-
-       
         GameObject hiddenObject = GameObject.FindGameObjectWithTag("Hidden");
+
         if (hiddenObject != null)
         {
-            transform.position = hiddenObject.transform.position;
+            state = State.Walk;
 
+            Vector3 targetPosition = hiddenObject.transform.position;
+
+           
+            float delayDuration = 2f;
+            float delayStartTime = Time.time;
+            while (Time.time < delayStartTime + delayDuration)
+            {
+                yield return null; 
+            }
+
+            transform.position = targetPosition; 
+
+            float moveDistance = 5f;
+            float moveDuration = 10f;
+
+            Vector3 leftPosition = targetPosition + Vector3.left * moveDistance;
+            Vector3 rightPosition = targetPosition + Vector3.right * moveDistance;
+
+            yield return MoveToPosition(leftPosition, moveDuration, speed);
+            if (leftPosition.x < transform.position.x)
+            {
+                FlipEnemy(-1f);
+            }
+            else
+            {
+                FlipEnemy(1f);
+            }
+            yield return MoveToPosition(rightPosition, moveDuration, speed);
+
+            if (leftPosition.x < transform.position.x)
+            {
+                FlipEnemy(-1f);
+            }
+            else
+            {
+                FlipEnemy(1f);
+            }
+
+            yield return MoveToPosition(leftPosition, moveDuration, speed);
+
+            if (leftPosition.x < transform.position.x)
+            {
+                FlipEnemy(-1f);
+            }
+            else
+            {
+                FlipEnemy(1f);
+            }
+            state = State.Idle;
+
+            StopAllCoroutines();
+            state = State.Idle;
+            isChasingPlayer = false;
+            currentWaypoint = wayPoints[0];
+            currentIndex = 0;
+            transform.position = initialWaypointPosition;
+            cashSound.enabled = false;
+            detech.enabled = false;
+            speed = originalSpeed;
         }
-        yield return new WaitForSeconds(3f);
-        currentWaypoint = wayPoints[0];
-        transform.position = initialWaypointPosition;
-        isChasingPlayer = false;
-        cashSound.enabled = false;
-        detech.enabled = false;
-        speed = originalSpeed;
-        
+    }
 
+    private IEnumerator MoveToPosition(Vector3 targetPosition, float duration, float moveSpeed)
+    {
+        float elapsedTime = 0f;
+        Vector3 startingPosition = transform.position;
 
+        while (elapsedTime < duration)
+        {
+            transform.position = Vector3.Lerp(startingPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime * moveSpeed;
+            yield return null;
+        }
+
+        transform.position = targetPosition;
     }
 
     private void Pause()
@@ -284,50 +368,42 @@ public class Enemy_Controller : MonoBehaviour
         }
     }
 
-
-
     private void AttackPlayer()
     {
-       
         if (hasHitPlayer)
         {
-           
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null)
             {
-                // Access the player's script
                 PlayerController playerController = player.GetComponent<PlayerController>();
 
                 if (playerController != null)
                 {
-                    
-                    // Deal damage to the player
                     playerController.TakeDamage(attackDamage);
                     hasHitPlayer = false;
-                    Debug.Log(attackDamage);
+                   
                 }
+               
             }
 
             StartCoroutine(StartAttackCooldown());
         }
-
-
     }
 
     private IEnumerator StartAttackCooldown()
     {
-       
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
         hasHitPlayer = true;
-        Debug.Log(isAttacking + "AttackStop");
+        
     }
 
     private void UpdateAnimation(State newState)
     {
         anim.SetInteger("state", (int)newState);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EnemyTele"))
@@ -336,10 +412,12 @@ public class Enemy_Controller : MonoBehaviour
         }
         if (collision.CompareTag("Player"))
         {
+          
+            state = State.Attack;
             isAttacking = true;
-               
         }
     }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("EnemyTele"))
@@ -349,10 +427,10 @@ public class Enemy_Controller : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isAttacking = true;
-           
+            state = State.Attack;
         }
-
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject == currentTeleporter)
@@ -362,5 +440,4 @@ public class Enemy_Controller : MonoBehaviour
             isAttacking = false;
         }
     }
-
 }

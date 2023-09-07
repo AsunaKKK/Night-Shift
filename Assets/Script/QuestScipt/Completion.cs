@@ -184,6 +184,12 @@ public class Completion : MonoBehaviour , IDataSave
 
 
         ItemRun();
+
+
+        if(Enemy_Controller.isChasingPlayer == false&&Enemy_Controller.chackQuest12)
+        {
+            QuestManager.quest12Completion = true;
+        }
     }
 
     public void ItemRun()

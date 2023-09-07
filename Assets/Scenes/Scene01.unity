@@ -2726,7 +2726,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -4105,7 +4104,7 @@ Transform:
   - {fileID: 1673821244}
   - {fileID: 913967764}
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &87525985
 GameObject:
@@ -9835,7 +9834,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &215423654
 GameObject:
@@ -12049,7 +12048,7 @@ Transform:
   m_LocalScale: {x: 0.30603227, y: 0.30603206, z: 0.30603227}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &257536705
 GameObject:
@@ -12349,7 +12348,7 @@ Transform:
   - {fileID: 844913616}
   - {fileID: 270850863}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &261125199
 GameObject:
@@ -18521,7 +18520,7 @@ MonoBehaviour:
   enemyTeleporters:
   - {fileID: 0}
   attackDamage: 25
-  attackCooldown: 5
+  attackCooldown: 2
   rb: {fileID: 402532987}
   anim: {fileID: 0}
   cashSound: {fileID: 1758476967}
@@ -19225,7 +19224,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -21156,7 +21154,7 @@ Transform:
   - {fileID: 1761431815}
   - {fileID: 191187403}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &462132220
 GameObject:
@@ -35432,7 +35430,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -38857,7 +38854,7 @@ Transform:
   - {fileID: 1668234623}
   - {fileID: 2126077274}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919507927
 GameObject:
@@ -48741,7 +48738,7 @@ Transform:
   - {fileID: 291554149}
   - {fileID: 418283010}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1147128193
 GameObject:
@@ -52630,7 +52627,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -56107,7 +56103,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -60821,7 +60816,7 @@ Transform:
   - {fileID: 643076019}
   - {fileID: 913523125}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1449402772
 GameObject:
@@ -68622,7 +68617,7 @@ Transform:
   - {fileID: 688069790}
   - {fileID: 1247932907}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650087954
 GameObject:
@@ -70099,7 +70094,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -70359,7 +70353,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -73981,7 +73974,7 @@ Transform:
   m_LocalScale: {x: 0.30603227, y: 0.30603206, z: 0.30603227}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1758516895
 GameObject:
@@ -75763,7 +75756,7 @@ Transform:
   - {fileID: 2112200766}
   - {fileID: 867683375}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1806403782
 GameObject:
@@ -76977,7 +76970,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -78853,7 +78845,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -79303,7 +79294,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
@@ -86627,7 +86617,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2102694552
 GameObject:
@@ -88151,7 +88141,6 @@ MonoBehaviour:
   chack103: 0
   chack104: 0
   chack105: 0
-  chack106: 0
   chack107: 0
   chack108: 0
   chack109: 0
