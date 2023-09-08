@@ -642,7 +642,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -1801110944750734887}
-    m_Duration: 19.866666666666667
+    m_Duration: 22.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5557026658865075976}
     m_EaseInDuration: 0
@@ -1747,7 +1747,7 @@ MonoBehaviour:
     m_ParentTrack: {fileID: -570117715205932599}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: -1
+    m_BlendInDuration: 0.649455782312927
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -1808,7 +1808,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Ho
   - m_Version: 1
-    m_Start: 9.11721088435374
+    m_Start: 9.766666666666667
     m_ClipIn: 0
     m_Asset: {fileID: -231226955015292017}
     m_Duration: 3.866122448979592
@@ -1817,7 +1817,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: -1
+    m_BlendOutDuration: 0.649455782312927
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -1877,7 +1877,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Scary
   - m_Version: 1
-    m_Start: 3.45
+    m_Start: 5.016666666666667
     m_ClipIn: 0
     m_Asset: {fileID: -5895208684037140268}
     m_Duration: 1.7525833333333334
@@ -3046,7 +3046,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 59900289061907934}
-    m_Duration: 19.866666666666667
+    m_Duration: 22.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: 2572936372291715862}
     m_EaseInDuration: 0

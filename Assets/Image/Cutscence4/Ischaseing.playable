@@ -233,7 +233,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 0.5820000000000007
+    m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -482,7 +482,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: HeartWave
   - m_Version: 1
-    m_Start: 11.166666666666666
+    m_Start: 11.748666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 5351521815267518828}
     m_Duration: 2.8320000000000007
@@ -490,7 +490,7 @@ MonoBehaviour:
     m_ParentTrack: {fileID: -7358317273243213156}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.5820000000000007
+    m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
