@@ -24,6 +24,7 @@ public class Enemy_Controller : MonoBehaviour
 
     private GameObject currentTeleporter;
     private Vector3 initialWaypointPosition;
+   
 
     // Attack
     public static bool isChasingPlayer = false;
@@ -45,6 +46,13 @@ public class Enemy_Controller : MonoBehaviour
     /// </summary>
     public AudioSource cashSound;
     public AudioSource detech;
+    public AudioSource walk;
+    public AudioSource run;
+    public AudioSource attack;
+    [Header("Sound Range")]
+    [Tooltip("The range of sound detection for the enemy.")]
+    [Range(0f, 100f)] 
+    public float soundAround = 30f;
 
     private void Start()
     {
@@ -63,6 +71,9 @@ public class Enemy_Controller : MonoBehaviour
     {
         cashSound.enabled = false;
         detech.enabled = false;
+        walk.enabled = false;
+        run.enabled = false;
+        attack.enabled = false;
     }
 
     private void Update()
@@ -76,23 +87,72 @@ public class Enemy_Controller : MonoBehaviour
         if (!isChasingPlayer)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+                float maxSoundDistance = soundAround * 3.0f; 
 
+                if (distanceToPlayer <= soundAround)
+                {
+                   
+                    float volume = 1f - (distanceToPlayer / maxSoundDistance);
+                    walk.volume = volume;
+                    walk.enabled = true;
+                }
+                else
+                {
+                    walk.enabled = false;
+                }
+            }
+            else
+            {
+               
+                walk.enabled = false;
+            }
             if (player != null && Vector3.Distance(transform.position, player.transform.position) < runRange)
             {
                 StartChasing(player.transform.position);
                 cashSound.enabled = true;
                 detech.enabled = true;
+
             }
             else
             {
                 MoveTowardsWaypoint();
+               
             }
+            
+            
+
         }
 
         if (isChasingPlayer)
         {
-           
+            walk.enabled = false;
+
             GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+                float maxSoundDistance = soundAround * 3.0f;
+
+                if (distanceToPlayer <= soundAround)
+                {
+
+                    float volume = 1f - (distanceToPlayer / maxSoundDistance);
+                    run.volume = volume;
+                    run.enabled = true;
+                }
+                else
+                {
+                    run.enabled = false;
+                }
+            }
+            else
+            {
+
+                walk.enabled = false;
+            }
             if (player != null && Vector3.Distance(transform.position, player.transform.position) < lockDoor)
             {
                stopDoThat = true;
@@ -110,13 +170,16 @@ public class Enemy_Controller : MonoBehaviour
                 StopChasing();
                 chackQuest12 = true;
             }
+
         }
         if (isAttacking)
         {
             AttackPlayer();
-           
+           attack.enabled = true;
            
         }
+       
+
         
     }
 
@@ -191,6 +254,7 @@ public class Enemy_Controller : MonoBehaviour
         runRange = 15f;
         speed = 4.5f;       
         StartCoroutine(MoveToHiddenPosition());
+        run.enabled = false;
 
         if (enemyTeleporters.Count > 0)
         {
@@ -210,7 +274,7 @@ public class Enemy_Controller : MonoBehaviour
         if (hiddenObject != null)
         {
             state = State.Walk;
-
+            walk.enabled = true; 
             Vector3 targetPosition = hiddenObject.transform.position;
 
            
@@ -220,7 +284,7 @@ public class Enemy_Controller : MonoBehaviour
             {
                 yield return null; 
             }
-
+            
             transform.position = targetPosition; 
 
             float moveDistance = 5f;
@@ -228,37 +292,18 @@ public class Enemy_Controller : MonoBehaviour
 
             Vector3 leftPosition = targetPosition + Vector3.left * moveDistance;
             Vector3 rightPosition = targetPosition + Vector3.right * moveDistance;
-
+           
             yield return MoveToPosition(leftPosition, moveDuration, speed);
-            if (leftPosition.x < transform.position.x)
-            {
-                FlipEnemy(-1f);
-            }
-            else
-            {
-                FlipEnemy(1f);
-            }
+            
+
             yield return MoveToPosition(rightPosition, moveDuration, speed);
+            
 
-            if (leftPosition.x < transform.position.x)
-            {
-                FlipEnemy(-1f);
-            }
-            else
-            {
-                FlipEnemy(1f);
-            }
 
             yield return MoveToPosition(leftPosition, moveDuration, speed);
+            
 
-            if (leftPosition.x < transform.position.x)
-            {
-                FlipEnemy(-1f);
-            }
-            else
-            {
-                FlipEnemy(1f);
-            }
+
             state = State.Idle;
 
             StopAllCoroutines();
@@ -270,6 +315,7 @@ public class Enemy_Controller : MonoBehaviour
             cashSound.enabled = false;
             detech.enabled = false;
             speed = originalSpeed;
+            walk.enabled = false;
         }
     }
 
@@ -277,11 +323,16 @@ public class Enemy_Controller : MonoBehaviour
     {
         float elapsedTime = 0f;
         Vector3 startingPosition = transform.position;
+        float directionX = (targetPosition.x - startingPosition.x) > 0 ? 1f : -1f; 
 
         while (elapsedTime < duration)
         {
             transform.position = Vector3.Lerp(startingPosition, targetPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime * moveSpeed;
+
+           
+            FlipEnemy(directionX);
+
             yield return null;
         }
 
@@ -396,6 +447,7 @@ public class Enemy_Controller : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
         hasHitPlayer = true;
+        attack.enabled = false;
         
     }
 

@@ -49,7 +49,23 @@ public class Completion : MonoBehaviour , IDataSave
     public int saveItem7 = 0;
     public int saaveEnemy = 0;
     // Update is called once per frame
+    public GameObject fire1;
+    public GameObject fire2;
+    public GameObject fire3;
+    public GameObject fire4;
+    public GameObject fire5;
 
+    /// <summary>
+    /// /Sound
+    /// </summary>
+    public AudioSource lightDub;
+    public AudioSource Scary;
+
+    private void OnEnable()
+    {
+        lightDub.enabled=false;
+        Scary.enabled=false;
+    }
     void Start()
     {
         quest1.SetActive(false);
@@ -66,6 +82,12 @@ public class Completion : MonoBehaviour , IDataSave
 
 
         Enemy.SetActive(false);
+        fire1.SetActive(false);
+        fire2.SetActive(false);
+        fire3.SetActive(false);
+        fire4.SetActive(false);
+        fire5.SetActive(false);
+
     }
 
 
@@ -160,7 +182,10 @@ public class Completion : MonoBehaviour , IDataSave
         {
             PlayerCutSecne.SetActive(true);
         }
-        
+        if (QuestManager.questID == 11 && PlayTimeLine.Go)
+        {
+            QuestManager.quest11Completion = true;
+        }
 
 
         if (itemQuest1 == true)
@@ -181,7 +206,27 @@ public class Completion : MonoBehaviour , IDataSave
         {
             QuestManager.quest16Completion = true;
         }
-
+        //Fire
+        if(QuestManager.quest20Completion)
+        {
+            fire1.SetActive(true);
+        }
+        if (QuestManager.quest21Completion)
+        {
+            fire1.SetActive(true);
+        }
+        if (QuestManager.quest22Completion)
+        {
+            fire1.SetActive(true);
+        }
+        if (QuestManager.quest23Completion)
+        {
+            fire1.SetActive(true);
+        }
+        if (QuestManager.quest24Completion)
+        {
+            fire1.SetActive(true);
+        }
 
         ItemRun();
 
@@ -189,6 +234,12 @@ public class Completion : MonoBehaviour , IDataSave
         if(Enemy_Controller.isChasingPlayer == false&&Enemy_Controller.chackQuest12)
         {
             QuestManager.quest12Completion = true;
+        }
+        //sound
+        if(QuestManager.quest6)
+        {
+            lightDub.enabled = true;
+            Scary.enabled = true;
         }
     }
 

@@ -8,20 +8,23 @@ public class PlayTimeLine : MonoBehaviour
 {
     public PlayableDirector timelineDirector;
     public GameObject imageTimeLine;
-    public GameObject Box;
+   // public GameObject Box;
     public GameObject TimeLine;
     public float changeTime;
+    public static bool Go = false;
+    public PlayerController playerController;
     private void Start()
     {
-        Box.SetActive(false);
-        
+        //Box.SetActive(false); 
+        playerController = FindObjectOfType<PlayerController>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
+            playerController.ToggleMovement(false);
             timelineDirector.Play();
-            Box.SetActive(true);
+            //Box.SetActive(true);
         }
 
     }
@@ -31,10 +34,12 @@ public class PlayTimeLine : MonoBehaviour
         if (changeTime <= 0)
         {
             TimeLine.SetActive(false);
-            Box.SetActive(false);
+           // Box.SetActive(false);
             timelineDirector.Stop();
             imageTimeLine.SetActive(false);
             timelineDirector.gameObject.SetActive(false);
+            Go = true;
+            playerController.ToggleMovement(true);
         }
     }
 }

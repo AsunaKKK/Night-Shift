@@ -48,6 +48,7 @@ public class PlayerTelepot : MonoBehaviour
                 }
             }
         }
+      
     }
 
     IEnumerator FadeOut()
