@@ -213,19 +213,19 @@ public class Completion : MonoBehaviour , IDataSave
         }
         if (QuestManager.quest21Completion)
         {
-            fire1.SetActive(true);
+            fire2.SetActive(true);
         }
         if (QuestManager.quest22Completion)
         {
-            fire1.SetActive(true);
+            fire3.SetActive(true);
         }
         if (QuestManager.quest23Completion)
         {
-            fire1.SetActive(true);
+            fire4.SetActive(true);
         }
         if (QuestManager.quest24Completion)
         {
-            fire1.SetActive(true);
+            fire5.SetActive(true);
         }
 
         ItemRun();
@@ -240,6 +240,10 @@ public class Completion : MonoBehaviour , IDataSave
         {
             lightDub.enabled = true;
             Scary.enabled = true;
+        }
+        if(QuestManager.quest7)
+        {
+            Scary.enabled = false;
         }
     }
 
