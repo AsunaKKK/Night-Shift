@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour , IDataSave
         if(Input.GetKey(KeyCode.LeftShift) & currenEnergy != 0)
         {
             dashSpeed = 10;
-            currenEnergy -= 0.005f+Time.deltaTime;
+            currenEnergy -= 0.05f+Time.deltaTime;
             state = State.run;
 
             if (currenEnergy <=0)

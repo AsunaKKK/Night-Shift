@@ -208,7 +208,7 @@ public class Enemy_Controller : MonoBehaviour
                 if (!isAttacking)
                 {
                     runRange = float.PositiveInfinity;
-                    speed = 8f;
+                    speed = 9f;
                     isChasingPlayer = true;
                     this.playerPosition = playerPosition;
                     state = State.Run;
